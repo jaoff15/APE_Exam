@@ -1,0 +1,13 @@
+# compile vhdl design source files
+vhdl xil_defaultlib  \
+"../../../../hdmi_test.srcs/sources_1/imports/sources_1/TDMS_encoder.vhd" \
+"../../../../hdmi_test.srcs/sources_1/imports/sources_1/clocking.vhd" \
+"../../../../hdmi_test.srcs/sources_1/imports/sources_1/dvid.vhd" \
+"../../../../hdmi_test.srcs/sources_1/new/image_driver.vhd" \
+"../../../../hdmi_test.srcs/sources_1/new/lfsr.vhd" \
+"../../../../hdmi_test.srcs/sources_1/imports/sources_1/top.vhd" \
+"../../../../hdmi_test.srcs/sources_1/imports/sources_1/vga_gen.vhd" \
+"../../../../hdmi_test.srcs/sim_1/new/top_tb.vhd" \
+
+# Do not sort compile order
+nosort
