@@ -17,7 +17,6 @@ use IEEE.STD_LOGIC_UNSIGNED.ALL;
 
 entity FPGA1 is
     generic( 
-        SPI_MODE : SPI_MODE_TYP := ASYNC;
         SPI_TYPE : SPI_TYPE_TYP := DDR
         );
     Port ( CLK_I        : in  STD_LOGIC;
@@ -95,7 +94,6 @@ component TD_RAM_36K_WRAP is
   -- SPI TX
 component SPI_TX is
 generic( 
-        SPI_MODE : SPI_MODE_TYP := ASYNC;
         SPI_TYPE : SPI_TYPE_TYP := DDR
         );
 Port ( CLK_I    : in  STD_LOGIC := '0';
@@ -158,6 +156,30 @@ QLINK1: QLinkMaster
 
 
 
+--FDSE_fpga1_inst : FDSE
+--generic map (
+--  INIT => '0') -- Initial value of register ('0' or '1')  
+--port map (
+--  Q     => sys_reset,      -- Data output
+--  C     => clk48,      -- Clock input
+--  CE    => '1',    -- Clock enable input
+--  S     => '0',      -- Synchronous Set input
+--  D     => RESET_I       -- Data input
+--);
+--BUFG_fpga1_inst : BUFG
+-- port map (
+--    O => sys_reset, -- 1-bit output: Clock output
+--    I => RESET_I  -- 1-bit input: Clock input
+-- );
+
+--reset_sync_fpga1: process(clk48)
+--begin
+--    if rising_edge(clk48) then
+--        sys_reset <= RESET_I;
+--    end if;
+--end process;
+
+sys_reset <= RESET_I;
 
 SYS_CLK_O  <= clk48;
 ADR_O      <= adr_A;     
@@ -190,11 +212,10 @@ RAM_inst0 : TD_RAM_36K_WRAP port map (
 
 -- SPI TX module instanciation
 SpiTx:  SPI_TX 
-generic map( SPI_MODE => SPI_MODE,
-             SPI_TYPE => SPI_TYPE)
+generic map( SPI_TYPE => SPI_TYPE)
 port map ( 
     CLK_I    => clk_spi,
-    RESET_I  => RESET_I,
+    RESET_I  => sys_reset,
     -- RAM
     ADDR_O   => adr_B,
     DATA_I   => data_B_O,

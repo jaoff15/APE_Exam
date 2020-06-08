@@ -52,12 +52,17 @@ architecture Behavioral of image_driver is
     signal x_coord : std_logic_vector(15 downto 0) := (others => '0');
     signal y_coord : std_logic_vector(15 downto 0) := (others => '0');
     
+    signal r_out, g_out, b_out : std_logic_vector(7 downto 0) := (others => '0');
+    
+    
+    signal nxt_PIXEL_H : STD_LOGIC_VECTOR  (11 downto 0);
     
 begin
 
     x_coord <= POSITION_DATA_I(31 downto 16);
     y_coord <= POSITION_DATA_I(15 downto  0);
     
+    nxt_PIXEL_H <= std_logic_vector(unsigned(pixel_h) );
 
 --    process(CLK_SLOW_I)
 --    begin
@@ -108,15 +113,29 @@ begin
 --ram_adr <=  std_logic_vector(unsigned(pixel_h(8 downto 1))) &  
 --            not(not(pixel_v(8) & pixel_v(7)) & pixel_v(6) & pixel_v(5) &
 --            pixel_v(4) & pixel_v(3) & pixel_v(2) & pixel_v(1));
-----            pixel_v(8 downto 1);
+--            pixel_v(8 downto 1);
  
---RAM2_inst: RAM2 port map(
---    CLK_I   => CLK_SLOW_I,
---    RESET_I => RESET_I,
---    ADR_I   => ram_adr,
---    DATA_O  => ram_out);
+-- ram_adr <=  std_logic_vector(unsigned(pixel_h(8 downto 1))) &  
+--            not(not(pixel_v(8) & pixel_v(7)) & pixel_v(6) & pixel_v(5) &
+--            pixel_v(4) & pixel_v(3) & pixel_v(2) & pixel_v(1));
+--  ram_adr <=  std_logic_vector(pixel_v(7 downto 0) & 
+--                               not(pixel_h(7 downto 0)));
+                               
+-- ram_adr <=  pixel_v(7 downto 0) & std_logic_vector(unsigned(pixel_h(7 downto 0))+1);
+ ram_adr <=  std_logic_vector(pixel_h(7 downto 0)) & not(pixel_v(7 downto 0));
+                              
+RAM2_inst: RAM2 port map(
+    CLK_I   => CLK_SLOW_I,
+    RESET_I => RESET_I,
+    ADR_I   => ram_adr,
+    DATA_O  => ram_out);
 
 
+
+
+--r_out   <= ram_out;
+--g_out   <= ram_out;
+--b_out   <= ram_out;
 
 
 process(CLK_SLOW_I)
@@ -124,22 +143,28 @@ begin
     if rising_edge( CLK_SLOW_I ) then
         
 --        if pixel_v(11 downto 9) = "000" and pixel_h(11 downto 9) = "000" then
---            RED_O   <= ram_out;
---            GREEN_O <= ram_out;
---            BLUE_O  <= ram_out;
+--            r_out   <= ram_out;
+--            g_out   <= ram_out;
+--            b_out   <= ram_out;
         if  unsigned(x_coord) < unsigned(pixel_h) and unsigned(pixel_h) < (unsigned(x_coord)+100) and 
             unsigned(y_coord) < unsigned(pixel_v) and unsigned(pixel_v) < (unsigned(y_coord)+100) then
-            
-            RED_O   <= (others => '1');
-            GREEN_O <= (others => '1');
-            BLUE_O  <= (others => '1');
+            r_out   <= ram_out;
+            g_out   <= ram_out;
+            b_out   <= ram_out;
         else
-            RED_O   <= (others => '0');
-            GREEN_O <= (others => '0');
-            BLUE_O  <= (others => '0');
+            r_out   <= (others => '1');
+            g_out   <= (others => '1');
+            b_out   <= (others => '1');
         end if;
     end if;
 end process;
+
+
+
+
+RED_O   <= r_out;
+GREEN_O <= g_out;
+BLUE_O  <= b_out;
 
 --with ram_out select
 --    RED_O <= q(7 downto 0) when x"0",

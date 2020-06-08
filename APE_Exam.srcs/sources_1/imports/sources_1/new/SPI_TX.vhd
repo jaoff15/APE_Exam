@@ -18,8 +18,7 @@ use UNISIM.vcomponents.all;
 
 
 entity SPI_TX is
-generic( 
-        SPI_MODE : SPI_MODE_TYP := ASYNC;
+generic(
         SPI_TYPE : SPI_TYPE_TYP := DDR
         );
 Port ( CLK_I     : in  STD_LOGIC := '0';
@@ -36,25 +35,10 @@ Port ( CLK_I     : in  STD_LOGIC := '0';
 end SPI_TX;
 
 architecture Behavioral of SPI_TX is
-    
-    -- Pure VHDL SD
-    component spi_tx_pure_vhdl_sd is
-        generic( SPI_MODE : SPI_MODE_TYP := ASYNC );
-        Port ( CLK_I : in STD_LOGIC;
-               RESET_I : in STD_LOGIC;
-               
-               -- Input data
-               DATA_I : in STD_LOGIC_VECTOR (31 downto 0);
-               
-               -- SPI output
-               SCLK_O   : out STD_LOGIC := '0';
-               MOSI_O   : out STD_LOGIC := '0'
-               );
-    end component;
+ 
     
     -- Pure VHDL DD
     component spi_tx_pure_vhdl_dd is
-        generic( SPI_MODE : SPI_MODE_TYP := ASYNC );
         Port ( CLK_I : in STD_LOGIC;
                RESET_I : in STD_LOGIC;
                
@@ -69,7 +53,6 @@ architecture Behavioral of SPI_TX is
     
     -- DDR Based
     component spi_tx_ddr_based is
-        generic( SPI_MODE : SPI_MODE_TYP := ASYNC );
         Port ( CLK_I    : in STD_LOGIC := '0';
                RESET_I  : in STD_LOGIC := '0';
                
@@ -84,7 +67,6 @@ architecture Behavioral of SPI_TX is
     
     -- SERDES Based
     component spi_tx_serdes_based is
-        generic( SPI_MODE : SPI_MODE_TYP := ASYNC );
         Port ( CLK_I : in STD_LOGIC;
                RESET_I : in STD_LOGIC;
                
@@ -104,25 +86,12 @@ begin
 ADDR_O  <= x"10";
 
 
--- Pure VHDL SD
-spi_tx_pure_vhdl_sd_gen: if SPI_TYPE = VHDL_SD generate begin
-    spi_tx_pure_vhdl_sd_inst: spi_tx_pure_vhdl_sd 
-    generic map(SPI_MODE => SPI_MODE)
-    port map(
-        CLK_I   => CLK_I,
-        RESET_I => RESET_I,
-        DATA_I  => DATA_I,
-        SCLK_O  => SCLK_O,
-        MOSI_O  => MOSI_O 
-    ); 
-end generate;
-   
+
    
  
 -- Pure VHDL DD
 spi_tx_pure_vhdl_dd_gen: if SPI_TYPE = VHDL_DD generate begin
     spi_tx_pure_vhdl_dd_inst: spi_tx_pure_vhdl_dd 
-    generic map(SPI_MODE => SPI_MODE)
     port map(
         CLK_I   => CLK_I,
         RESET_I => RESET_I,
@@ -136,7 +105,6 @@ end generate;
 -- DDR based
 spi_tx_ddr_based_gen: if SPI_TYPE = DDR generate begin
     spi_tx_ddr_based_inst: spi_tx_ddr_based 
-    generic map(SPI_MODE => SPI_MODE)
     port map(
         CLK_I   => CLK_I,
         RESET_I => RESET_I,
@@ -151,7 +119,6 @@ end generate;
 -- SERDES based
 spi_tx_serdes_based_gen: if SPI_TYPE = SERDES generate begin
     spi_tx_serdes_based_inst: spi_tx_serdes_based 
-    generic map(SPI_MODE => SPI_MODE)
     port map(
         CLK_I   => CLK_I,
         RESET_I => RESET_I,

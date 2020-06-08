@@ -53,7 +53,6 @@ architecture Behavioral of top is
     -- Simulated FPGA 1 
     component FPGA1 is
         generic( 
-        SPI_MODE : SPI_MODE_TYP := ASYNC;
         SPI_TYPE : SPI_TYPE_TYP := DDR
         );
         Port ( 
@@ -79,7 +78,6 @@ architecture Behavioral of top is
     -- Simulated FPGA 2
     component FPGA2 is
         generic( 
-            SPI_MODE : SPI_MODE_TYP := ASYNC;
             SPI_TYPE : SPI_TYPE_TYP := DDR
             );
         Port ( 
@@ -128,20 +126,21 @@ architecture Behavioral of top is
     signal clk_A,clk_B  : std_logic;
     
     signal global_reset : std_logic := '1';
-    signal reset_fpga1, reset_fpga2 : std_logic := '1';
+    signal reset_fpga1_o, reset_fpga2_o : std_logic := '1';
+--    signal reset_fpga1_i, reset_fpga2_i : std_logic := '1';
+    
     
 begin
  
-global_reset <= reset_fpga1 or reset_fpga2;
- 
+global_reset <= reset_fpga1_o or reset_fpga2_o;
+
  
 FPGA1_inst : FPGA1 
-generic map( SPI_MODE => ASYNC,
-             SPI_TYPE => DDR)
+generic map( SPI_TYPE => DDR)
 port map( 
     CLK_I       => CLK100MHZ,
     RESET_I     => global_reset,
-    RESET_O     => reset_fpga1,
+    RESET_O     => reset_fpga1_o,
     -- UART
     TX_O        => TX_O,
     RX_I        => RX_I,
@@ -178,12 +177,11 @@ RAM_spi_debug : TD_RAM_36K_WRAP port map (
 
 
 FPGA2_inst: FPGA2 
-generic map( SPI_MODE => ASYNC,
-             SPI_TYPE => DDR)
+generic map( SPI_TYPE => DDR)
 port map(
     CLK_I       => CLK100MHZ,
     RESET_I     => global_reset,
-    RESET_O     => reset_fpga2,
+    RESET_O     => reset_fpga2_o,
     
     -- SPI RX
     SPI_MOSI_I  => SPI_MOSI_I,

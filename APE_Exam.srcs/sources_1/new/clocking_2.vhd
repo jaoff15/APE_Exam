@@ -59,7 +59,7 @@ begin
 PIXEL_CLK_O        <= cEng_pixel_720;
 PIXEL_CLK_X5_O     <= cEng_5xpixel_720;
 PIXEL_CLK_X5_INV_O <= cEng_5xpixel_inv_720;
-SYS_RESET_O <= not clk_locked;
+SYS_RESET_O        <= not clk_locked;
 
 -- Gen 75Mhz pixel clock generation
 -- Technically, 720p should be 74.25MHz. 75 generally works on monitors. YMMV.

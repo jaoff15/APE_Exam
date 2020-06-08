@@ -20,7 +20,6 @@ library UNISIM;
 use UNISIM.VComponents.all;
 
 entity spi_tx_ddr_based is
-    generic( SPI_MODE : SPI_MODE_TYP := ASYNC );
     Port ( CLK_I    : in STD_LOGIC := '0';
            RESET_I  : in STD_LOGIC := '0';
            

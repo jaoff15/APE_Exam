@@ -20,7 +20,6 @@ library UNISIM;
 use UNISIM.VComponents.all;
 
 entity spi_tx_serdes_based is
-    generic( SPI_MODE : SPI_MODE_TYP := ASYNC );
     Port ( CLK_I : in STD_LOGIC;
            RESET_I : in STD_LOGIC;
            

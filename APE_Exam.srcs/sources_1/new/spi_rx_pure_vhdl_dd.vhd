@@ -20,7 +20,6 @@ use IEEE.STD_LOGIC_1164.ALL;
 --use UNISIM.VComponents.all;
 
 entity spi_rx_pure_vhdl_dd is
-    generic( SPI_MODE : SPI_MODE_TYP := ASYNC );
     Port ( 
            RESET_I  : in STD_LOGIC;
            

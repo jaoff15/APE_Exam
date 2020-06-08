@@ -21,7 +21,6 @@ library UNISIM;
 use UNISIM.VComponents.all;
 
 entity spi_rx_serdes_based is
-    generic( SPI_MODE : SPI_MODE_TYP := ASYNC );
     Port ( 
            RESET_I  : in STD_LOGIC;
            

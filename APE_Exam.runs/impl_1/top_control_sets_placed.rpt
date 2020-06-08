@@ -1,0 +1,109 @@
+Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
+------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2018.2 (lin64) Build 2258646 Thu Jun 14 20:02:38 MDT 2018
+| Date         : Mon Jun  8 21:31:32 2020
+| Host         : JacobOffersen running 64-bit Ubuntu 19.10
+| Command      : report_control_sets -verbose -file top_control_sets_placed.rpt
+| Design       : top
+| Device       : xc7s25
+------------------------------------------------------------------------------------
+
+Control Set Information
+
+Table of Contents
+-----------------
+1. Summary
+2. Histogram
+3. Flip-Flop Distribution
+4. Detailed Control Set Information
+
+1. Summary
+----------
+
++----------------------------------------------------------+-------+
+|                          Status                          | Count |
++----------------------------------------------------------+-------+
+| Number of unique control sets                            |    39 |
+| Unused register locations in slices containing registers |    78 |
++----------------------------------------------------------+-------+
+
+
+2. Histogram
+------------
+
++--------+--------------+
+| Fanout | Control Sets |
++--------+--------------+
+|      2 |            8 |
+|      4 |            1 |
+|      6 |            1 |
+|      8 |           16 |
+|     10 |            2 |
+|     14 |            2 |
+|    16+ |            9 |
++--------+--------------+
+
+
+3. Flip-Flop Distribution
+-------------------------
+
++--------------+-----------------------+------------------------+-----------------+--------------+
+| Clock Enable | Synchronous Set/Reset | Asynchronous Set/Reset | Total Registers | Total Slices |
++--------------+-----------------------+------------------------+-----------------+--------------+
+| No           | No                    | No                     |             156 |           23 |
+| No           | No                    | Yes                    |               0 |            0 |
+| No           | Yes                   | No                     |             242 |           48 |
+| Yes          | No                    | No                     |              78 |           13 |
+| Yes          | No                    | Yes                    |               0 |            0 |
+| Yes          | Yes                   | No                     |             270 |           49 |
++--------------+-----------------------+------------------------+-----------------+--------------+
+
+
+4. Detailed Control Set Information
+-----------------------------------
+
++-----------------------------------------------------------------+----------------------------------------------------------------------------------+-------------------------------------------------------------------------------+------------------+----------------+
+|                           Clock Signal                          |                                   Enable Signal                                  |                                Set/Reset Signal                               | Slice Load Count | Bel Load Count |
++-----------------------------------------------------------------+----------------------------------------------------------------------------------+-------------------------------------------------------------------------------+------------------+----------------+
+|  FPGA1_inst/clocking_1_inst/clk_A_BUFG                          | FPGA1_inst/QLINK1/DECODE/p_0_in[3]                                               | FPGA2_inst/clocking_2_inst/clock_eng_1280_720B/RESET_I                        |                1 |              2 |
+|  FPGA1_inst/clocking_1_inst/clk_A_BUFG                          | FPGA1_inst/QLINK1/DECODE/p_0_in[2]                                               | FPGA2_inst/clocking_2_inst/clock_eng_1280_720B/RESET_I                        |                1 |              2 |
+|  FPGA1_inst/clocking_1_inst/clk_A_BUFG                          | FPGA1_inst/QLINK1/DECODE/p_0_in[1]                                               | FPGA2_inst/clocking_2_inst/clock_eng_1280_720B/RESET_I                        |                1 |              2 |
+|  FPGA1_inst/clocking_1_inst/clk_A_BUFG                          | FPGA1_inst/QLINK1/DECODE/p_0_in[0]                                               | FPGA2_inst/clocking_2_inst/clock_eng_1280_720B/RESET_I                        |                1 |              2 |
+|  FPGA1_inst/clocking_1_inst/clk_A_BUFG                          | FPGA1_inst/QLINK1/DECODE/p_0_in[4]                                               | FPGA2_inst/clocking_2_inst/clock_eng_1280_720B/RESET_I                        |                1 |              2 |
+|  FPGA1_inst/clocking_1_inst/clk_A_BUFG                          | FPGA1_inst/QLINK1/DECODE/p_0_in[5]                                               | FPGA2_inst/clocking_2_inst/clock_eng_1280_720B/RESET_I                        |                1 |              2 |
+|  FPGA1_inst/clocking_1_inst/clk_A_BUFG                          | FPGA1_inst/QLINK1/DECODE/p_0_in[6]                                               | FPGA2_inst/clocking_2_inst/clock_eng_1280_720B/RESET_I                        |                1 |              2 |
+|  FPGA1_inst/clocking_1_inst/clk_A_BUFG                          | FPGA1_inst/QLINK1/DECODE/p_0_in[7]                                               | FPGA2_inst/clocking_2_inst/clock_eng_1280_720B/RESET_I                        |                1 |              2 |
+|  SPI_SCLK_I_IBUF_BUFG                                           |                                                                                  |                                                                               |                1 |              4 |
+|  FPGA1_inst/clocking_1_inst/CLK_SPI_O_BUFG                      |                                                                                  |                                                                               |                1 |              6 |
+|  FPGA1_inst/clocking_1_inst/CLK_SPI_O_BUFG                      |                                                                                  | FPGA1_inst/SpiTx/spi_tx_ddr_based_gen.spi_tx_ddr_based_inst/bitcnt[4]_i_1_n_0 |                1 |              8 |
+|  FPGA2_inst/clocking_2_inst/clock_eng_1280_720A/O_buff_clkpixel |                                                                                  | FPGA2_inst/hdmi_driver_inst/Inst_vga_gen/D[0]                                 |                4 |              8 |
+|  FPGA1_inst/clocking_1_inst/clk_A_BUFG                          | FPGA1_inst/QLINK1/DECODE/adr_reg[4][1]                                           | FPGA2_inst/clocking_2_inst/clock_eng_1280_720B/RESET_I                        |                1 |              8 |
+|  FPGA1_inst/clocking_1_inst/clk_A_BUFG                          | FPGA1_inst/QLINK1/DECODE/adr_reg[4][0]                                           | FPGA2_inst/clocking_2_inst/clock_eng_1280_720B/RESET_I                        |                1 |              8 |
+|  FPGA1_inst/clocking_1_inst/clk_A_BUFG                          | FPGA1_inst/QLINK1/ENCODE/sel                                                     | FPGA1_inst/QLINK1/ENCODE/subcnt[3]_i_1_n_0                                    |                1 |              8 |
+|  FPGA1_inst/clocking_1_inst/clk_A_BUFG                          | FPGA1_inst/QLINK1/DECODE/E[7]                                                    | FPGA2_inst/clocking_2_inst/clock_eng_1280_720B/RESET_I                        |                2 |              8 |
+|  FPGA1_inst/clocking_1_inst/clk_A_BUFG                          | FPGA1_inst/QLINK1/DECODE/E[6]                                                    | FPGA2_inst/clocking_2_inst/clock_eng_1280_720B/RESET_I                        |                2 |              8 |
+|  FPGA1_inst/clocking_1_inst/clk_A_BUFG                          | FPGA1_inst/QLINK1/DECODE/E[5]                                                    | FPGA2_inst/clocking_2_inst/clock_eng_1280_720B/RESET_I                        |                2 |              8 |
+|  FPGA1_inst/clocking_1_inst/clk_A_BUFG                          | FPGA1_inst/QLINK1/DECODE/E[4]                                                    | FPGA2_inst/clocking_2_inst/clock_eng_1280_720B/RESET_I                        |                2 |              8 |
+|  FPGA1_inst/clocking_1_inst/clk_A_BUFG                          | FPGA1_inst/QLINK1/DECODE/E[3]                                                    | FPGA2_inst/clocking_2_inst/clock_eng_1280_720B/RESET_I                        |                2 |              8 |
+|  FPGA1_inst/clocking_1_inst/clk_A_BUFG                          | FPGA1_inst/QLINK1/DECODE/E[2]                                                    | FPGA2_inst/clocking_2_inst/clock_eng_1280_720B/RESET_I                        |                2 |              8 |
+|  FPGA1_inst/clocking_1_inst/clk_A_BUFG                          | FPGA1_inst/QLINK1/DECODE/E[1]                                                    | FPGA2_inst/clocking_2_inst/clock_eng_1280_720B/RESET_I                        |                1 |              8 |
+|  FPGA1_inst/clocking_1_inst/clk_A_BUFG                          | FPGA1_inst/QLINK1/DECODE/E[0]                                                    | FPGA2_inst/clocking_2_inst/clock_eng_1280_720B/RESET_I                        |                2 |              8 |
+|  FPGA1_inst/clocking_1_inst/clk_A_BUFG                          | FPGA1_inst/QLINK1/DECODE/nxt_bitcnt[3]_i_2__0_n_0                                | FPGA1_inst/QLINK1/DECODE/nxt_bitcnt[3]_i_1__0_n_0                             |                2 |              8 |
+|  FPGA1_inst/clocking_1_inst/clk_A_BUFG                          | FPGA1_inst/QLINK1/ENCODE/nxt_bitcnt                                              | FPGA1_inst/QLINK1/ENCODE/nxt_bitcnt[3]_i_1_n_0                                |                2 |              8 |
+|  FPGA1_inst/clocking_1_inst/clk_A_BUFG                          |                                                                                  | FPGA1_inst/QLINK1/DECODE/subcnt[3]_i_1__0_n_0                                 |                2 |              8 |
+|  FPGA1_inst/clocking_1_inst/clk_A_BUFG                          |                                                                                  |                                                                               |                3 |             10 |
+|  FPGA1_inst/clocking_1_inst/clk_A_BUFG                          | FPGA1_inst/QLINK1/ENCODE/nxt_char_cnt_reg[0][0]                                  | FPGA2_inst/clocking_2_inst/clock_eng_1280_720B/RESET_I                        |                1 |             10 |
+|  FPGA1_inst/clocking_1_inst/clk_A_BUFG                          | FPGA1_inst/QLINK1/ENCODE/E[0]                                                    |                                                                               |                4 |             14 |
+|  FPGA1_inst/clocking_1_inst/clk_A_BUFG                          | FPGA1_inst/QLINK1/enc_wr                                                         | FPGA2_inst/clocking_2_inst/clock_eng_1280_720B/RESET_I                        |                1 |             14 |
+|  FPGA2_inst/clocking_2_inst/clock_eng_1280_720A/O_buff_clkpixel | FPGA2_inst/hdmi_driver_inst/Inst_vga_gen/eqOp                                    | FPGA2_inst/hdmi_driver_inst/Inst_vga_gen/n[vCounter]                          |                3 |             24 |
+|  FPGA2_inst/clocking_2_inst/clock_eng_1280_720A/O_buff_clkpixel |                                                                                  | FPGA2_inst/hdmi_driver_inst/Inst_vga_gen/eqOp                                 |                3 |             24 |
+|  FPGA1_inst/clocking_1_inst/clk_A_BUFG                          | FPGA1_inst/QLINK1/DECODE/FSM_onehot_rx_state_reg[0][0]                           | FPGA2_inst/clocking_2_inst/clock_eng_1280_720B/RESET_I                        |                6 |             38 |
+|  FPGA2_inst/clocking_2_inst/clock_eng_1280_720A/O_buff_clkpixel |                                                                                  | FPGA2_inst/hdmi_driver_inst/Inst_vga_gen/blank                                |               17 |             52 |
+|  FPGA1_inst/clocking_1_inst/clk_A_BUFG                          | FPGA1_inst/QLINK1/nxt_timestamp                                                  | FPGA2_inst/clocking_2_inst/clock_eng_1280_720B/RESET_I                        |                8 |             64 |
+|  FPGA1_inst/clocking_1_inst/CLK_SPI_O_BUFG                      | FPGA1_inst/SpiTx/spi_tx_ddr_based_gen.spi_tx_ddr_based_inst/nxt_data[31]_i_1_n_0 |                                                                               |                9 |             64 |
+|  SPI_SCLK_I_IBUF_BUFG                                           |                                                                                  | FPGA2_inst/clocking_2_inst/clock_eng_1280_720B/RESET_I                        |                9 |             70 |
+|  FPGA1_inst/clocking_1_inst/clk_A_BUFG                          |                                                                                  | FPGA2_inst/clocking_2_inst/clock_eng_1280_720B/RESET_I                        |               12 |             72 |
+|  FPGA2_inst/clocking_2_inst/clock_eng_1280_720A/O_buff_clkpixel |                                                                                  |                                                                               |               24 |            190 |
++-----------------------------------------------------------------+----------------------------------------------------------------------------------+-------------------------------------------------------------------------------+------------------+----------------+
+
+

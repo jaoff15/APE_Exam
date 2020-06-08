@@ -16,12 +16,11 @@ use IEEE.STD_LOGIC_1164.ALL;
 
 -- Uncomment the following library declaration if instantiating
 -- any Xilinx leaf cells in this code.
---library UNISIM;
---use UNISIM.VComponents.all;
+library UNISIM;
+use UNISIM.VComponents.all;
 
 entity FPGA2 is
     generic( 
-        SPI_MODE : SPI_MODE_TYP := ASYNC;
         SPI_TYPE : SPI_TYPE_TYP := DDR
     );
     Port ( 
@@ -97,7 +96,6 @@ architecture Behavioral of FPGA2 is
     -- SPI Rx
     component SPI_RX is
         generic( 
-            SPI_MODE : SPI_MODE_TYP := ASYNC;
             SPI_TYPE : SPI_TYPE_TYP := DDR
             );
         Port ( RESET_I   : in  STD_LOGIC := '0';
@@ -114,6 +112,7 @@ architecture Behavioral of FPGA2 is
     ---------------------- SIGNALS -------------------------
     
     -- HDMI signals
+    signal reset_bufr        : std_logic;
     signal sys_reset        : std_logic;
     signal pixel_clk        : std_logic;
     signal pixel_clk_x5     : std_logic;
@@ -147,9 +146,63 @@ clocking_2_inst : clocking_2 port map(
     SYS_RESET_O         => RESET_O
 );
 
+
+
+
+
+--FDSE_reset_inst : FDSE
+--generic map (
+--  INIT => '0') -- Initial value of register ('0' or '1')  
+--port map (
+--  Q     => sys_reset,      -- Data output
+--  C     => pixel_clk,      -- Clock input
+--  CE    => '1',    -- Clock enable input
+--  S     => '0',      -- Synchronous Set input
+--  D     => RESET_I       -- Data input
+--);
+--fugBUFG_fpga2_inst : BUFG
+-- port map (
+--    O => sys_reset, -- 1-bit output: Clock output
+--    I => RESET_I  -- 1-bit input: Clock input
+-- );
+--    BUFR_inst : BUFR
+-- generic map (
+--    BUFR_DIVIDE => "BYPASS",   -- Values: "BYPASS, 1, 2, 3, 4, 5, 6, 7, 8" 
+--    SIM_DEVICE => "7SERIES"  -- Must be set to "7SERIES" 
+-- )
+-- port map (
+--    O   => sys_reset,     -- 1-bit output: Clock output port
+--    CE  => '1',   -- 1-bit input: Active high, clock enable (Divided modes only)
+--    CLR => '0', -- 1-bit input: Active high, asynchronous clear (Divided modes only)
+--    I   => RESET_I      -- 1-bit input: Clock buffer input driven by an IBUF, MMCM or local interconnect
+-- ); 
+
+
+--BUFR_inst : BUFR
+--generic map (
+--  BUFR_DIVIDE => "BYPASS",   -- Values: "BYPASS, 1, 2, 3, 4, 5, 6, 7, 8" 
+--  SIM_DEVICE => "7SERIES"  -- Must be set to "7SERIES" 
+--)
+--port map (
+--  O     => reset_bufr,     -- 1-bit output: Clock output port
+--  CE    => '1',   -- 1-bit input: Active high, clock enable (Divided modes only)
+--  CLR   => '0', -- 1-bit input: Active high, asynchronous clear (Divided modes only)
+--  I     => RESET_I      -- 1-bit input: Clock buffer input driven by an IBUF, MMCM or local interconnect
+--);
+
+--reset_sync_fpga2: process(pixel_clk)
+--begin
+--    if rising_edge(pixel_clk) then
+--        sys_reset <= reset_bufr;
+--    end if;
+--end process;
+
+sys_reset <= RESET_I;
+
+
 -- HDMI driver module instanciation
 hdmi_driver_inst: hdmi_driver port map(
-    RESET_I             => RESET_I,
+    RESET_I             => sys_reset,
     PIXEL_CLK_I         => pixel_clk,
     PIXEL_CLK_X5_I      => pixel_clk_x5, 
     PIXEL_CLK_X5_INV_I  => pixel_clk_x5_inv,
@@ -162,8 +215,7 @@ adr_A <= x"10";
 
 -- SPI RX module instanciation
 SpiRx:  SPI_RX  
-generic map( SPI_MODE => SPI_MODE,
-             SPI_TYPE => SPI_TYPE)
+generic map( SPI_TYPE => SPI_TYPE)
 port map (
     RESET_I   => RESET_I,
     -- RAM
