@@ -1,22 +1,11 @@
 ----------------------------------------------------------------------------------
--- Company: 
--- Engineer: 
--- 
--- Create Date: 06/03/2020 10:27:19 AM
--- Design Name: 
--- Module Name: spi_tx_ddr_based - Behavioral
--- Project Name: 
--- Target Devices: 
--- Tool Versions: 
--- Description: 
--- 
--- Dependencies: 
--- 
--- Revision:
--- Revision 0.01 - File Created
--- Additional Comments:
--- 
+-- Company: SDU
+-- Engineer: Jacob Offersen
+-- Project: Exam in Advanced Programmable Electronics
 ----------------------------------------------------------------------------------
+
+-- Include SPI lib 
+library work; use work.spi_lib.all;
 
 
 library IEEE;
@@ -32,6 +21,7 @@ library UNISIM;
 use UNISIM.VComponents.all;
 
 entity spi_rx_ddr_based is
+    generic( SPI_MODE : SPI_MODE_TYP := ASYNC );
     Port ( 
            RESET_I  : in STD_LOGIC := '0';
            
@@ -49,12 +39,15 @@ architecture Behavioral of spi_rx_ddr_based is
 --     When the IDDR is in SAME_EDGE_PIPELINED mode data is delays 2 clock cycles 
 -- (0 = 0 clk cycles back, 30 = 1 clk cycle and 28 = 2 clock cycles)
 -- Therefore the bit counter is initialized 2 cycles behind in order for the bits so align properly.
+--    signal bitcnt        : integer range 0 to 31 := 26;
     signal bitcnt        : integer range 0 to 31 := 26;
 
     signal data          : std_logic_vector(31 downto 0) := (others => '0');
 
    signal Q1, Q2         : std_logic := '0';
 begin
+
+DATA_O <= data;
 
 
 DDRI_handler: process(SCLK_I)

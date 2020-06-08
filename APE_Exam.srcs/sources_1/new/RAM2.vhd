@@ -42,7 +42,8 @@ MSB_LSB_SELECTOR <= ADR_I(0);
 
 with MSB_LSB_SELECTOR select 
     DATA_O(7 downto 4) <= RAM_O(3 downto 0) when '0',
-                          RAM_O(7 downto 4) when '1';
+                          RAM_O(7 downto 4) when '1',
+                          x"e"              when others;
 
 with ADR_HIG select 
      RAM_O <= RAM_O_0(7 downto 0) when "000",

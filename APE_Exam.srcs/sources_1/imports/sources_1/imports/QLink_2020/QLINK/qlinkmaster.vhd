@@ -56,7 +56,7 @@ entity QLinkMaster is
             BLINK_SEQUENCE : std_logic_vector := "10111011101110101011101110101010101110101011101110101110100010101011101011101011101110101010101011101000101011101110101011101010101011101010111010101110001110111011101110111010111010111011101010111010111010111010111011101110101000" );  --  
   Port    ( RESET_I  : in STD_LOGIC;
 --            CLK_I    : in STD_LOGIC;
-            clk48_I  : in std_logic;
+            CLK_48_I  : in std_logic;
             RX_I     : in STD_LOGIC;
             TX_O     : out STD_LOGIC;
 --            CLK48_O  : out STD_LOGIC;
@@ -65,7 +65,7 @@ entity QLinkMaster is
             DATA_B_I : in  STD_LOGIC_VECTOR(31 downto 0);
             WR_O     : out STD_LOGIC;
             RD_O     : out STD_LOGIC;
-            RESET_O  : out STD_LOGIC;
+--            RESET_O  : out STD_LOGIC;
             LED_O    : out STD_LOGIC );                      -- Status LED (blinks)
 end QLinkMaster;
 
@@ -199,30 +199,29 @@ begin
 
 --clk100 <= clk48;
 --CLK48_O <= clk48;
-RESET_O <= sys_reset;
+--RESET_O <= RESET_I;
 
 ADDR_B_O <= adr;
 DATA_B_O <= data32;
 
 WR_O <= wr;
 RD_O <= rd;
-
 -------------------------------------
 -- Clock manager & system reset 
 
 ----------------------------
 
 DECODE:decode_serial port map(     -- Instantiate RX decoder
-     RESET_I    => sys_reset,  -- System reset
-     CLK_UART_I => clk48_I,      -- Serial clock ... 16 x bitrate
+     RESET_I    => RESET_I,  -- System reset
+     CLK_UART_I => CLK_48_I,      -- Serial clock ... 16 x bitrate
      RX_I       => RX_I,       -- Serial data
      DATA_O     => dec_data,   -- Paralel data
      STB_O      => dec_strb    -- Strobe
      );
 
 ENCODE:encode_serial port map(      -- Instantiate TX encoder
-           RESET_I=>sys_reset,  -- System reset
-           CLK_UART_I=> clk48_I,  -- Serial clock ... 16 x bitrate
+           RESET_I=>RESET_I,  -- System reset
+           CLK_UART_I=> CLK_48_I,  -- Serial clock ... 16 x bitrate
            DATA_I => enc_data,  -- Parallel data
            WR_I   => enc_wr,    -- Write strobe
            TX_O   => TX_O,      -- Serial data
@@ -230,11 +229,11 @@ ENCODE:encode_serial port map(      -- Instantiate TX encoder
 
 -- State machine to control status LED
 
-process(clk48_I,sys_reset)
+process(CLK_48_I,RESET_I)
 begin
-  if clk48_I'event and clk48_I='1' then
+  if rising_edge(CLK_48_I) then
     
-    if sys_reset='1' then
+    if RESET_I='1' then
       led_idx<=0;
       LED_O<='0';
     else
@@ -249,7 +248,7 @@ begin
 end process;
 
 ---- State machine to detect and decode #W:aadddddddd sequences and produce RW/WR cycles
-process(clk48_I,sys_reset)
+process(CLK_48_I,RESET_I)
   variable nxt_rx_state : rx_state_t := hashtag;
   variable nxt_adr : std_logic_vector(7 downto 0);
   variable nxt_data32 : std_logic_vector(31 downto 0);
@@ -261,8 +260,8 @@ process(clk48_I,sys_reset)
   --variable nxt_enc_wr : std_logic;
   variable nxt_sendstring : std_logic;
 begin
-  if clk48_I'event and clk48_I='1' then
-    if sys_reset='1' then
+  if rising_edge(CLK_48_I) then
+    if RESET_I='1' then
       clk_cnt<=X"00000000";
       nxt_rx_state:=hashtag;
       nxt_adr:=X"00";
@@ -421,14 +420,14 @@ begin
 end process;
  
 ---- Feed the serial encoder a string sequences
-process(clk48_I,sys_reset)
+process(CLK_48_I,RESET_I)
   variable nxt_enc_data : std_logic_vector(7 downto 0);
   variable nxt_char_cnt : integer range 0 to 31;
   variable nxt_enc_wr   : std_logic;
 begin 
-  if clk48_I'event and clk48_I='1' then
+  if rising_edge(CLK_48_I) then
     nxt_enc_wr:='0';
-    if sys_reset='1' then       -- if RESET
+    if RESET_I='1' then       -- if RESET
       nxt_char_cnt:=0;          --  Point at first character
        
     elsif enc_busy='1' then     -- If not RESET but encoder is busy

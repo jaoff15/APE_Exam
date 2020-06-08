@@ -1,0 +1,8 @@
+Vivado Simulator 2018.2
+Copyright 1986-1999, 2001-2018 Xilinx, Inc. All Rights Reserved.
+Running: /home/jacoboffersen/Program/vivado20182/Vivado/2018.2/bin/unwrapped/lnx64.o/xelab -wto a611f3e7bdf2481ea11cbd6577891ed3 --incr --debug typical --relax --mt 8 -L xil_defaultlib -L secureip --snapshot top_tb_func_synth xil_defaultlib.top_tb -log elaborate.log 
+Using 8 slave threads.
+Starting static elaboration
+ERROR: [VRFC 10-380] binding entity top does not have generic spi_mode [/home/jacoboffersen/advanced_programmable_electronics/APE_Exam/APE_Exam.srcs/sim_1/new/top_tb.vhd:36]
+ERROR: [VRFC 10-380] binding entity top does not have generic spi_type [/home/jacoboffersen/advanced_programmable_electronics/APE_Exam/APE_Exam.srcs/sim_1/new/top_tb.vhd:37]
+ERROR: [XSIM 43-3321] Static elaboration of top level VHDL design unit top_tb in library work failed.

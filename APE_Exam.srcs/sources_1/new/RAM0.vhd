@@ -17,12 +17,12 @@ use IEEE.NUMERIC_STD.ALL;
 library UNISIM;
 use UNISIM.VComponents.all;
 
-entity RAM is
+entity TD_RAM_36K_WRAP is
     Port (
     CLK_A_I  : in  std_logic := '0';
     CLK_B_I  : in  std_logic := '0';
-    ADDR_A_I : in  std_logic_vector(15 downto 0) := (others=>'0');
-    ADDR_B_I : in  std_logic_vector(15 downto 0) := (others=>'0');
+    ADDR_A_I : in  std_logic_vector(7 downto 0) := (others=>'0');
+    ADDR_B_I : in  std_logic_vector(7 downto 0) := (others=>'0');
     DATA_A_I : in  std_logic_vector(31 downto 0) := (others=>'0');
     DATA_B_I : in  std_logic_vector(31 downto 0) := (others=>'0');
     WE_A_I   : in  std_logic                     := '0';
@@ -30,32 +30,25 @@ entity RAM is
     DATA_A_O : out std_logic_vector(31 downto 0) := (others=>'0');
     DATA_B_O : out std_logic_vector(31 downto 0) := (others=>'0')
     );
-end RAM;
+end TD_RAM_36K_WRAP;
 
-architecture Behavioral of RAM is
-
-
+architecture Behavioral of TD_RAM_36K_WRAP is
 
     -- Address
-    signal portA_addr   : std_logic_vector(15 downto 0) := (others => '0');
-    signal portB_addr   : std_logic_vector(15 downto 0) := (others => '0');
+    signal portA_addr, portB_addr   : std_logic_vector(15 downto 0) := (others => '0');
     
     -- Data in
-    signal portA_din    : std_logic_vector ( 31 downto 0 ) := (others => '0');
-    signal portB_din    : std_logic_vector ( 31 downto 0 ) := (others => '0');
+    signal portA_din, portB_din    : std_logic_vector ( 31 downto 0 ) := (others => '0');
     
     -- Data out
-    signal portA_do     : std_logic_vector ( 31 downto 0 ) := (others => '0');
-    signal portB_do     : std_logic_vector ( 31 downto 0 ) := (others => '0');
+    signal portA_do, portB_do     : std_logic_vector ( 31 downto 0 ) := (others => '0');
     
     -- Enable
-    signal portA_en     : std_logic := '0';
-    signal portB_en     : std_logic := '0';
+    signal portA_en, portB_en     : std_logic := '0';
     
     -- Write enable
     signal portA_we     : std_logic_vector ( 3 downto 0 ) := (others => '0');
     signal portB_we     : std_logic_vector ( 7 downto 0 ) := (others => '0');
-
 
 begin
 
@@ -310,7 +303,7 @@ UNISIM_RAM0 : RAMB36E1
       REGCEB            => '1',                 -- 1-bit input: B port register enable
       RSTRAMB           => '0',                 -- 1-bit input: B port set/reset
       RSTREGB           => '0',                 -- 1-bit input: B port register set/reset
-      WEBWE             => x"00",               -- 8-bit input: B port write enable/Write enable
+      WEBWE             => portB_we,             -- 8-bit input: B port write enable/Write enable
       -- Port B Data: 32-bit (each) input: Port B data
       DIBDI             => portB_din,         -- 32-bit input: B port data/MSB data
       DIPBDIP           => "0000"               -- 4-bit input: B port parity/MSB parity

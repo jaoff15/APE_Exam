@@ -8,6 +8,7 @@
 library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
 use IEEE.NUMERIC_STD.ALL;
+use IEEE.STD_LOGIC_UNSIGNED.ALL; 
 
 
 entity image_driver is
@@ -104,25 +105,34 @@ begin
 
 
 
-ram_adr <=  std_logic_vector(unsigned(pixel_h(8 downto 1))) &  
-            not(not(pixel_v(8) & pixel_v(7)) & pixel_v(6) & pixel_v(5) &
-            pixel_v(4) & pixel_v(3) & pixel_v(2) & pixel_v(1));
---            pixel_v(8 downto 1);
+--ram_adr <=  std_logic_vector(unsigned(pixel_h(8 downto 1))) &  
+--            not(not(pixel_v(8) & pixel_v(7)) & pixel_v(6) & pixel_v(5) &
+--            pixel_v(4) & pixel_v(3) & pixel_v(2) & pixel_v(1));
+----            pixel_v(8 downto 1);
  
-RAM2_inst: RAM2 port map(
-    CLK_I   => CLK_SLOW_I,
-    RESET_I => RESET_I,
-    ADR_I   => ram_adr,
-    DATA_O  => ram_out);
+--RAM2_inst: RAM2 port map(
+--    CLK_I   => CLK_SLOW_I,
+--    RESET_I => RESET_I,
+--    ADR_I   => ram_adr,
+--    DATA_O  => ram_out);
+
+
 
 
 process(CLK_SLOW_I)
 begin
-    if rising_edge( CLK_SLOW_I) then
-        if pixel_v(11 downto 9) = "000" and pixel_h(11 downto 9) = "000" then
-            RED_O   <= ram_out;
-            GREEN_O <= ram_out;
-            BLUE_O  <= ram_out;
+    if rising_edge( CLK_SLOW_I ) then
+        
+--        if pixel_v(11 downto 9) = "000" and pixel_h(11 downto 9) = "000" then
+--            RED_O   <= ram_out;
+--            GREEN_O <= ram_out;
+--            BLUE_O  <= ram_out;
+        if  unsigned(x_coord) < unsigned(pixel_h) and unsigned(pixel_h) < (unsigned(x_coord)+100) and 
+            unsigned(y_coord) < unsigned(pixel_v) and unsigned(pixel_v) < (unsigned(y_coord)+100) then
+            
+            RED_O   <= (others => '1');
+            GREEN_O <= (others => '1');
+            BLUE_O  <= (others => '1');
         else
             RED_O   <= (others => '0');
             GREEN_O <= (others => '0');

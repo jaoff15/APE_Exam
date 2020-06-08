@@ -20,16 +20,29 @@ use IEEE.STD_LOGIC_1164.ALL;
 --use UNISIM.VComponents.all;
 
 entity FPGA2 is
-generic( SPI_MODE : SPI_MODE_TYP := DDR);
-Port ( 
-        CLK_I      : in STD_LOGIC;
-        -- SPI RX 
-        SPI_SCLK_I : in std_logic;
-        SPI_MOSI_I : in std_logic;
-        -- HDMI
-        hdmi_out_p : out STD_LOGIC_VECTOR(3 downto 0);
-        hdmi_out_n : out STD_LOGIC_VECTOR(3 downto 0)
+    generic( 
+        SPI_MODE : SPI_MODE_TYP := ASYNC;
+        SPI_TYPE : SPI_TYPE_TYP := DDR
     );
+    Port ( 
+            CLK_I      : in STD_LOGIC;
+            RESET_I     : in  STD_LOGIC;
+            RESET_O     : out STD_LOGIC;
+            
+            -- SPI RX 
+            SPI_SCLK_I : in std_logic;
+            SPI_MOSI_I : in std_logic;
+            
+            -- HDMI
+            hdmi_out_p  : out STD_LOGIC_VECTOR(3 downto 0);
+            hdmi_out_n  : out STD_LOGIC_VECTOR(3 downto 0);
+            
+            -- SPI debug signals
+            CLK_O       : out std_logic;
+            ADR_O       : out std_logic_vector(7 downto 0);
+            DATA_O      : out std_logic_vector(31 downto 0);
+            WR          : out std_logic
+        );
 end FPGA2;
 
 architecture Behavioral of FPGA2 is
@@ -39,7 +52,7 @@ architecture Behavioral of FPGA2 is
     component clocking_2 is
       Port ( 
             CLK_I              : in  std_logic; -- 100MHz
-            RESET_I            : in  std_logic;
+--            RESET_I            : in  std_logic;
             PIXEL_CLK_O        : out std_logic;
             PIXEL_CLK_X5_O     : out std_logic;
             PIXEL_CLK_X5_INV_O : out std_logic;
@@ -49,12 +62,12 @@ architecture Behavioral of FPGA2 is
     
     
     -- RAM1 (Interface between HDMI and SPI RX)
-    component RAM is
+    component TD_RAM_36K_WRAP is
           Port (
           CLK_A_I  : in  std_logic := '0';
           CLK_B_I  : in  std_logic := '0';
-          ADDR_A_I : in  std_logic_vector(15 downto 0) := (others=>'0');
-          ADDR_B_I : in  std_logic_vector(15 downto 0) := (others=>'0');
+          ADDR_A_I : in  std_logic_vector(7 downto 0) := (others=>'0');
+          ADDR_B_I : in  std_logic_vector(7 downto 0) := (others=>'0');
           DATA_A_I : in  std_logic_vector(31 downto 0) := (others=>'0');
           DATA_B_I : in  std_logic_vector(31 downto 0) := (others=>'0');
           WE_A_I   : in  std_logic                     := '0';
@@ -83,7 +96,10 @@ architecture Behavioral of FPGA2 is
     
     -- SPI Rx
     component SPI_RX is
-        generic( SPI_MODE : SPI_MODE_TYP := DDR);
+        generic( 
+            SPI_MODE : SPI_MODE_TYP := ASYNC;
+            SPI_TYPE : SPI_TYPE_TYP := DDR
+            );
         Port ( RESET_I   : in  STD_LOGIC := '0';
                -- Data bus signals
                ADDR_O    : out STD_LOGIC_VECTOR (7  downto 0) := (others => '0');
@@ -124,16 +140,16 @@ begin
 -- Clocking module instanciation
 clocking_2_inst : clocking_2 port map(
     CLK_I               => CLK_I,
-    RESET_I             => sys_reset,
+--    RESET_I             => RESET_I,
     PIXEL_CLK_O         => pixel_clk,
     PIXEL_CLK_X5_O      => pixel_clk_x5, 
     PIXEL_CLK_X5_INV_O  => pixel_clk_x5_inv, 
-    SYS_RESET_O         => sys_reset
+    SYS_RESET_O         => RESET_O
 );
 
 -- HDMI driver module instanciation
 hdmi_driver_inst: hdmi_driver port map(
-    RESET_I             => sys_reset,
+    RESET_I             => RESET_I,
     PIXEL_CLK_I         => pixel_clk,
     PIXEL_CLK_X5_I      => pixel_clk_x5, 
     PIXEL_CLK_X5_INV_I  => pixel_clk_x5_inv,
@@ -142,11 +158,14 @@ hdmi_driver_inst: hdmi_driver port map(
     hdmi_out_n          => hdmi_out_n
 );
 
+adr_A <= x"10";
+
 -- SPI RX module instanciation
 SpiRx:  SPI_RX  
-generic map( SPI_MODE => SPI_MODE)
+generic map( SPI_MODE => SPI_MODE,
+             SPI_TYPE => SPI_TYPE)
 port map (
-    RESET_I   => sys_reset,
+    RESET_I   => RESET_I,
     -- RAM
     ADDR_O    => adr_B,
     DATA_O    => data_B_I,
@@ -156,8 +175,13 @@ port map (
     MOSI_I    => SPI_MOSI_I
 );
 
+CLK_O   <= SPI_SCLK_I;
+ADR_O   <= adr_B;
+DATA_O  <= data_B_I;
+WR      <= wr_B;
+
 -- RAM1 module instanciation
-RAM_inst1 : RAM port map (
+RAM_inst1 : TD_RAM_36K_WRAP port map (
       CLK_A_I  => pixel_clk, 
       CLK_B_I  => SPI_SCLK_I,
       ADDR_A_I => adr_A,

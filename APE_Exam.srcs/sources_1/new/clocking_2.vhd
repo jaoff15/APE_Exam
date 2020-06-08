@@ -20,7 +20,7 @@ use IEEE.STD_LOGIC_1164.ALL;
 entity clocking_2 is
   Port ( 
         CLK_I              : in  std_logic; -- 100MHz
-        RESET_I            : in  std_logic;
+--        RESET_I            : in  std_logic;
         PIXEL_CLK_O        : out std_logic;
         PIXEL_CLK_X5_O     : out std_logic;
         PIXEL_CLK_X5_INV_O : out std_logic;
@@ -55,37 +55,43 @@ architecture Behavioral of clocking_2 is
     
     
 begin
-    -- Gen 75Mhz pixel clock generation
-    -- Technically, 720p should be 74.25MHz. 75 generally works on monitors. YMMV.
-    clock_eng_1280_720A: clocking
-     generic map (
-         in_mul     => 9,
-         pix_div    => 12,
-         pix5x_div  => 2
-     )
-     port map (
-         I_unbuff_clk         => CLK_I,
-         O_buff_clkpixel      => cEng_pixel_720,
-         O_buff_clk5xpixel    => open,
-         O_buff_clk5xpixelinv => open,
-         clk_locked           => open
-     );   
-     
-    -- Gen 375Mhz 5xpixel and 5xpixel inverted clock generation
-    clock_eng_1280_720B: clocking
-    generic map (
-        in_mul      => 10,
-        pix_div     => 1,
-        pix5x_div   => 2
-    )
-    port map (
-        I_unbuff_clk         => cEng_pixel_720,
-        O_buff_clkpixel      => open,
-        O_buff_clk5xpixel    => cEng_5xpixel_720,
-        O_buff_clk5xpixelinv => cEng_5xpixel_inv_720,
-        clk_locked           => clk_locked
-    );   
-    
+
+PIXEL_CLK_O        <= cEng_pixel_720;
+PIXEL_CLK_X5_O     <= cEng_5xpixel_720;
+PIXEL_CLK_X5_INV_O <= cEng_5xpixel_inv_720;
 SYS_RESET_O <= not clk_locked;
+
+-- Gen 75Mhz pixel clock generation
+-- Technically, 720p should be 74.25MHz. 75 generally works on monitors. YMMV.
+clock_eng_1280_720A: clocking
+ generic map (
+     in_mul     => 9,
+     pix_div    => 12,
+     pix5x_div  => 2
+ )
+ port map (
+     I_unbuff_clk         => CLK_I,
+     O_buff_clkpixel      => cEng_pixel_720,
+     O_buff_clk5xpixel    => open,
+     O_buff_clk5xpixelinv => open,
+     clk_locked           => open
+ );   
+ 
+-- Gen 375Mhz 5xpixel and 5xpixel inverted clock generation
+clock_eng_1280_720B: clocking
+generic map (
+    in_mul      => 10,
+    pix_div     => 1,
+    pix5x_div   => 2
+)
+port map (
+    I_unbuff_clk         => cEng_pixel_720,
+    O_buff_clkpixel      => open,
+    O_buff_clk5xpixel    => cEng_5xpixel_720,
+    O_buff_clk5xpixelinv => cEng_5xpixel_inv_720,
+    clk_locked           => clk_locked
+);   
+    
+
 
 end Behavioral;

@@ -1,0 +1,40 @@
+#!/bin/bash
+
+correct_replies = 0
+# Send write, send read, listen to reply, compare to correct reply
+echo "#W:1011111111......."  > /dev/ttyUSB0
+echo "#R:90....................."  > /dev/ttyUSB0
+
+if cat -n 1 /dev/ttyUSB0 == "11111111"; then
+	correct_replies = correct_replies + 1
+fi
+
+sleep 2
+echo "#W:1022222222......."  > /dev/ttyUSB0
+echo "#R:90....................."  > /dev/ttyUSB0
+
+if cat -n 1 /dev/ttyUSB0 == "22222222"; then
+	correct_replies = correct_replies + 1
+fi
+
+sleep 2
+echo "#W:1012345678......."  > /dev/ttyUSB0
+echo "#R:90....................."  > /dev/ttyUSB0
+
+if cat -n 1 /dev/ttyUSB0 == "12345678"; then
+	correct_replies = correct_replies + 1
+fi
+
+sleep 2
+echo "#W:1087654321......."  > /dev/ttyUSB0
+echo "#R:90....................."  > /dev/ttyUSB0
+
+if cat -n 1 /dev/ttyUSB0 == "87654321"; then
+	correct_replies = correct_replies + 1
+fi
+
+if correct_replies == 4; then
+	echo "Test passed"
+else
+	echo "Test failed"
+fi

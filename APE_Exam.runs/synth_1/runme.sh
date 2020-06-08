@@ -20,7 +20,7 @@ else
 fi
 export LD_LIBRARY_PATH
 
-HD_PWD='/home/jacoboffersen/advanced_programmable_electronics/hdmi_test/hdmi_test.runs/synth_1'
+HD_PWD='/home/jacoboffersen/advanced_programmable_electronics/APE_Exam/APE_Exam.runs/synth_1'
 cd "$HD_PWD"
 
 HD_LOG=runme.log

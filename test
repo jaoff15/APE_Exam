@@ -1,0 +1,10 @@
+#!/bin/bash
+
+echo "#W:1000700000"  > /dev/ttyUSB0
+sleep 1
+echo "#W:1004700000"  > /dev/ttyUSB0
+sleep 1
+echo "#W:1004700200"  > /dev/ttyUSB0
+sleep 1
+echo "#W:1000700200"  > /dev/ttyUSB0
+

@@ -1,23 +1,11 @@
 ----------------------------------------------------------------------------------
--- Company: 
--- Engineer: 
--- 
--- Create Date: 06/03/2020 12:56:27 PM
--- Design Name: 
--- Module Name: spi_tx_pure_vhdl_dd - Behavioral
--- Project Name: 
--- Target Devices: 
--- Tool Versions: 
--- Description: 
--- 
--- Dependencies: 
--- 
--- Revision:
--- Revision 0.01 - File Created
--- Additional Comments:
--- 
+-- Company: SDU
+-- Engineer: Jacob Offersen
+-- Project: Exam in Advanced Programmable Electronics
 ----------------------------------------------------------------------------------
 
+-- Include SPI lib 
+library work; use work.spi_lib.all;
 
 library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
@@ -32,6 +20,7 @@ use IEEE.STD_LOGIC_1164.ALL;
 --use UNISIM.VComponents.all;
 
 entity spi_rx_pure_vhdl_dd is
+    generic( SPI_MODE : SPI_MODE_TYP := ASYNC );
     Port ( 
            RESET_I  : in STD_LOGIC;
            

@@ -1,0 +1,16 @@
+#!/bin/bash
+
+echo "#W:1011111111......."  > /dev/ttyUSB0
+echo "#R:90....................."  > /dev/ttyUSB0
+
+sleep 2
+echo "#W:1022222222......."  > /dev/ttyUSB0
+echo "#R:90....................."  > /dev/ttyUSB0
+
+sleep 2
+echo "#W:1012345678......."  > /dev/ttyUSB0
+echo "#R:90....................."  > /dev/ttyUSB0
+
+sleep 2
+echo "#W:1087654321......."  > /dev/ttyUSB0
+echo "#R:90....................."  > /dev/ttyUSB0
