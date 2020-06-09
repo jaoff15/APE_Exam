@@ -1,0 +1,8 @@
+#!/bin/bash
+
+for i in "11111111" "22222222" "12345678" "87654321"; do
+	echo "#W:10"$i"......." > /dev/ttyUSB0 
+	echo "#R:90....................."  > /dev/ttyUSB0
+	sleep 2
+done;
+

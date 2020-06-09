@@ -192,8 +192,8 @@ port map (
     RESET_I  => sys_reset,
     -- RAM
     ADDR_O   => adr_B,
---    DATA_I   => data_B_O,
-    DATA_I   => x"12345678",
+    DATA_I   => data_B_O,
+--    DATA_I   => x"12345678",
     -- SPI
     SCLK_O   => SPI_SCLK_O,
     MOSI_O   => SPI_MOSI_O

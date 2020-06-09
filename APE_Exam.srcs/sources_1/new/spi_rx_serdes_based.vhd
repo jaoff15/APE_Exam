@@ -38,7 +38,8 @@ end spi_rx_serdes_based;
 architecture Behavioral of spi_rx_serdes_based is
     signal Q             : std_logic_vector(7 downto 0) := (others => '0');
 --    signal counter       : integer range 0 to 3 := 0;
-    signal clk, clk_div  : std_logic := '0';
+    signal clk, clkb  : std_logic := '0';
+    signal clk_div  : std_logic := '0';
    
     signal subpart       : integer range 0 to 3 := 0;
     signal data          : STD_LOGIC_VECTOR (31 downto 0) := (others => '0');
@@ -81,7 +82,7 @@ begin
             else
                 nxt_wr      := '1';
                 nxt_subpart := 0;
-            end if; 
+            end if;
 --        end if;
     end if;
     data    <= nxt_data;
@@ -110,7 +111,8 @@ BUFIO_inst : BUFIO
       O => clk,         -- 1-bit output: Clock output (connect to I/O clock loads).
       I => SCLK_I       -- 1-bit input: Clock input (connect to an IBUF or BUFMR).
    );
-
+--clk <= SCLK_I;
+clkb <= not clk;
 
    ISERDESE2_inst : ISERDESE2
    generic map (
@@ -160,7 +162,7 @@ BUFIO_inst : BUFIO
       CLKDIVP   => '0',           -- 1-bit input: TBD
       -- Clocks: 1-bit (each) input: ISERDESE2 clock input ports
       CLK       => clk,                   -- 1-bit input: High-speed clock
-      CLKB      => '0',                 -- 1-bit input: High-speed secondary clock
+      CLKB      => clkb,                 -- 1-bit input: High-speed secondary clock
       CLKDIV    => clk_div,             -- 1-bit input: Divided clock
       OCLK      => '0',                 -- 1-bit input: High speed output clock used when INTERFACE_TYPE="MEMORY" 
       -- Dynamic Clock Inversions: 1-bit (each) input: Dynamic clock inversion pins to switch clock polarity

@@ -88,6 +88,8 @@ begin
             end if; 
         end if;
     end if;
+    
+    data_snapshot <= nxt_snapshot;
     counter <= nxt_counter;
     subpart <= nxt_subpart;
   end if;
