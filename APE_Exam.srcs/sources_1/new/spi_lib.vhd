@@ -2,8 +2,6 @@
 
 -- Create small custom package
 package spi_lib is                                  		-- Stat package
-
-    
     -- Determine which SPI implementation should be used:
     --  - VHDL:    Pure VHDL in signle data rate.
     --             VHDL is used both for serializing and I/O handling.

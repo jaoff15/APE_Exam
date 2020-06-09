@@ -2,8 +2,8 @@
 # Vivado v2018.2 (64-bit)
 # SW Build 2258646 on Thu Jun 14 20:02:38 MDT 2018
 # IP Build 2256618 on Thu Jun 14 22:10:49 MDT 2018
-# Start of session at: Tue Jun  9 23:30:11 2020
-# Process ID: 16403
+# Start of session at: Tue Jun  9 23:50:34 2020
+# Process ID: 12045
 # Current directory: /home/jacoboffersen/advanced_programmable_electronics/APE_Exam/APE_Exam.runs/synth_1
 # Command line: vivado -log top.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source top.tcl
 # Log file: /home/jacoboffersen/advanced_programmable_electronics/APE_Exam/APE_Exam.runs/synth_1/top.vds

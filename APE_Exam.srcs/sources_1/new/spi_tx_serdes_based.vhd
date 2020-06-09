@@ -38,7 +38,7 @@ architecture Behavioral of spi_tx_serdes_based is
     signal D             : std_logic_vector(7 downto 0) := (others => '0');
     signal counter       : integer range 0 to 3 := 0;
     signal clk_div       : std_logic := '0';
-    signal subpart       : integer range 0 to 3 := 0;
+    signal subpart       : integer range 0 to 3 := 3;
     signal data_snapshot : std_logic_vector (31 downto 0) := (others => '0');
 begin
 
@@ -52,7 +52,7 @@ begin
     if RESET_I = '1' then
         nxt_snapshot := (others => '0');
         nxt_counter  := 0;
-        nxt_subpart  := 0;
+        nxt_subpart  := 3;
     else
         -- Manage counter - used for clock division
         if nxt_counter < 3 then
