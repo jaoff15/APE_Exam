@@ -37,8 +37,8 @@ end spi_rx_ddr_based;
 architecture Behavioral of spi_rx_ddr_based is
 --     When the IDDR is in SAME_EDGE_PIPELINED mode data is delays 2 clock cycles 
 -- (0 = 0 clk cycles back, 30 = 1 clk cycle and 28 = 2 clock cycles)
--- Therefore the bit counter is initialized 2 cycles behind in order for the bits so align properly.
---    signal bitcnt        : integer range 0 to 31 := 26;
+-- And because the impementation inserts an additional 2 clock cycles 
+-- the bitcounter is initialized to 26
     signal bitcnt        : integer range 0 to 31 := 26;
 
     signal data          : std_logic_vector(31 downto 0) := (others => '0');

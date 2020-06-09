@@ -37,8 +37,8 @@ end SPI_TX;
 architecture Behavioral of SPI_TX is
  
     
-    -- Pure VHDL DD
-    component spi_tx_pure_vhdl_dd is
+    -- Pure VHDL
+    component spi_tx_pure_vhdl is
         Port ( CLK_I : in STD_LOGIC;
                RESET_I : in STD_LOGIC;
                
@@ -89,9 +89,9 @@ ADDR_O  <= x"10";
 
    
  
--- Pure VHDL DD
-spi_tx_pure_vhdl_dd_gen: if SPI_TYPE = VHDL_DD generate begin
-    spi_tx_pure_vhdl_dd_inst: spi_tx_pure_vhdl_dd 
+-- Pure VHDL
+spi_tx_pure_vhdl_gen: if SPI_TYPE = VHDL generate begin
+    spi_tx_pure_vhdl_inst: spi_tx_pure_vhdl
     port map(
         CLK_I   => CLK_I,
         RESET_I => RESET_I,

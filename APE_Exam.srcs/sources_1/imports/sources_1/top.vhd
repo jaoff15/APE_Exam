@@ -136,7 +136,7 @@ global_reset <= reset_fpga1_o or reset_fpga2_o;
 
  
 FPGA1_inst : FPGA1 
-generic map( SPI_TYPE => DDR)
+generic map( SPI_TYPE => SERDES)
 port map( 
     CLK_I       => CLK100MHZ,
     RESET_I     => global_reset,
@@ -171,13 +171,11 @@ RAM_spi_debug : TD_RAM_36K_WRAP port map (
       ADDR_B_I => adr_B,
       DATA_B_I => data_B,
       WE_B_I   => wr_B
---      , 
---      DATA_B_O => open
 );
 
 
 FPGA2_inst: FPGA2 
-generic map( SPI_TYPE => DDR)
+generic map( SPI_TYPE => SERDES)
 port map(
     CLK_I       => CLK100MHZ,
     RESET_I     => global_reset,

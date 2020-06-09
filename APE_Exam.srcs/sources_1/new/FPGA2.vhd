@@ -51,7 +51,6 @@ architecture Behavioral of FPGA2 is
     component clocking_2 is
       Port ( 
             CLK_I              : in  std_logic; -- 100MHz
---            RESET_I            : in  std_logic;
             PIXEL_CLK_O        : out std_logic;
             PIXEL_CLK_X5_O     : out std_logic;
             PIXEL_CLK_X5_INV_O : out std_logic;
@@ -139,7 +138,6 @@ begin
 -- Clocking module instanciation
 clocking_2_inst : clocking_2 port map(
     CLK_I               => CLK_I,
---    RESET_I             => RESET_I,
     PIXEL_CLK_O         => pixel_clk,
     PIXEL_CLK_X5_O      => pixel_clk_x5, 
     PIXEL_CLK_X5_INV_O  => pixel_clk_x5_inv, 
@@ -148,54 +146,6 @@ clocking_2_inst : clocking_2 port map(
 
 
 
-
-
---FDSE_reset_inst : FDSE
---generic map (
---  INIT => '0') -- Initial value of register ('0' or '1')  
---port map (
---  Q     => sys_reset,      -- Data output
---  C     => pixel_clk,      -- Clock input
---  CE    => '1',    -- Clock enable input
---  S     => '0',      -- Synchronous Set input
---  D     => RESET_I       -- Data input
---);
---fugBUFG_fpga2_inst : BUFG
--- port map (
---    O => sys_reset, -- 1-bit output: Clock output
---    I => RESET_I  -- 1-bit input: Clock input
--- );
---    BUFR_inst : BUFR
--- generic map (
---    BUFR_DIVIDE => "BYPASS",   -- Values: "BYPASS, 1, 2, 3, 4, 5, 6, 7, 8" 
---    SIM_DEVICE => "7SERIES"  -- Must be set to "7SERIES" 
--- )
--- port map (
---    O   => sys_reset,     -- 1-bit output: Clock output port
---    CE  => '1',   -- 1-bit input: Active high, clock enable (Divided modes only)
---    CLR => '0', -- 1-bit input: Active high, asynchronous clear (Divided modes only)
---    I   => RESET_I      -- 1-bit input: Clock buffer input driven by an IBUF, MMCM or local interconnect
--- ); 
-
-
---BUFR_inst : BUFR
---generic map (
---  BUFR_DIVIDE => "BYPASS",   -- Values: "BYPASS, 1, 2, 3, 4, 5, 6, 7, 8" 
---  SIM_DEVICE => "7SERIES"  -- Must be set to "7SERIES" 
---)
---port map (
---  O     => reset_bufr,     -- 1-bit output: Clock output port
---  CE    => '1',   -- 1-bit input: Active high, clock enable (Divided modes only)
---  CLR   => '0', -- 1-bit input: Active high, asynchronous clear (Divided modes only)
---  I     => RESET_I      -- 1-bit input: Clock buffer input driven by an IBUF, MMCM or local interconnect
---);
-
---reset_sync_fpga2: process(pixel_clk)
---begin
---    if rising_edge(pixel_clk) then
---        sys_reset <= reset_bufr;
---    end if;
---end process;
 
 sys_reset <= RESET_I;
 

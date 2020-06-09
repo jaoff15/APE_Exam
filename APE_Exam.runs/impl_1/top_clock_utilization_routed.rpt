@@ -1,7 +1,7 @@
 Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
 ------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2018.2 (lin64) Build 2258646 Thu Jun 14 20:02:38 MDT 2018
-| Date         : Mon Jun  8 21:31:47 2020
+| Date         : Tue Jun  9 15:46:45 2020
 | Host         : JacobOffersen running 64-bit Ubuntu 19.10
 | Command      : report_clock_utilization -file top_clock_utilization_routed.rpt
 | Design       : top
@@ -50,10 +50,10 @@ Table of Contents
 | Global Id | Source Id | Driver Type/Pin | Constraint | Site           | Clock Region | Load Clock Region | Clock Loads | Non-Clock Loads | Clock Period | Clock                      | Driver Pin                                                     | Net                                                              |
 +-----------+-----------+-----------------+------------+----------------+--------------+-------------------+-------------+-----------------+--------------+----------------------------+----------------------------------------------------------------+------------------------------------------------------------------+
 | g0        | src0      | BUFG/O          | None       | BUFGCTRL_X0Y16 | n/a          |                 1 |         177 |               0 |       62.439 | clk_A                      | FPGA1_inst/clocking_1_inst/clk_A_BUFG_inst/O                   | FPGA1_inst/clocking_1_inst/clk_A_BUFG                            |
-| g1        | src1      | BUFG/O          | None       | BUFGCTRL_X0Y0  | n/a          |                 2 |         167 |               0 |       13.333 | clock_pixel_unbuffered     | FPGA2_inst/clocking_2_inst/clock_eng_1280_720A/BUFG_pclock/O   | FPGA2_inst/clocking_2_inst/clock_eng_1280_720A/O_buff_clkpixel   |
+| g1        | src1      | BUFG/O          | None       | BUFGCTRL_X0Y0  | n/a          |                 2 |         123 |               0 |       13.333 | clock_pixel_unbuffered     | FPGA2_inst/clocking_2_inst/clock_eng_1280_720A/BUFG_pclock/O   | FPGA2_inst/clocking_2_inst/clock_eng_1280_720A/O_buff_clkpixel   |
 | g2        | src0      | BUFG/O          | None       | BUFGCTRL_X0Y17 | n/a          |                 1 |          40 |               1 |       10.000 | CLK_SPI_O                  | FPGA1_inst/clocking_1_inst/CLK_SPI_O_BUFG_inst/O               | FPGA1_inst/clocking_1_inst/CLK_SPI_O_BUFG                        |
-| g3        | src2      | BUFG/O          | None       | BUFGCTRL_X0Y1  | n/a          |                 1 |          40 |               0 |              |                            | SPI_SCLK_I_IBUF_BUFG_inst/O                                    | SPI_SCLK_I_IBUF_BUFG                                             |
-| g4        | src3      | BUFG/O          | None       | BUFGCTRL_X0Y2  | n/a          |                 1 |           8 |               0 |        2.667 | clock_x5pixel_unbuffered_1 | FPGA2_inst/clocking_2_inst/clock_eng_1280_720B/BUFG_pclockx5/O | FPGA2_inst/clocking_2_inst/clock_eng_1280_720B/O_buff_clk5xpixel |
+| g3        | src2      | BUFG/O          | None       | BUFGCTRL_X0Y2  | n/a          |                 1 |          40 |               0 |              |                            | SPI_SCLK_I_IBUF_BUFG_inst/O                                    | SPI_SCLK_I_IBUF_BUFG                                             |
+| g4        | src3      | BUFG/O          | None       | BUFGCTRL_X0Y1  | n/a          |                 1 |           8 |               0 |        2.667 | clock_x5pixel_unbuffered_1 | FPGA2_inst/clocking_2_inst/clock_eng_1280_720B/BUFG_pclockx5/O | FPGA2_inst/clocking_2_inst/clock_eng_1280_720B/O_buff_clk5xpixel |
 | g5        | src4      | BUFG/O          | None       | BUFGCTRL_X0Y3  | n/a          |                 1 |           1 |               0 |       10.000 | sys_clk_pin                | FPGA2_inst/clocking_2_inst/clock_eng_1280_720A/BUFG_clk/O      | FPGA2_inst/clocking_2_inst/clock_eng_1280_720A/BUFG_clk_n_0      |
 +-----------+-----------+-----------------+------------+----------------+--------------+-------------------+-------------+-----------------+--------------+----------------------------+----------------------------------------------------------------+------------------------------------------------------------------+
 * Clock Loads column represents the clock pin loads (pin count)
@@ -85,8 +85,8 @@ Table of Contents
 +-------------------+------+-------+------+-------+------+-------+------+-------+------+-------+------+-------+------+-------+------+-------+------+-------+------+-------+------+-------+------+-------+------+-------+------+-------+------+-------+
 | Clock Region Name | Used | Avail | Used | Avail | Used | Avail | Used | Avail | Used | Avail | Used | Avail | Used | Avail | Used | Avail | Used | Avail | Used | Avail | Used | Avail | Used | Avail | Used | Avail | Used | Avail | Used | Avail |
 +-------------------+------+-------+------+-------+------+-------+------+-------+------+-------+------+-------+------+-------+------+-------+------+-------+------+-------+------+-------+------+-------+------+-------+------+-------+------+-------+
-| X0Y0              |    3 |    12 |    0 |     4 |    0 |     2 |    0 |     4 |    1 |     1 |    0 |     1 |    0 |     0 |    0 |     0 |    0 |    50 |    8 |    50 |   74 |   800 |   17 |   300 |    0 |    20 |    5 |    10 |    0 |    20 |
-| X1Y0              |    4 |    12 |    0 |     4 |    0 |     2 |    0 |     4 |    1 |     1 |    0 |     1 |    0 |     0 |    0 |     0 |    1 |    50 |    0 |    50 |  299 |  1300 |  118 |   400 |    0 |    40 |    6 |    20 |    0 |    20 |
+| X0Y0              |    6 |    12 |    0 |     4 |    0 |     2 |    0 |     4 |    1 |     1 |    0 |     1 |    0 |     0 |    0 |     0 |    0 |    50 |    8 |    50 |  338 |   800 |  171 |   300 |    0 |    20 |    3 |    10 |    0 |    20 |
+| X1Y0              |    1 |    12 |    0 |     4 |    0 |     2 |    0 |     4 |    1 |     1 |    0 |     1 |    0 |     0 |    0 |     0 |    0 |    50 |    0 |    50 |    0 |  1300 |    0 |   400 |    0 |    40 |    0 |    20 |    0 |    20 |
 | X0Y1              |    0 |    12 |    0 |     4 |    0 |     2 |    0 |     4 |    0 |     1 |    0 |     1 |    0 |     0 |    0 |     0 |    0 |    50 |    0 |    50 |    0 |   800 |    0 |   300 |    0 |    20 |    0 |    10 |    0 |    20 |
 | X1Y1              |    0 |    12 |    0 |     0 |    0 |     0 |    0 |     0 |    0 |     0 |    0 |     0 |    0 |     4 |    0 |     1 |    0 |     0 |    0 |     0 |    0 |   750 |    0 |   250 |    0 |    10 |    0 |     5 |    0 |    20 |
 +-------------------+------+-------+------+-------+------+-------+------+-------+------+-------+------+-------+------+-------+------+-------+------+-------+------+-------+------+-------+------+-------+------+-------+------+-------+------+-------+
@@ -101,7 +101,7 @@ All Modules
 |    | X0 | X1 |
 +----+----+----+
 | Y1 |  0 |  0 |
-| Y0 |  3 |  4 |
+| Y0 |  6 |  1 |
 +----+----+----+
 
 
@@ -119,12 +119,12 @@ All Modules
 **** GT Loads column represents load cell count of GT types
 
 
-+----+----+------+
-|    | X0 | X1   |
-+----+----+------+
-| Y1 |  0 |    0 |
-| Y0 |  0 |  177 |
-+----+----+------+
++----+------+----+
+|    | X0   | X1 |
++----+------+----+
+| Y1 |    0 |  0 |
+| Y0 |  177 |  0 |
++----+------+----+
 
 
 7. Device Cell Placement Summary for Global Clock g1
@@ -133,7 +133,7 @@ All Modules
 +-----------+-----------------+-------------------+------------------------+-------------+---------------+-------------+----------+----------------+----------+----------------------------------------------------------------+
 | Global Id | Driver Type/Pin | Driver Region (D) | Clock                  | Period (ns) | Waveform (ns) | Slice Loads | IO Loads | Clocking Loads | GT Loads | Net                                                            |
 +-----------+-----------------+-------------------+------------------------+-------------+---------------+-------------+----------+----------------+----------+----------------------------------------------------------------+
-| g1        | BUFG/O          | n/a               | clock_pixel_unbuffered |      13.333 | {0.000 6.667} |         158 |        8 |              1 |        0 | FPGA2_inst/clocking_2_inst/clock_eng_1280_720A/O_buff_clkpixel |
+| g1        | BUFG/O          | n/a               | clock_pixel_unbuffered |      13.333 | {0.000 6.667} |         114 |        8 |              1 |        0 | FPGA2_inst/clocking_2_inst/clock_eng_1280_720A/O_buff_clkpixel |
 +-----------+-----------------+-------------------+------------------------+-------------+---------------+-------------+----------+----------------+----------+----------------------------------------------------------------+
 * Logic Loads column represents load cell count of all cell types other than IO, GT and clock resources
 ** IO Loads column represents load cell count of IO types
@@ -141,12 +141,12 @@ All Modules
 **** GT Loads column represents load cell count of GT types
 
 
-+----+-----+-----+
-|    | X0  | X1  |
-+----+-----+-----+
-| Y1 |   0 |   0 |
-| Y0 |  90 |  77 |
-+----+-----+-----+
++----+------+----+
+|    | X0   | X1 |
++----+------+----+
+| Y1 |    0 |  0 |
+| Y0 |  122 |  1 |
++----+------+----+
 
 
 8. Device Cell Placement Summary for Global Clock g2
@@ -163,12 +163,12 @@ All Modules
 **** GT Loads column represents load cell count of GT types
 
 
-+----+----+-----+
-|    | X0 | X1  |
-+----+----+-----+
-| Y1 |  0 |   0 |
-| Y0 |  0 |  41 |
-+----+----+-----+
++----+-----+----+
+|    | X0  | X1 |
++----+-----+----+
+| Y1 |   0 |  0 |
+| Y0 |  41 |  0 |
++----+-----+----+
 
 
 9. Device Cell Placement Summary for Global Clock g3
@@ -185,12 +185,12 @@ All Modules
 **** GT Loads column represents load cell count of GT types
 
 
-+----+----+-----+
-|    | X0 | X1  |
-+----+----+-----+
-| Y1 |  0 |   0 |
-| Y0 |  0 |  40 |
-+----+----+-----+
++----+-----+----+
+|    | X0  | X1 |
++----+-----+----+
+| Y1 |   0 |  0 |
+| Y0 |  40 |  0 |
++----+-----+----+
 
 
 10. Device Cell Placement Summary for Global Clock g4
@@ -240,13 +240,16 @@ All Modules
 12. Clock Region Cell Placement per Global Clock: Region X0Y0
 -------------------------------------------------------------
 
-+-----------+-------+-----------------+------------+-------------+-----------------+----+--------+------+-----+----+------+-----+---------+------------------------------------------------------------------+
-| Global Id | Track | Driver Type/Pin | Constraint | Clock Loads | Non-Clock Loads | FF | LUTRAM | RAMB | DSP | GT | MMCM | PLL | Hard IP | Net                                                              |
-+-----------+-------+-----------------+------------+-------------+-----------------+----+--------+------+-----+----+------+-----+---------+------------------------------------------------------------------+
-| g1        | n/a   | BUFG/O          | None       |          90 |               0 | 74 |      3 |    5 |   0 |  0 |    0 |   0 |       0 | FPGA2_inst/clocking_2_inst/clock_eng_1280_720A/O_buff_clkpixel   |
-| g4        | n/a   | BUFG/O          | None       |           8 |               0 |  0 |      0 |    0 |   0 |  0 |    0 |   0 |       0 | FPGA2_inst/clocking_2_inst/clock_eng_1280_720B/O_buff_clk5xpixel |
-| g5        | n/a   | BUFG/O          | None       |           1 |               0 |  0 |      0 |    0 |   0 |  0 |    1 |   0 |       0 | FPGA2_inst/clocking_2_inst/clock_eng_1280_720A/BUFG_clk_n_0      |
-+-----------+-------+-----------------+------------+-------------+-----------------+----+--------+------+-----+----+------+-----+---------+------------------------------------------------------------------+
++-----------+-------+-----------------+------------+-------------+-----------------+-----+--------+------+-----+----+------+-----+---------+------------------------------------------------------------------+
+| Global Id | Track | Driver Type/Pin | Constraint | Clock Loads | Non-Clock Loads | FF  | LUTRAM | RAMB | DSP | GT | MMCM | PLL | Hard IP | Net                                                              |
++-----------+-------+-----------------+------------+-------------+-----------------+-----+--------+------+-----+----+------+-----+---------+------------------------------------------------------------------+
+| g0        | n/a   | BUFG/O          | None       |         177 |               0 | 175 |      0 |    2 |   0 |  0 |    0 |   0 |       0 | FPGA1_inst/clocking_1_inst/clk_A_BUFG                            |
+| g1        | n/a   | BUFG/O          | None       |         122 |               0 |  86 |     27 |    1 |   0 |  0 |    0 |   0 |       0 | FPGA2_inst/clocking_2_inst/clock_eng_1280_720A/O_buff_clkpixel   |
+| g2        | n/a   | BUFG/O          | None       |          40 |               1 |  39 |      0 |    1 |   0 |  0 |    0 |   0 |       0 | FPGA1_inst/clocking_1_inst/CLK_SPI_O_BUFG                        |
+| g3        | n/a   | BUFG/O          | None       |          40 |               0 |  38 |      0 |    2 |   0 |  0 |    0 |   0 |       0 | SPI_SCLK_I_IBUF_BUFG                                             |
+| g4        | n/a   | BUFG/O          | None       |           8 |               0 |   0 |      0 |    0 |   0 |  0 |    0 |   0 |       0 | FPGA2_inst/clocking_2_inst/clock_eng_1280_720B/O_buff_clk5xpixel |
+| g5        | n/a   | BUFG/O          | None       |           1 |               0 |   0 |      0 |    0 |   0 |  0 |    1 |   0 |       0 | FPGA2_inst/clocking_2_inst/clock_eng_1280_720A/BUFG_clk_n_0      |
++-----------+-------+-----------------+------------+-------------+-----------------+-----+--------+------+-----+----+------+-----+---------+------------------------------------------------------------------+
 * Clock Loads column represents the clock pin loads (pin count)
 ** Non-Clock Loads column represents the non-clock pin loads (pin count)
 *** Columns FF, LUTRAM, RAMB through 'Hard IP' represents load cell counts
@@ -255,14 +258,11 @@ All Modules
 13. Clock Region Cell Placement per Global Clock: Region X1Y0
 -------------------------------------------------------------
 
-+-----------+-------+-----------------+------------+-------------+-----------------+-----+--------+------+-----+----+------+-----+---------+----------------------------------------------------------------+
-| Global Id | Track | Driver Type/Pin | Constraint | Clock Loads | Non-Clock Loads | FF  | LUTRAM | RAMB | DSP | GT | MMCM | PLL | Hard IP | Net                                                            |
-+-----------+-------+-----------------+------------+-------------+-----------------+-----+--------+------+-----+----+------+-----+---------+----------------------------------------------------------------+
-| g0        | n/a   | BUFG/O          | None       |         177 |               0 | 175 |      0 |    2 |   0 |  0 |    0 |   0 |       0 | FPGA1_inst/clocking_1_inst/clk_A_BUFG                          |
-| g1        | n/a   | BUFG/O          | None       |          77 |               0 |  48 |     24 |    4 |   0 |  0 |    1 |   0 |       0 | FPGA2_inst/clocking_2_inst/clock_eng_1280_720A/O_buff_clkpixel |
-| g2        | n/a   | BUFG/O          | None       |          40 |               1 |  39 |      0 |    1 |   0 |  0 |    0 |   0 |       0 | FPGA1_inst/clocking_1_inst/CLK_SPI_O_BUFG                      |
-| g3        | n/a   | BUFG/O          | None       |          40 |               0 |  37 |      0 |    2 |   0 |  0 |    0 |   0 |       0 | SPI_SCLK_I_IBUF_BUFG                                           |
-+-----------+-------+-----------------+------------+-------------+-----------------+-----+--------+------+-----+----+------+-----+---------+----------------------------------------------------------------+
++-----------+-------+-----------------+------------+-------------+-----------------+----+--------+------+-----+----+------+-----+---------+----------------------------------------------------------------+
+| Global Id | Track | Driver Type/Pin | Constraint | Clock Loads | Non-Clock Loads | FF | LUTRAM | RAMB | DSP | GT | MMCM | PLL | Hard IP | Net                                                            |
++-----------+-------+-----------------+------------+-------------+-----------------+----+--------+------+-----+----+------+-----+---------+----------------------------------------------------------------+
+| g1        | n/a   | BUFG/O          | None       |           1 |               0 |  0 |      0 |    0 |   0 |  0 |    1 |   0 |       0 | FPGA2_inst/clocking_2_inst/clock_eng_1280_720A/O_buff_clkpixel |
++-----------+-------+-----------------+------------+-------------+-----------------+----+--------+------+-----+----+------+-----+---------+----------------------------------------------------------------+
 * Clock Loads column represents the clock pin loads (pin count)
 ** Non-Clock Loads column represents the non-clock pin loads (pin count)
 *** Columns FF, LUTRAM, RAMB through 'Hard IP' represents load cell counts
@@ -270,8 +270,8 @@ All Modules
 
 
 # Location of BUFG Primitives 
-set_property LOC BUFGCTRL_X0Y1 [get_cells SPI_SCLK_I_IBUF_BUFG_inst]
-set_property LOC BUFGCTRL_X0Y2 [get_cells FPGA2_inst/clocking_2_inst/clock_eng_1280_720B/BUFG_pclockx5]
+set_property LOC BUFGCTRL_X0Y2 [get_cells SPI_SCLK_I_IBUF_BUFG_inst]
+set_property LOC BUFGCTRL_X0Y1 [get_cells FPGA2_inst/clocking_2_inst/clock_eng_1280_720B/BUFG_pclockx5]
 set_property LOC BUFGCTRL_X0Y0 [get_cells FPGA2_inst/clocking_2_inst/clock_eng_1280_720A/BUFG_pclock]
 set_property LOC BUFGCTRL_X0Y3 [get_cells FPGA2_inst/clocking_2_inst/clock_eng_1280_720A/BUFG_clk]
 set_property LOC BUFGCTRL_X0Y16 [get_cells FPGA1_inst/clocking_1_inst/clk_A_BUFG_inst]
@@ -283,14 +283,14 @@ set_property LOC BUFGCTRL_X0Y17 [get_cells FPGA1_inst/clocking_1_inst/CLK_SPI_O_
 set_property LOC IOB_X1Y0 [get_ports CLK100MHZ]
 set_property LOC IOB_X1Y25 [get_ports SPI_SCLK_I]
 
-# Clock net "SPI_SCLK_I_IBUF_BUFG" driven by instance "SPI_SCLK_I_IBUF_BUFG_inst" located at site "BUFGCTRL_X0Y1"
+# Clock net "SPI_SCLK_I_IBUF_BUFG" driven by instance "SPI_SCLK_I_IBUF_BUFG_inst" located at site "BUFGCTRL_X0Y2"
 #startgroup
 create_pblock {CLKAG_SPI_SCLK_I_IBUF_BUFG}
 add_cells_to_pblock [get_pblocks  {CLKAG_SPI_SCLK_I_IBUF_BUFG}] [get_cells -filter { PRIMITIVE_GROUP != I/O && IS_PRIMITIVE==1 && PRIMITIVE_LEVEL !=INTERNAL } -of_object [get_pins -filter {DIRECTION==IN} -of_objects [get_nets -hierarchical -filter {PARENT=="SPI_SCLK_I_IBUF_BUFG"}]]]
-resize_pblock [get_pblocks {CLKAG_SPI_SCLK_I_IBUF_BUFG}] -add {CLOCKREGION_X1Y0:CLOCKREGION_X1Y0}
+resize_pblock [get_pblocks {CLKAG_SPI_SCLK_I_IBUF_BUFG}] -add {CLOCKREGION_X0Y0:CLOCKREGION_X0Y0}
 #endgroup
 
-# Clock net "FPGA2_inst/clocking_2_inst/clock_eng_1280_720B/O_buff_clk5xpixel" driven by instance "FPGA2_inst/clocking_2_inst/clock_eng_1280_720B/BUFG_pclockx5" located at site "BUFGCTRL_X0Y2"
+# Clock net "FPGA2_inst/clocking_2_inst/clock_eng_1280_720B/O_buff_clk5xpixel" driven by instance "FPGA2_inst/clocking_2_inst/clock_eng_1280_720B/BUFG_pclockx5" located at site "BUFGCTRL_X0Y1"
 #startgroup
 create_pblock {CLKAG_FPGA2_inst/clocking_2_inst/clock_eng_1280_720B/O_buff_clk5xpixel}
 add_cells_to_pblock [get_pblocks  {CLKAG_FPGA2_inst/clocking_2_inst/clock_eng_1280_720B/O_buff_clk5xpixel}] [get_cells -filter { PRIMITIVE_GROUP != I/O && IS_PRIMITIVE==1 && PRIMITIVE_LEVEL !=INTERNAL } -of_object [get_pins -filter {DIRECTION==IN} -of_objects [get_nets -hierarchical -filter {PARENT=="FPGA2_inst/clocking_2_inst/clock_eng_1280_720B/O_buff_clk5xpixel"}]]]
@@ -301,19 +301,19 @@ resize_pblock [get_pblocks {CLKAG_FPGA2_inst/clocking_2_inst/clock_eng_1280_720B
 #startgroup
 create_pblock {CLKAG_FPGA2_inst/clocking_2_inst/clock_eng_1280_720A/O_buff_clkpixel}
 add_cells_to_pblock [get_pblocks  {CLKAG_FPGA2_inst/clocking_2_inst/clock_eng_1280_720A/O_buff_clkpixel}] [get_cells -filter { PRIMITIVE_GROUP != I/O && IS_PRIMITIVE==1 && PRIMITIVE_LEVEL !=INTERNAL && NAME!=FPGA2_inst/clocking_2_inst/clock_eng_1280_720B/PLL_BASE_inst} -of_object [get_pins -filter {DIRECTION==IN} -of_objects [get_nets -hierarchical -filter {PARENT=="FPGA2_inst/clocking_2_inst/clock_eng_1280_720A/O_buff_clkpixel"}]]]
-resize_pblock [get_pblocks {CLKAG_FPGA2_inst/clocking_2_inst/clock_eng_1280_720A/O_buff_clkpixel}] -add {CLOCKREGION_X0Y0:CLOCKREGION_X0Y0 CLOCKREGION_X1Y0:CLOCKREGION_X1Y0}
+resize_pblock [get_pblocks {CLKAG_FPGA2_inst/clocking_2_inst/clock_eng_1280_720A/O_buff_clkpixel}] -add {CLOCKREGION_X0Y0:CLOCKREGION_X0Y0}
 #endgroup
 
 # Clock net "FPGA1_inst/clocking_1_inst/clk_A_BUFG" driven by instance "FPGA1_inst/clocking_1_inst/clk_A_BUFG_inst" located at site "BUFGCTRL_X0Y16"
 #startgroup
 create_pblock {CLKAG_FPGA1_inst/clocking_1_inst/clk_A_BUFG}
 add_cells_to_pblock [get_pblocks  {CLKAG_FPGA1_inst/clocking_1_inst/clk_A_BUFG}] [get_cells -filter { PRIMITIVE_GROUP != I/O && IS_PRIMITIVE==1 && PRIMITIVE_LEVEL !=INTERNAL } -of_object [get_pins -filter {DIRECTION==IN} -of_objects [get_nets -hierarchical -filter {PARENT=="FPGA1_inst/clocking_1_inst/clk_A_BUFG"}]]]
-resize_pblock [get_pblocks {CLKAG_FPGA1_inst/clocking_1_inst/clk_A_BUFG}] -add {CLOCKREGION_X1Y0:CLOCKREGION_X1Y0}
+resize_pblock [get_pblocks {CLKAG_FPGA1_inst/clocking_1_inst/clk_A_BUFG}] -add {CLOCKREGION_X0Y0:CLOCKREGION_X0Y0}
 #endgroup
 
 # Clock net "FPGA1_inst/clocking_1_inst/CLK_SPI_O_BUFG" driven by instance "FPGA1_inst/clocking_1_inst/CLK_SPI_O_BUFG_inst" located at site "BUFGCTRL_X0Y17"
 #startgroup
 create_pblock {CLKAG_FPGA1_inst/clocking_1_inst/CLK_SPI_O_BUFG}
 add_cells_to_pblock [get_pblocks  {CLKAG_FPGA1_inst/clocking_1_inst/CLK_SPI_O_BUFG}] [get_cells -filter { PRIMITIVE_GROUP != I/O && IS_PRIMITIVE==1 && PRIMITIVE_LEVEL !=INTERNAL } -of_object [get_pins -filter {DIRECTION==IN} -of_objects [get_nets -hierarchical -filter {PARENT=="FPGA1_inst/clocking_1_inst/CLK_SPI_O_BUFG"}]]]
-resize_pblock [get_pblocks {CLKAG_FPGA1_inst/clocking_1_inst/CLK_SPI_O_BUFG}] -add {CLOCKREGION_X1Y0:CLOCKREGION_X1Y0}
+resize_pblock [get_pblocks {CLKAG_FPGA1_inst/clocking_1_inst/CLK_SPI_O_BUFG}] -add {CLOCKREGION_X0Y0:CLOCKREGION_X0Y0}
 #endgroup

@@ -33,8 +33,8 @@ end SPI_RX;
 architecture Behavioral of SPI_RX is
 
     
-    -- Pure VHDL DD
-    component spi_rx_pure_vhdl_dd is
+    -- Pure VHDL
+    component spi_rx_pure_vhdl is
         Port ( 
                RESET_I : in STD_LOGIC;
                
@@ -90,9 +90,9 @@ ADDR_O <= x"10";
      
      
    
--- Pure VHDL DD
-spi_rx_pure_vhdl_dd_gen: if SPI_TYPE = VHDL_DD generate begin
-    spi_rx_pure_vhdl_dd_inst: spi_rx_pure_vhdl_dd 
+-- Pure VHDL 
+spi_rx_pure_vhdl_gen: if SPI_TYPE = VHDL generate begin
+    spi_rx_pure_vhdl_inst: spi_rx_pure_vhdl
     port map(
         RESET_I => RESET_I,
         DATA_O  => DATA_O,

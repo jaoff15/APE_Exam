@@ -3,10 +3,10 @@
 for i in 1 2 3 4 5 6 7 8 9 10; do
 echo "#W:1000700000"  > /dev/ttyUSB0
 sleep 1
-echo "#W:1004700000"  > /dev/ttyUSB0
+echo "#W:1004000000"  > /dev/ttyUSB0
 sleep 1
-echo "#W:1004700200"  > /dev/ttyUSB0
+echo "#W:10040001B0"  > /dev/ttyUSB0
 sleep 1
-echo "#W:1000700200"  > /dev/ttyUSB0
+echo "#W:10007001B0"  > /dev/ttyUSB0
 sleep 1
 done

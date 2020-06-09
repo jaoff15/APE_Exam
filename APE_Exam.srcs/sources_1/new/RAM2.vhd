@@ -18,10 +18,10 @@ use UNISIM.VComponents.all;
 
 entity RAM2 is
     generic( RAM_COUNT  : integer := 8);
-    Port ( CLK_I        : in  STD_LOGIC;
-           RESET_I      : in  STD_LOGIC;
-           ADR_I        : in  STD_LOGIC_VECTOR (15 downto 0);
-           DATA_O       : out STD_LOGIC_VECTOR (7  downto 0));
+    Port ( CLK_I        : in  STD_LOGIC := '0';
+           RESET_I      : in  STD_LOGIC := '0';
+           ADR_I        : in  STD_LOGIC_VECTOR (15 downto 0) := (others => '0');
+           DATA_O       : out STD_LOGIC_VECTOR (7  downto 0) := (others => '0'));
 end RAM2;
 
 architecture Behavioral of RAM2 is

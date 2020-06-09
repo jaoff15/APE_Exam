@@ -63,13 +63,11 @@ component QLinkMaster is
             CLK_48_I        : in  STD_LOGIC;
             RX_I         : in  STD_LOGIC;
             TX_O         : out STD_LOGIC;
---            CLK48_O      : out STD_LOGIC;
             ADDR_B_O     : out STD_LOGIC_VECTOR(7 downto 0);
             DATA_B_O     : out STD_LOGIC_VECTOR(31 downto 0);
             DATA_B_I     : in  STD_LOGIC_VECTOR(31 downto 0);
             WR_O         : out STD_LOGIC;
             RD_O         : out STD_LOGIC;
---            RESET_O      : out STD_LOGIC;
             LED_O        : out STD_LOGIC );
 end component;
 
@@ -142,11 +140,9 @@ QLINK1: QLinkMaster
     generic map (CLK_I_PERIOD => 10.0) -- Instantiate the QLinkMaster for 100MHz input clock   
     port map (   
     RESET_I      => RESET_I,
---    RESET_O      => sys_reset,
     CLK_48_I     => clk48,
     RX_I         => RX_I,
     TX_O         => TX_O,
-   -- CLK48_O      => clk48,
     ADDR_B_O     => adr_A,
     DATA_B_O     => data_A_I,
     DATA_B_I     => ram_data, 
@@ -156,28 +152,6 @@ QLINK1: QLinkMaster
 
 
 
---FDSE_fpga1_inst : FDSE
---generic map (
---  INIT => '0') -- Initial value of register ('0' or '1')  
---port map (
---  Q     => sys_reset,      -- Data output
---  C     => clk48,      -- Clock input
---  CE    => '1',    -- Clock enable input
---  S     => '0',      -- Synchronous Set input
---  D     => RESET_I       -- Data input
---);
---BUFG_fpga1_inst : BUFG
--- port map (
---    O => sys_reset, -- 1-bit output: Clock output
---    I => RESET_I  -- 1-bit input: Clock input
--- );
-
---reset_sync_fpga1: process(clk48)
---begin
---    if rising_edge(clk48) then
---        sys_reset <= RESET_I;
---    end if;
---end process;
 
 sys_reset <= RESET_I;
 
@@ -218,7 +192,8 @@ port map (
     RESET_I  => sys_reset,
     -- RAM
     ADDR_O   => adr_B,
-    DATA_I   => data_B_O,
+--    DATA_I   => data_B_O,
+    DATA_I   => x"12345678",
     -- SPI
     SCLK_O   => SPI_SCLK_O,
     MOSI_O   => SPI_MOSI_O
