@@ -67,7 +67,7 @@ begin
         end if;
         
         -- Update the SERDES data 
-        if nxt_counter = 2 then
+        if nxt_counter = 0 then
         
             if    subpart = 0 then
                 D <= nxt_snapshot(7 downto 0);            
@@ -190,6 +190,14 @@ OSERDESE2_SCLK_inst : OSERDESE2
       D6 => '0',
       D7 => '1',
       D8 => '0',
+--      D1 => '0',
+--      D2 => '1',
+--      D3 => '0',
+--      D4 => '1',
+--      D5 => '0',
+--      D6 => '1',
+--      D7 => '0',
+--      D8 => '1',
       OCE => '1',             -- 1-bit input: Output data clock enable
       RST => RESET_I,             -- 1-bit input: Reset
       -- SHIFTIN1 / SHIFTIN2: 1-bit (each) input: Data input expansion (1-bit each)

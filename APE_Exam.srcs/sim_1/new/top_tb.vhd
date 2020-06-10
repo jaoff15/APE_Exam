@@ -18,13 +18,12 @@
 -- 
 ----------------------------------------------------------------------------------
 
--- Include SPI lib 
-library work; 
---use work.spi_lib.all;
-use work.ascii_lib.all;
+
 
 library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
+library work; 
+use work.ascii_lib.all;
 
 entity top_tb is
 --  Port ( );

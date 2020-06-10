@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<GenRun Id="synth_1" LaunchPart="xc7s25ftgb196-1" LaunchTime="1591739433">
+<GenRun Id="synth_1" LaunchPart="xc7s25ftgb196-1" LaunchTime="1591782390">
   <File Type="VDS-TIMING-PB" Name="top_timing_summary_synth.pb"/>
   <File Type="VDS-TIMINGSUMMARY" Name="top_timing_summary_synth.rpt"/>
   <File Type="RDS-DCP" Name="top.dcp"/>
@@ -79,6 +79,12 @@
       <FileInfo>
         <Attr Name="ImportPath" Val="$PPRDIR/../hdmi_test/test_files/sources_1/TDMS_encoder.vhd"/>
         <Attr Name="ImportTime" Val="1586863742"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/new/ascii_lib.vhd">
+      <FileInfo>
         <Attr Name="UsedIn" Val="synthesis"/>
         <Attr Name="UsedIn" Val="simulation"/>
       </FileInfo>
@@ -211,13 +217,6 @@
       <FileInfo>
         <Attr Name="ImportPath" Val="$PPRDIR/../hdmi_test/test_files/sources_1/top.vhd"/>
         <Attr Name="ImportTime" Val="1586901893"/>
-        <Attr Name="UsedIn" Val="synthesis"/>
-        <Attr Name="UsedIn" Val="simulation"/>
-      </FileInfo>
-    </File>
-    <File Path="$PSRCDIR/sources_1/new/ascii_lib.vhd">
-      <FileInfo>
-        <Attr Name="AutoDisabled" Val="1"/>
         <Attr Name="UsedIn" Val="synthesis"/>
         <Attr Name="UsedIn" Val="simulation"/>
       </FileInfo>

@@ -47,6 +47,9 @@ use IEEE.STD_LOGIC_1164.ALL;
 ---USE ieee.numeric_std.ALL;
 use IEEE.STD_LOGIC_UNSIGNED.ALL; 
 
+library work; 
+use work.ascii_lib.all;
+
 Library UNISIM;                    -- For Xilinx primitives
 use UNISIM.vcomponents.all;        --   allow all "components"
 
@@ -55,11 +58,9 @@ entity QLinkMaster is
   Generic ( CLK_I_PERIOD : real range 2.0 to 64.0 := 40.0;  -- Default 25MHz
             BLINK_SEQUENCE : std_logic_vector := "10111011101110101011101110101010101110101011101110101110100010101011101011101011101110101010101011101000101011101110101011101010101011101010111010101110001110111011101110111010111010111011101010111010111010111010111011101110101000" );  --  
   Port    ( RESET_I  : in STD_LOGIC;
---            CLK_I    : in STD_LOGIC;
-            CLK_48_I  : in std_logic;
+            CLK_16_I  : in std_logic;
             RX_I     : in STD_LOGIC;
             TX_O     : out STD_LOGIC;
---            CLK48_O  : out STD_LOGIC;
             ADDR_B_O : out STD_LOGIC_VECTOR(7 downto 0);
             DATA_B_O : out STD_LOGIC_VECTOR(31 downto 0);
             DATA_B_I : in  STD_LOGIC_VECTOR(31 downto 0);
@@ -72,20 +73,7 @@ end QLinkMaster;
 ----------------------------------
 architecture rtl of QLinkMaster is
 
----- COMPONENTS ----
 
--- Define the MMCM component
---  component clocking_1 is
---    Generic  (CLK_I_PERIOD : real range 2.0 to 64.0);  
---    Port     (RESET_I    : in STD_LOGIC;
---              CLK_I      : in STD_LOGIC;
---              CLK48_O    : out STD_LOGIC;
---              PLL_LOCK_O : out STD_LOGIC );
---   end component;
---   signal mmcm_lock     : std_logic;     -- Will be mapped to PLL:LOCK_O
---   signal clk48  : std_logic;     -- Will be mapped to CLK1_O and CLK0_O
---------------------------------------------------------
-  
 -- Define serial decoder component   
 component decode_serial is
     Port ( RESET_I    : in STD_LOGIC;
@@ -120,58 +108,61 @@ type rx_state_t is (hashtag,cmd,                                     -- First st
                     write_commit);                                   -- WRITE, create write cycle on bus
 signal rx_state : rx_state_t;
 
+
 function hex2ascii (x : in std_logic_vector(3 downto 0)) return std_logic_vector is
   variable y : std_logic_vector(7 downto 0);
 begin
   case (x) is
-    when X"0" => y:=X"30"; -- "0"
-    when X"1" => y:=X"31"; -- "1"
-    when X"2" => y:=X"32"; -- "2"
-    when X"3" => y:=X"33"; -- "3"
-    when X"4" => y:=X"34"; -- "4"
-    when X"5" => y:=X"35"; -- "5"
-    when X"6" => y:=X"36"; -- "6"
-    when X"7" => y:=X"37"; -- "7"
-    when X"8" => y:=X"38"; -- "8"
-    when X"9" => y:=X"39"; -- "9"
-    when X"A" => y:=X"41"; -- "A"
-    when X"B" => y:=X"42"; -- "B"
-    when X"C" => y:=X"43"; -- "C"
-    when X"D" => y:=X"44"; -- "D"
-    when X"E" => y:=X"45"; -- "E"
-    when X"F" => y:=X"46"; -- "F"
-    when others => y:=X"3F"; -- "?"
+    when X"0" => y:=ASCII_0; -- "0"
+    when X"1" => y:=ASCII_1; -- "1"
+    when X"2" => y:=ASCII_2; -- "2"
+    when X"3" => y:=ASCII_3; -- "3"
+    when X"4" => y:=ASCII_4; -- "4"
+    when X"5" => y:=ASCII_5; -- "5"
+    when X"6" => y:=ASCII_6; -- "6"
+    when X"7" => y:=ASCII_7; -- "7"
+    when X"8" => y:=ASCII_8; -- "8"
+    when X"9" => y:=ASCII_9; -- "9"
+    when X"A" => y:=ASCII_A; -- "A"
+    when X"B" => y:=ASCII_B; -- "B"
+    when X"C" => y:=ASCII_C; -- "C"
+    when X"D" => y:=ASCII_D; -- "D"
+    when X"E" => y:=ASCII_E; -- "E"
+    when X"F" => y:=ASCII_F; -- "F"
+    when others => y:=ASCII_question; -- "?"
   end case;
   return y;
 end function;
 
+                      
 function ascii2hex (x : in std_logic_vector(7 downto 0)) return std_logic_vector is
   variable y : std_logic_vector(3 downto 0);
   variable yy : std_logic_vector (4 downto 0);
-  variable err : std_logic;      
-   begin
-      err:='0';
-      if    x=X"30" then y:= X"0";
-      elsif x=X"31" then y:= X"1";
-      elsif x=X"32" then y:= X"2";
-      elsif x=X"33" then y:= X"3";
-      elsif x=X"34" then y:= X"4";
-      elsif x=X"35" then y:= X"5";
-      elsif x=X"36" then y:= X"6";
-      elsif x=X"37" then y:= X"7";
-      elsif x=X"38" then y:= X"8";
-      elsif x=X"39" then y:= X"9";                        
-      elsif x=X"41" or x=X"61" then y:= X"A";
-      elsif x=X"42" or x=X"62" then y:= X"B";
-      elsif x=X"43" or x=X"63" then y:= X"C";
-      elsif x=X"44" or x=X"64" then y:= X"D";
-      elsif x=X"45" or x=X"65" then y:= X"E";
-      elsif x=X"46" or x=X"66" then y:= X"F";
-      else  err:='1';
-      end if;
-      yy := err & y;
-      return yy;
-   end ascii2hex;
+    variable err : std_logic;      
+     begin
+        err:='0';
+        if    x=ASCII_0 then y:= X"0";
+        elsif x=ASCII_1 then y:= X"1";
+        elsif x=ASCII_2 then y:= X"2";
+        elsif x=ASCII_3 then y:= X"3";
+        elsif x=ASCII_4 then y:= X"4";
+        elsif x=ASCII_5 then y:= X"5";
+        elsif x=ASCII_6 then y:= X"6";
+        elsif x=ASCII_7 then y:= X"7";
+        elsif x=ASCII_8 then y:= X"8";
+        elsif x=ASCII_9 then y:= X"9";                        
+        elsif x=ASCII_A or x=ASCII_aa then y:= X"A";
+        elsif x=ASCII_B or x=ASCII_bb then y:= X"B";
+        elsif x=ASCII_C or x=ASCII_cc then y:= X"C";
+        elsif x=ASCII_D or x=ASCII_dd then y:= X"D";
+        elsif x=ASCII_E or x=ASCII_ee then y:= X"E";
+        elsif x=ASCII_F or x=ASCII_ff then y:= X"F";
+        else  err:='1';
+        end if;
+        yy := err & y;
+        return yy;
+     end ascii2hex;
+
    
    
    -- Internal system signals
@@ -197,10 +188,6 @@ begin
 
 
 
---clk100 <= clk48;
---CLK48_O <= clk48;
---RESET_O <= RESET_I;
-
 ADDR_B_O <= adr;
 DATA_B_O <= data32;
 
@@ -213,7 +200,7 @@ RD_O <= rd;
 
 DECODE:decode_serial port map(     -- Instantiate RX decoder
      RESET_I    => RESET_I,  -- System reset
-     CLK_UART_I => CLK_48_I,      -- Serial clock ... 16 x bitrate
+     CLK_UART_I => CLK_16_I,      -- Serial clock ... 16 x bitrate
      RX_I       => RX_I,       -- Serial data
      DATA_O     => dec_data,   -- Paralel data
      STB_O      => dec_strb    -- Strobe
@@ -221,7 +208,7 @@ DECODE:decode_serial port map(     -- Instantiate RX decoder
 
 ENCODE:encode_serial port map(      -- Instantiate TX encoder
            RESET_I=>RESET_I,  -- System reset
-           CLK_UART_I=> CLK_48_I,  -- Serial clock ... 16 x bitrate
+           CLK_UART_I=> CLK_16_I,  -- Serial clock ... 16 x bitrate
            DATA_I => enc_data,  -- Parallel data
            WR_I   => enc_wr,    -- Write strobe
            TX_O   => TX_O,      -- Serial data
@@ -229,9 +216,9 @@ ENCODE:encode_serial port map(      -- Instantiate TX encoder
 
 -- State machine to control status LED
 
-process(CLK_48_I,RESET_I)
+process(CLK_16_I,RESET_I)
 begin
-  if rising_edge(CLK_48_I) then
+  if rising_edge(CLK_16_I) then
     
     if RESET_I='1' then
       led_idx<=0;
@@ -248,7 +235,7 @@ begin
 end process;
 
 ---- State machine to detect and decode #W:aadddddddd sequences and produce RW/WR cycles
-process(CLK_48_I,RESET_I)
+process(CLK_16_I,RESET_I)
   variable nxt_rx_state : rx_state_t := hashtag;
   variable nxt_adr : std_logic_vector(7 downto 0);
   variable nxt_data32 : std_logic_vector(31 downto 0);
@@ -260,7 +247,7 @@ process(CLK_48_I,RESET_I)
   --variable nxt_enc_wr : std_logic;
   variable nxt_sendstring : std_logic;
 begin
-  if rising_edge(CLK_48_I) then
+  if rising_edge(CLK_16_I) then
     if RESET_I='1' then
       clk_cnt<=X"00000000";
       nxt_rx_state:=hashtag;
@@ -289,18 +276,18 @@ begin
          
       case (rx_state) is   -- (hashtag,cmd,read_colon,write_colon,write_addr0,write_addr1);
         when hashtag =>
-          if dec_strb='1' and dec_data = X"23" then nxt_rx_state:=cmd; end if;
+          if dec_strb='1' and dec_data = ASCII_HASHTAG then nxt_rx_state:=cmd; end if;
         when cmd =>
           if dec_strb='1' then
             case(dec_data) is
-              when X"57" => nxt_rx_state:= write_colon;  -- "W"
-              when X"77" => nxt_rx_state:= write_colon;  -- "w"
-              when X"52" => 
+              when ASCII_W => nxt_rx_state:= write_colon;  -- "W"
+              when ASCII_ww => nxt_rx_state:= write_colon;  -- "w"
+              when ASCII_R => 
                 nxt_timestamp_enable:='1';
                 nxt_rx_state:= read_colon;  -- "R"
                 --nxt_enc_data:=X"41";
                 --nxt_enc_wr:='1';
-              when X"72" =>
+              when ASCII_rr =>
                 nxt_timestamp_enable:='0';
                 nxt_rx_state:= read_colon;   -- "r"
                 --nxt_enc_data:=X"61";
@@ -309,7 +296,7 @@ begin
             end case;
           end if;
         when write_colon =>
-          if dec_strb='1' and dec_data = X"3A" then nxt_rx_state:=write_addr0; end if;
+          if dec_strb='1' and dec_data = ASCII_COLON then nxt_rx_state:=write_addr0; end if;
           
         when write_addr0 =>
           if dec_strb='1' and ascii2hex(dec_data)(4) /='1' then            
@@ -376,7 +363,7 @@ begin
           
       --- States for read cycles    
         when read_colon =>
-          if dec_strb='1' and dec_data = X"3A" then nxt_rx_state:=read_addr0; end if;
+          if dec_strb='1' and dec_data = ASCII_COLON then nxt_rx_state:=read_addr0; end if;
             
         when read_addr0 =>
           if dec_strb='1' and ascii2hex(dec_data)(4) /='1' then            
@@ -420,12 +407,12 @@ begin
 end process;
  
 ---- Feed the serial encoder a string sequences
-process(CLK_48_I,RESET_I)
+process(CLK_16_I,RESET_I)
   variable nxt_enc_data : std_logic_vector(7 downto 0);
   variable nxt_char_cnt : integer range 0 to 31;
   variable nxt_enc_wr   : std_logic;
 begin 
-  if rising_edge(CLK_48_I) then
+  if rising_edge(CLK_16_I) then
     nxt_enc_wr:='0';
     if RESET_I='1' then       -- if RESET
       nxt_char_cnt:=0;          --  Point at first character
@@ -441,13 +428,13 @@ begin
       
       case (char_cnt) is        --   Discriminate between character number
       when 0 =>                 
-        nxt_enc_data:=X"21";    -- 21="!" 
+        nxt_enc_data:=ASCII_excl;    -- 21="!" 
       when 1 =>
         nxt_enc_data:=hex2ascii(adr(7 downto 4));    
       when 2 =>
         nxt_enc_data:=hex2ascii(adr(3 downto 0));
       when 3 =>
-          nxt_enc_data:=X"3A";
+          nxt_enc_data:=ASCII_COLON;
       when 4 =>
         nxt_enc_data:=hex2ascii(data32(31 downto 28));
       when 5 =>
@@ -469,7 +456,7 @@ begin
         end if;
      
       when 12 =>
-               nxt_enc_data:=X"3B"; -- ";"    
+               nxt_enc_data:=ASCII_semicolon; -- ";"    
        
       when 13 =>
         nxt_enc_data:=hex2ascii(timestamp(31 downto 28));
@@ -489,7 +476,7 @@ begin
         nxt_enc_data:=hex2ascii(timestamp(3 downto 0));
         
       when 21 =>
-        nxt_enc_data:=X"0D";   -- <CR>
+        nxt_enc_data:=ASCII_CR;   -- <CR>
         nxt_char_cnt:=0;
       when others =>
         nxt_char_cnt:=0;

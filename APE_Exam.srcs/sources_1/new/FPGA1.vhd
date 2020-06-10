@@ -48,7 +48,7 @@ architecture rtl of FPGA1 is
 --             range 2.0 to 64.0 := 40.0); -- Period of input clock in ns
       Port ( RESET_I    : in  std_logic;
              CLK_I      : in  STD_LOGIC;
-             CLK48_O    : out STD_LOGIC;
+             CLK16_O    : out STD_LOGIC;
              CLK_SPI_O  : out STD_LOGIC;
              RESET_O    : out STD_LOGIC);
     end component;
@@ -60,7 +60,7 @@ architecture rtl of FPGA1 is
 component QLinkMaster is
   Generic ( CLK_I_PERIOD : real range 2.0 to 64.0);
   Port    ( RESET_I      : in  STD_LOGIC;
-            CLK_48_I        : in  STD_LOGIC;
+            CLK_16_I        : in  STD_LOGIC;
             RX_I         : in  STD_LOGIC;
             TX_O         : out STD_LOGIC;
             ADDR_B_O     : out STD_LOGIC_VECTOR(7 downto 0);
@@ -109,7 +109,7 @@ end component;
 
     -- QLink signals
     signal sys_reset : std_logic := '0';
-    signal clk48     : std_logic := '0';
+    signal clk16     : std_logic := '0';
     signal rd        : std_logic := '0';
     
     -- Port A
@@ -140,7 +140,7 @@ QLINK1: QLinkMaster
     generic map (CLK_I_PERIOD => 10.0) -- Instantiate the QLinkMaster for 100MHz input clock   
     port map (   
     RESET_I      => RESET_I,
-    CLK_48_I     => clk48,
+    CLK_16_I     => clk16,
     RX_I         => RX_I,
     TX_O         => TX_O,
     ADDR_B_O     => adr_A,
@@ -155,7 +155,7 @@ QLINK1: QLinkMaster
 
 sys_reset <= RESET_I;
 
-SYS_CLK_O  <= clk48;
+SYS_CLK_O  <= clk16;
 ADR_O      <= adr_A;     
 
 -- Multiplex output data. 
@@ -171,7 +171,7 @@ with adr_A(7) select
 
 -- RAM0 module instanciation
 RAM_inst0 : TD_RAM_36K_WRAP port map (
-      CLK_A_I  => clk48, 
+      CLK_A_I  => clk16, 
       CLK_B_I  => clk_spi,
       ADDR_A_I => adr_A,
       ADDR_B_I => adr_B,
@@ -205,7 +205,7 @@ clocking_1_inst: clocking_1
     port map (
       RESET_I     => '0',
       CLK_I       => CLK_I,
-      CLK48_O     => clk48, 
+      CLK16_O     => clk16, 
       CLK_SPI_O   => clk_spi,
       RESET_O     => RESET_O
     );
