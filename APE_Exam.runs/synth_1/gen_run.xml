@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<GenRun Id="synth_1" LaunchPart="xc7s25ftgb196-1" LaunchTime="1591787761">
+<GenRun Id="synth_1" LaunchPart="xc7s25ftgb196-1" LaunchTime="1591794698">
   <File Type="VDS-TIMING-PB" Name="top_timing_summary_synth.pb"/>
   <File Type="VDS-TIMINGSUMMARY" Name="top_timing_summary_synth.rpt"/>
   <File Type="RDS-DCP" Name="top.dcp"/>
@@ -51,14 +51,6 @@
         <Attr Name="UsedIn" Val="simulation"/>
       </FileInfo>
     </File>
-    <File Path="$PSRCDIR/sources_1/new/RAM2.vhd">
-      <FileInfo>
-        <Attr Name="ImportPath" Val="$PPRDIR/../exam_project/exam_project.srcs/sources_1/new/RAM2.vhd"/>
-        <Attr Name="ImportTime" Val="1591172502"/>
-        <Attr Name="UsedIn" Val="synthesis"/>
-        <Attr Name="UsedIn" Val="simulation"/>
-      </FileInfo>
-    </File>
     <File Path="$PSRCDIR/sources_1/imports/sources_1/new/SPI_RX.vhd">
       <FileInfo>
         <Attr Name="ImportPath" Val="$PPRDIR/../QLink_/QLink.srcs/sources_1/new/SPI_RX.vhd"/>
@@ -85,14 +77,6 @@
     </File>
     <File Path="$PSRCDIR/sources_1/new/ascii_lib.vhd">
       <FileInfo>
-        <Attr Name="UsedIn" Val="synthesis"/>
-        <Attr Name="UsedIn" Val="simulation"/>
-      </FileInfo>
-    </File>
-    <File Path="$PSRCDIR/sources_1/imports/sources_1/clocking.vhd">
-      <FileInfo>
-        <Attr Name="ImportPath" Val="$PPRDIR/../hdmi_test/test_files/sources_1/clocking.vhd"/>
-        <Attr Name="ImportTime" Val="1586863742"/>
         <Attr Name="UsedIn" Val="synthesis"/>
         <Attr Name="UsedIn" Val="simulation"/>
       </FileInfo>
@@ -149,6 +133,12 @@
       <FileInfo>
         <Attr Name="ImportPath" Val="$PPRDIR/../hdmi_test/hdmi_test.srcs/sources_1/new/image_driver.vhd"/>
         <Attr Name="ImportTime" Val="1589266909"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/new/lfsr_counter.vhd">
+      <FileInfo>
         <Attr Name="UsedIn" Val="synthesis"/>
         <Attr Name="UsedIn" Val="simulation"/>
       </FileInfo>
@@ -217,6 +207,24 @@
       <FileInfo>
         <Attr Name="ImportPath" Val="$PPRDIR/../hdmi_test/test_files/sources_1/top.vhd"/>
         <Attr Name="ImportTime" Val="1586901893"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/new/RAM2.vhd">
+      <FileInfo>
+        <Attr Name="UserDisabled" Val="1"/>
+        <Attr Name="ImportPath" Val="$PPRDIR/../exam_project/exam_project.srcs/sources_1/new/RAM2.vhd"/>
+        <Attr Name="ImportTime" Val="1591172502"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/imports/sources_1/clocking.vhd">
+      <FileInfo>
+        <Attr Name="UserDisabled" Val="1"/>
+        <Attr Name="ImportPath" Val="$PPRDIR/../hdmi_test/test_files/sources_1/clocking.vhd"/>
+        <Attr Name="ImportTime" Val="1586863742"/>
         <Attr Name="UsedIn" Val="synthesis"/>
         <Attr Name="UsedIn" Val="simulation"/>
       </FileInfo>

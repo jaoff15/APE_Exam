@@ -24,167 +24,65 @@ entity image_driver is
 end image_driver;
 
 architecture Behavioral of image_driver is
-    component lfsr is
-    Generic  ( N        : integer := 8);  -- Number of bits in counter
-        Port ( CLK_I    : in  STD_LOGIC;
-               RESET_I  : in  STD_LOGIC;
-               SEED     : in  std_logic_vector(N-1 downto 0) := (others => '0'); -- Counter start value
-               Q_O      : out STD_LOGIC_VECTOR (N-1 downto 0));
+
+    
+    component lfsr_counter is
+        Port ( CLK_I    : in STD_LOGIC;
+               RESET_I  : in STD_LOGIC;
+               COUNT_O  : out std_logic_vector(23 downto 0)
+               );
     end component;
-    
-    COMPONENT RAM2 is
-        Port ( CLK_I        : in  STD_LOGIC;
-               RESET_I      : in  STD_LOGIC;
-               ADR_I        : in  STD_LOGIC_VECTOR (15 downto 0);
-               DATA_O       : out STD_LOGIC_VECTOR (7  downto 0));
-    end COMPONENT;
-    
-    signal ram_out     : std_logic_vector(7 downto 0)  := (others => '0');
-    signal ram_adr     : STD_LOGIC_VECTOR (15 downto 0):= (others => '0');
-    
---    signal lfsr_out_r, lfsr_out_g, lfsr_out_b : STD_LOGIC_VECTOR (7 downto 0);
-    
---    signal count: unsigned(31 downto 0) := X"00000000";
-    
-    signal q            : std_logic_vector(23 downto 0) := (others => '0');
-    signal clock_enable : std_logic := '1';
+
     
     signal x_coord : std_logic_vector(15 downto 0) := (others => '0');
     signal y_coord : std_logic_vector(15 downto 0) := (others => '0');
     
     signal r_out, g_out, b_out : std_logic_vector(7 downto 0) := (others => '0');
 
-    signal isWithin : std_logic := '0';
+    signal lfsr_out     : std_logic_vector(23 downto 0) := (others => '0');
+    
 begin
 
-    x_coord <= POSITION_DATA_I(31 downto 16);
-    y_coord <= POSITION_DATA_I(15 downto  0);
-
---    process(CLK_SLOW_I)
---    begin
---        if rising_edge(CLK_SLOW_I) then
---           count <= count + 1;
---        end if;
---    end process;
-    
---    RED_O   <= std_logic_vector(signed( count(28 downto 21)) + signed( pixel_h(7 downto 0)));    
---    GREEN_O <= std_logic_vector(signed( count(28 downto 21)) + signed( pixel_v(7 downto 0)));
---    BLUE_O  <=  std_logic_vector(count(28 downto 21));
-    
---    RED_O   <= lfsr_out_r(7 downto 0);
---    GREEN_O <= lfsr_out_g(7 downto 0);
---    BLUE_O  <= lfsr_out_b(7 downto 0);
-    
---lfsr_r : lfsr 
---port map( CLK_I   => CLK_SLOW_I,
---          RESET_I => RESET_I,
---          SEED    => x"01",
---          Q_O     => lfsr_out_r);
---lfsr_g : lfsr 
---port map( CLK_I   => CLK_SLOW_I,
---          RESET_I => RESET_I,
---          SEED    => x"02",
---          Q_O     => lfsr_out_g);
---lfsr_b : lfsr 
---port map( CLK_I   => CLK_SLOW_I,
---          RESET_I => RESET_I,
---          SEED    => x"03",
---          Q_O     => lfsr_out_b); 
-
---process(CLK_SLOW_I)
---begin
---    if rising_edge( CLK_SLOW_I) then
---      if (RESET_I = '1') then
---         q <= (others => '0');
---      elsif clock_enable='1' then
---         q(23 downto 1) <= q(22 downto 0);
---         q(0) <= not(q(23) XOR q(22) XOR q(21) XOR q(16)); -- 24bit
---      end if;
---    end if;
---end process;
-
-
-
-
---ram_adr <=  std_logic_vector(unsigned(pixel_h(8 downto 1))) &  
---            not(not(pixel_v(8) & pixel_v(7)) & pixel_v(6) & pixel_v(5) &
---            pixel_v(4) & pixel_v(3) & pixel_v(2) & pixel_v(1));
---            pixel_v(8 downto 1);
- 
--- ram_adr <=  std_logic_vector(unsigned(pixel_h(8 downto 1))) &  
---            not(not(pixel_v(8) & pixel_v(7)) & pixel_v(6) & pixel_v(5) &
---            pixel_v(4) & pixel_v(3) & pixel_v(2) & pixel_v(1));
---  ram_adr <=  std_logic_vector(pixel_v(7 downto 0) & 
---                               not(pixel_h(7 downto 0)));
-                               
--- ram_adr <=  pixel_v(7 downto 0) & std_logic_vector(unsigned(pixel_h(7 downto 0))+1);
--- ram_adr <=  std_logic_vector(unsigned(pixel_h(7 downto 0))+1) & not(pixel_v(7 downto 0));
-                              
-RAM2_inst: RAM2 port map(
-    CLK_I   => CLK_SLOW_I,
-    RESET_I => RESET_I,
-    ADR_I   => ram_adr,
-    DATA_O  => ram_out);
-
+x_coord <= POSITION_DATA_I(31 downto 16);
+y_coord <= POSITION_DATA_I(15 downto  0);
 
 
 
 process(CLK_SLOW_I)
-variable x : std_logic_vector(15 downto 0);
-variable y : std_logic_vector(15 downto 0);
 begin
     if rising_edge( CLK_SLOW_I ) then
         if RESET_I = '1' then
-            ram_adr  <= (others=>'0');
-            isWithin <= '0';
-        elsif  unsigned(x_coord) <= (unsigned(pixel_h)) and (unsigned(pixel_h)) <= (unsigned(x_coord)+255) and 
-               unsigned(y_coord) <= unsigned(pixel_v)   and unsigned(pixel_v)   <= (unsigned(y_coord)+255) then
+            r_out <= (others => '1');
+            g_out <= (others => '1'); 
+            b_out <= (others => '1');  
+        elsif  unsigned(x_coord) <= (unsigned(pixel_h)) and (unsigned(pixel_h)) <= (unsigned(x_coord)+100) and 
+               unsigned(y_coord) <= unsigned(pixel_v)   and unsigned(pixel_v)   <= (unsigned(y_coord)+100) then
+
+            r_out <= lfsr_out(7  downto  0); 
+            g_out <= lfsr_out(15 downto  8); 
+            b_out <= lfsr_out(23 downto 16);
             
-            -- adr = (pixel_h + x_coord) & (pixel_v + y_coord) 
---            x := std_logic_vector(unsigned(pixel_h)     + unsigned(x_coord));
---            y := std_logic_vector(unsigned(not(pixel_v))+ unsigned(y_coord));
-            
---            ram_adr <=  x(7 downto 0) & y(7 downto 0); 
-            
-            r_out <= (others => '1');     
-            
-            isWithin <= '1';
         else
-            isWithin <= '0';
+            -- Print white
+            r_out <= (others => '1'); 
+            g_out <= (others => '1'); 
+            b_out <= (others => '1');
         end if;
     end if;
 end process;
-
-
-g_out <= r_out;
-b_out <= r_out;
---with isWithin select
---    r_out <= ram_out when '1',
---             (others => '1') when others;
 
 
 RED_O   <= r_out;
 GREEN_O <= g_out;
 BLUE_O  <= b_out;
 
---with ram_out select
---    RED_O <= q(7 downto 0) when x"0",
---             ram_out       when others;
 
---with ram_out select
---    GREEN_O <= q(15 downto 8) when x"0",
---               ram_out        when others;
+-- The LFSR instance 
+lfsr_inst : lfsr_counter port map(
+    CLK_I   => CLK_SLOW_I,
+    RESET_I => RESET_I,
+    COUNT_O => lfsr_out
+);
 
---with ram_out select
---    BLUE_O <= q(23 downto 16) when x"0",
---              ram_out         when others;                  
-         
---RED_O   <= ram_out;
---GREEN_O <= ram_out;
---BLUE_O  <= ram_out;
-
---RED_O   <= q(7 downto 0);
---GREEN_O <= q(15 downto 8);
---BLUE_O  <= q(23 downto 16);
     
 end Behavioral;

@@ -35,12 +35,10 @@ read_vhdl -library xil_defaultlib {
   /home/jacoboffersen/advanced_programmable_electronics/APE_Exam/APE_Exam.srcs/sources_1/new/FPGA2.vhd
   /home/jacoboffersen/advanced_programmable_electronics/APE_Exam/APE_Exam.srcs/sources_1/new/OSERDES_WRAP.vhd
   /home/jacoboffersen/advanced_programmable_electronics/APE_Exam/APE_Exam.srcs/sources_1/new/RAM0.vhd
-  /home/jacoboffersen/advanced_programmable_electronics/APE_Exam/APE_Exam.srcs/sources_1/new/RAM2.vhd
   /home/jacoboffersen/advanced_programmable_electronics/APE_Exam/APE_Exam.srcs/sources_1/imports/sources_1/new/SPI_RX.vhd
   /home/jacoboffersen/advanced_programmable_electronics/APE_Exam/APE_Exam.srcs/sources_1/imports/sources_1/new/SPI_TX.vhd
   /home/jacoboffersen/advanced_programmable_electronics/APE_Exam/APE_Exam.srcs/sources_1/imports/sources_1/TDMS_encoder.vhd
   /home/jacoboffersen/advanced_programmable_electronics/APE_Exam/APE_Exam.srcs/sources_1/new/ascii_lib.vhd
-  /home/jacoboffersen/advanced_programmable_electronics/APE_Exam/APE_Exam.srcs/sources_1/imports/sources_1/clocking.vhd
   /home/jacoboffersen/advanced_programmable_electronics/APE_Exam/APE_Exam.srcs/sources_1/new/clocking_1.vhd
   /home/jacoboffersen/advanced_programmable_electronics/APE_Exam/APE_Exam.srcs/sources_1/new/clocking_2.vhd
   /home/jacoboffersen/advanced_programmable_electronics/APE_Exam/APE_Exam.srcs/sources_1/imports/sources_1/imports/QLink_2020/QLINK/decode_serial.vhd
@@ -48,6 +46,7 @@ read_vhdl -library xil_defaultlib {
   /home/jacoboffersen/advanced_programmable_electronics/APE_Exam/APE_Exam.srcs/sources_1/imports/sources_1/imports/QLink_2020/QLINK/encode_serial.vhd
   /home/jacoboffersen/advanced_programmable_electronics/APE_Exam/APE_Exam.srcs/sources_1/new/hdmi_driver.vhd
   /home/jacoboffersen/advanced_programmable_electronics/APE_Exam/APE_Exam.srcs/sources_1/new/image_driver.vhd
+  /home/jacoboffersen/advanced_programmable_electronics/APE_Exam/APE_Exam.srcs/sources_1/new/lfsr_counter.vhd
   /home/jacoboffersen/advanced_programmable_electronics/APE_Exam/APE_Exam.srcs/sources_1/imports/sources_1/imports/QLink_2020/QLINK/qlinkmaster.vhd
   /home/jacoboffersen/advanced_programmable_electronics/APE_Exam/APE_Exam.srcs/sources_1/new/spi_rx_ddr_based.vhd
   /home/jacoboffersen/advanced_programmable_electronics/APE_Exam/APE_Exam.srcs/sources_1/new/spi_rx_pure_vhdl.vhd
