@@ -51,6 +51,7 @@ variable nxt_data   : std_logic_vector(31 downto 0)  := data;
 variable nxt_wr     : std_logic := '0';
 begin
     if rising_edge(SCLK_I) then
+      nxt_wr := '0';
       if RESET_I='1' then
         nxt_bitcnt  := 0; 
         nxt_data    := (others => '0');

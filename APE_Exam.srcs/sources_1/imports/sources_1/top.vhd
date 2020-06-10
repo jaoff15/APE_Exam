@@ -127,16 +127,14 @@ architecture Behavioral of top is
     
     signal global_reset : std_logic := '1';
     signal reset_fpga1_o, reset_fpga2_o : std_logic := '1';
---    signal reset_fpga1_i, reset_fpga2_i : std_logic := '1';
-    
-    
+
 begin
  
 global_reset <= reset_fpga1_o or reset_fpga2_o;
 
  
 FPGA1_inst : FPGA1 
-generic map( SPI_TYPE => VHDL)
+generic map( SPI_TYPE => SERDES)
 port map( 
     CLK_I       => CLK100MHZ,
     RESET_I     => global_reset,
@@ -175,7 +173,7 @@ RAM_spi_debug : TD_RAM_36K_WRAP port map (
 
 
 FPGA2_inst: FPGA2 
-generic map( SPI_TYPE => VHDL)
+generic map( SPI_TYPE => SERDES)
 port map(
     CLK_I       => CLK100MHZ,
     RESET_I     => global_reset,

@@ -35,7 +35,7 @@ end spi_tx_ddr_based;
 architecture Behavioral of spi_tx_ddr_based is
 
     signal bitcnt       : integer range 0 to 31 := 0;
-    signal data         : std_logic_vector(31 downto 0);
+    signal data         : std_logic_vector(31 downto 0) := (others => '0');
     -- Signal that describes if the module has been started
     signal sclk_active  : std_logic := '0';
     -- Clock that is started when sclk_active has been set to 1 

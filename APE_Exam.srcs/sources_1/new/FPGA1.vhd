@@ -44,8 +44,6 @@ architecture rtl of FPGA1 is
  ---------------------------- Simulated FPGA 1
   -- Clocking
     component clocking_1 is
---    Generic   (CLK_I_PERIOD : real 
---             range 2.0 to 64.0 := 40.0); -- Period of input clock in ns
       Port ( RESET_I    : in  std_logic;
              CLK_I      : in  STD_LOGIC;
              CLK16_O    : out STD_LOGIC;
@@ -192,8 +190,8 @@ port map (
     RESET_I  => sys_reset,
     -- RAM
     ADDR_O   => adr_B,
-    DATA_I   => data_B_O,
---    DATA_I   => x"12345678", -- used for testing
+--    DATA_I   => data_B_O,
+    DATA_I   => x"12345678", -- used for testing
     -- SPI
     SCLK_O   => SPI_SCLK_O,
     MOSI_O   => SPI_MOSI_O

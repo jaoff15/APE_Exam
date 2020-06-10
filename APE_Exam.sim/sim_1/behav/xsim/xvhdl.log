@@ -1,2 +1,2 @@
-INFO: [VRFC 10-163] Analyzing VHDL file "/home/jacoboffersen/advanced_programmable_electronics/APE_Exam/APE_Exam.srcs/sources_1/new/spi_rx_ddr_based.vhd" into library xil_defaultlib
-INFO: [VRFC 10-307] analyzing entity spi_rx_ddr_based
+INFO: [VRFC 10-163] Analyzing VHDL file "/home/jacoboffersen/advanced_programmable_electronics/APE_Exam/APE_Exam.srcs/sources_1/new/spi_rx_serdes_based.vhd" into library xil_defaultlib
+INFO: [VRFC 10-307] analyzing entity spi_rx_serdes_based

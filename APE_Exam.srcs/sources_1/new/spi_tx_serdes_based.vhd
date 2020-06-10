@@ -173,7 +173,7 @@ OSERDESE2_SCLK_inst : OSERDESE2
       DATA_RATE_TQ => "DDR",   -- DDR, BUF, SDR
       DATA_WIDTH => 8,         -- Parallel data width (2-8,10,14)
       INIT_OQ => '0',          -- Initial value of OQ output (1'b0,1'b1)
-      INIT_TQ => '0',          -- Initial value of TQ output (1'b0,1'b1)
+      INIT_TQ => '0',          -- Initiail value of TQ output (1'b0,1'b1)
       SERDES_MODE => "MASTER", -- MASTER, SLAVE
       SRVAL_OQ => '0',         -- OQ output value when SR is used (1'b0,1'b1)
       SRVAL_TQ => '0',         -- TQ output value when SR is used (1'b0,1'b1)
@@ -193,22 +193,22 @@ OSERDESE2_SCLK_inst : OSERDESE2
       CLK    => clk,             -- 1-bit input: High speed clock
       CLKDIV => clk_div,       -- 1-bit input: Divided clock
       -- D1 - D8: 1-bit (each) input: Parallel data inputs (1-bit each)
-      D1 => '1',
-      D2 => '0',
-      D3 => '1',
-      D4 => '0',
-      D5 => '1',
-      D6 => '0',
-      D7 => '1',
-      D8 => '0',
---      D1 => '0',
---      D2 => '1',
---      D3 => '0',
---      D4 => '1',
---      D5 => '0',
---      D6 => '1',
---      D7 => '0',
---      D8 => '1',
+--      D1 => '1',
+--      D2 => '0',
+--      D3 => '1',
+--      D4 => '0',
+--      D5 => '1',
+--      D6 => '0',
+--      D7 => '1',
+--      D8 => '0',
+      D1 => '0',
+      D2 => '1',
+      D3 => '0',
+      D4 => '1',
+      D5 => '0',
+      D6 => '1',
+      D7 => '0',
+      D8 => '1',
       OCE => '1',             -- 1-bit input: Output data clock enable
       RST => RESET_I,             -- 1-bit input: Reset
       -- SHIFTIN1 / SHIFTIN2: 1-bit (each) input: Data input expansion (1-bit each)

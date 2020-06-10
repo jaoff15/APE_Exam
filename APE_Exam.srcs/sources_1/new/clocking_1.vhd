@@ -38,6 +38,7 @@ port map (
    O => CLK_SPI_O, -- 1-bit output: Clock output
    I => clk_spi  -- 1-bit input: Clock input
 );
+
 --CLK16_O     <= clk16;
 --CLK_SPI_O   <= clk_spi;
   

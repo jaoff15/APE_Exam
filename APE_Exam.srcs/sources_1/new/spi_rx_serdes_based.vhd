@@ -39,11 +39,14 @@ architecture Behavioral of spi_rx_serdes_based is
     signal Q             : std_logic_vector(7 downto 0) := (others => '0');
 --    signal counter       : integer range 0 to 3 := 0;
     signal clk, clkb  : std_logic := '0';
-    signal clk_div  : std_logic := '0';
+    signal clk_div,clk_divb  : std_logic := '0';
    
     signal subpart       : integer range 0 to 3 := 0;
     signal data          : STD_LOGIC_VECTOR (31 downto 0) := (others => '0');
     signal wr            : STD_LOGIC := '0';
+    
+    signal serdes_reset  : std_logic := '1';
+    signal reset_clk_cnt : integer range 0 to 18 := 0;
 begin
 
 WR_O    <= wr;
@@ -61,29 +64,33 @@ begin
         nxt_subpart := 0;
         nxt_data    := (others => '0');
         nxt_wr      := '0';
+        
     else
+    if serdes_reset = '0' then 
         -- Read in SERDES data
---        if nxt_counter = 2 then
+        if    subpart = 0 then
+            nxt_data( 7 downto  0) := Q;
+        elsif subpart = 1 then
+            nxt_data(15 downto  8) := Q;
+        elsif subpart = 2 then
+            nxt_data(23 downto 16) := Q;
+        else 
+            nxt_data(31 downto 24) := Q;
+        end if;
+        
+        
+        if nxt_subpart < 3 then
+            nxt_subpart := nxt_subpart + 1;
             
-            if    subpart = 0 then
-                nxt_data( 7 downto  0) := Q;
-            elsif subpart = 1 then
-                nxt_data(15 downto  8) := Q;
-            elsif subpart = 2 then
-                nxt_data(23 downto 16) := Q;
-            else 
-                nxt_data(31 downto 24) := Q;
-            end if;
-            
-            
-            if nxt_subpart < 3 then
-                nxt_subpart := nxt_subpart + 1;
                 nxt_wr      := '0';
-            else
+--            end if;
+        else
+--            if serdes_reset = '0' then 
                 nxt_wr      := '1';
-                nxt_subpart := 0;
+--            end if;
+            nxt_subpart := 0;
             end if;
---        end if;
+        end if;
     end if;
     data    <= nxt_data;
     wr      <= nxt_wr;
@@ -91,8 +98,27 @@ begin
   end if;
 end process;
 
+process(clk_divb)
+begin
+  if rising_edge(clk_divb) then
 
-
+      if RESET_I = '1' then
+        serdes_reset   <= '1';
+        reset_clk_cnt  <= 0;
+      else
+          if reset_clk_cnt < 18 then
+            reset_clk_cnt <= reset_clk_cnt + 1;
+          end if;
+          
+          
+          if reset_clk_cnt >= 3 then
+            serdes_reset  <= '0';
+          else   
+            serdes_reset <= '1';
+          end if;
+      end if;
+  end if;
+end process;
 
 BUFR_inst : BUFR
    generic map (
@@ -113,6 +139,7 @@ BUFIO_inst : BUFIO
    );
 --clk <= SCLK_I;
 clkb <= not clk;
+clk_divb <= not clk_div;
 
    ISERDESE2_inst : ISERDESE2
    generic map (
@@ -163,7 +190,7 @@ clkb <= not clk;
       -- Clocks: 1-bit (each) input: ISERDESE2 clock input ports
       CLK       => clk,                   -- 1-bit input: High-speed clock
       CLKB      => clkb,                 -- 1-bit input: High-speed secondary clock
-      CLKDIV    => clk_div,             -- 1-bit input: Divided clock
+      CLKDIV    => clk_divb,             -- 1-bit input: Divided clock
       OCLK      => '0',                 -- 1-bit input: High speed output clock used when INTERFACE_TYPE="MEMORY" 
       -- Dynamic Clock Inversions: 1-bit (each) input: Dynamic clock inversion pins to switch clock polarity
       DYNCLKDIVSEL  => '0',             -- 1-bit input: Dynamic CLKDIV inversion
@@ -173,7 +200,7 @@ clkb <= not clk;
       DDLY      => '0',                 -- 1-bit input: Serial data from IDELAYE2
       OFB       => '0',                   -- 1-bit input: Data feedback from OSERDESE2
       OCLKB     => '0',               -- 1-bit input: High speed negative edge output clock
-      RST       => RESET_I,                   -- 1-bit input: Active high asynchronous reset
+      RST       => serdes_reset,                   -- 1-bit input: Active high asynchronous reset
       -- SHIFTIN1, SHIFTIN2: 1-bit (each) input: Data width expansion input ports
       SHIFTIN1  => '0',
       SHIFTIN2  => '0'
