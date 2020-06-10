@@ -193,7 +193,7 @@ port map (
     -- RAM
     ADDR_O   => adr_B,
     DATA_I   => data_B_O,
---    DATA_I   => x"12345678",
+--    DATA_I   => x"12345678", -- used for testing
     -- SPI
     SCLK_O   => SPI_SCLK_O,
     MOSI_O   => SPI_MOSI_O
@@ -201,7 +201,6 @@ port map (
 
 -- Clocking module instanciation
 clocking_1_inst: clocking_1
---    generic map (CLK_I_PERIOD => 10.0)  -- Instantiate the module with information that CLK_I has period of ... (2-64ns)
     port map (
       RESET_I     => '0',
       CLK_I       => CLK_I,

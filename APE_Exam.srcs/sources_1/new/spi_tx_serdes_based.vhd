@@ -109,7 +109,7 @@ BUFR_clkdiv_inst : BUFR
    
 BUFR_clk_inst : BUFR
       generic map (
-         BUFR_DIVIDE => "BYPASS",   -- Values: "BYPASS, 1, 2, 3, 4, 5, 6, 7, 8" 
+         BUFR_DIVIDE => "1",   -- Values: "BYPASS, 1, 2, 3, 4, 5, 6, 7, 8" 
          SIM_DEVICE => "7SERIES"  -- Must be set to "7SERIES" 
       )
       port map (

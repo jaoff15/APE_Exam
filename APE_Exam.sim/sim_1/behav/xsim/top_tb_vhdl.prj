@@ -5,7 +5,6 @@ vhdl xil_defaultlib  \
 "../../../../APE_Exam.srcs/sources_1/new/FPGA2.vhd" \
 "../../../../APE_Exam.srcs/sources_1/new/OSERDES_WRAP.vhd" \
 "../../../../APE_Exam.srcs/sources_1/new/RAM0.vhd" \
-"../../../../APE_Exam.srcs/sources_1/new/RAM2.vhd" \
 "../../../../APE_Exam.srcs/sources_1/imports/sources_1/new/SPI_RX.vhd" \
 "../../../../APE_Exam.srcs/sources_1/imports/sources_1/new/SPI_TX.vhd" \
 "../../../../APE_Exam.srcs/sources_1/imports/sources_1/TDMS_encoder.vhd" \
@@ -17,6 +16,7 @@ vhdl xil_defaultlib  \
 "../../../../APE_Exam.srcs/sources_1/imports/sources_1/imports/QLink_2020/QLINK/encode_serial.vhd" \
 "../../../../APE_Exam.srcs/sources_1/new/hdmi_driver.vhd" \
 "../../../../APE_Exam.srcs/sources_1/new/image_driver.vhd" \
+"../../../../APE_Exam.srcs/sources_1/new/lfsr_counter.vhd" \
 "../../../../APE_Exam.srcs/sources_1/imports/sources_1/imports/QLink_2020/QLINK/qlinkmaster.vhd" \
 "../../../../APE_Exam.srcs/sources_1/new/spi_rx_ddr_based.vhd" \
 "../../../../APE_Exam.srcs/sources_1/new/spi_rx_pure_vhdl.vhd" \

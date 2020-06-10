@@ -60,41 +60,10 @@ architecture Behavioral of clocking_2 is
     
 begin
 
---PIXEL_CLK_O        <= cEng_pixel_720;
---PIXEL_CLK_X5_O     <= cEng_5xpixel_720;
---PIXEL_CLK_X5_INV_O <= cEng_5xpixel_inv_720;
+
 SYS_RESET_O        <= not clk_locked;
 
--- Gen 75Mhz pixel clock generation
--- Technically, 720p should be 74.25MHz. 75 generally works on monitors. YMMV.
---clock_eng_1280_720A: clocking
--- generic map (
---     in_mul     => 9,
---     pix_div    => 12,
---     pix5x_div  => 2
--- )
--- port map (
---     I_unbuff_clk         => CLK_I,
---     O_buff_clkpixel      => cEng_pixel_720,
---     O_buff_clk5xpixel    => open,
---     O_buff_clk5xpixelinv => open,
---     clk_locked           => open
--- );   
- 
----- Gen 375Mhz 5xpixel and 5xpixel inverted clock generation
---clock_eng_1280_720B: clocking
---generic map (
---    in_mul      => 10,
---    pix_div     => 1,
---    pix5x_div   => 2
---)
---port map (
---    I_unbuff_clk         => cEng_pixel_720,
---    O_buff_clkpixel      => open,
---    O_buff_clk5xpixel    => cEng_5xpixel_720,
---    O_buff_clk5xpixelinv => cEng_5xpixel_inv_720,
---    clk_locked           => clk_locked
---);   
+
     
 MMCME2_BASE_pixelx5_inst : MMCME2_BASE
   generic map (
@@ -135,24 +104,31 @@ PIXEL_CLK_X5_INV_O <= not pixel_clk_x5_out;
   )
   port map (
      O   => PIXEL_CLK_O,        -- 1-bit output: Clock output port
-     CE  => '1',                -- 1-bit input: Active high, clock enable (Divided modes only)
+     CE  => clk_locked,         -- 1-bit input: Active high, clock enable (Divided modes only)
      CLR => '0',                -- 1-bit input: Active high, asynchronous clear (Divided modes only)
-     I   => pixel_clk_x5_out    -- 1-bit input: Clock buffer input driven by an IBUF, MMCM or local interconnect
+     I   => mmcm_clock_out    -- 1-bit input: Clock buffer input driven by an IBUF, MMCM or local interconnect
   );
   
   -- Make sure phase between the pixel clock and the 5 x pixel clock
-  BUFR_pixel_clk_x5_inst : BUFR
-   generic map (
-      BUFR_DIVIDE => "BYPASS",    -- Values: "BYPASS, 1, 2, 3, 4, 5, 6, 7, 8" 
-      SIM_DEVICE  => "7SERIES"    -- Must be set to "7SERIES" 
-   )
-   port map (
-      O   => pixel_clk_x5_out,    -- 1-bit output: Clock output port
-      CE  => '1',                 -- 1-bit input: Active high, clock enable (Divided modes only)
-      CLR => '0',                 -- 1-bit input: Active high, asynchronous clear (Divided modes only)
-      I   => mmcm_clock_out       -- 1-bit input: Clock buffer input driven by an IBUF, MMCM or local interconnect
-   );
+--  BUFR_pixel_clk_x5_inst : BUFR
+--   generic map (
+--      BUFR_DIVIDE => "1",    -- Values: "BYPASS, 1, 2, 3, 4, 5, 6, 7, 8" 
+--      SIM_DEVICE  => "7SERIES"    -- Must be set to "7SERIES" 
+--   )
+--   port map (
+--      O   => pixel_clk_x5_out,    -- 1-bit output: Clock output port
+--      CE  => clk_locked,          -- 1-bit input: Active high, clock enable (Divided modes only)
+--      CLR => '0',                 -- 1-bit input: Active high, asynchronous clear (Divided modes only)
+--      I   => mmcm_clock_out       -- 1-bit input: Clock buffer input driven by an IBUF, MMCM or local interconnect
+--   );
   
+BUFG_inst : BUFG
+port map (
+  O => pixel_clk_x5_out, -- 1-bit output: Clock output
+  I => mmcm_clock_out  -- 1-bit input: Clock input
+);
 
+
+--pixel_clk_x5_out <= mmcm_clock_out;
 
 end Behavioral;

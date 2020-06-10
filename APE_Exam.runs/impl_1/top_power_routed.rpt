@@ -1,7 +1,7 @@
 Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
 -------------------------------------------------------------------------------------------------------------------------------
 | Tool Version     : Vivado v.2018.2 (lin64) Build 2258646 Thu Jun 14 20:02:38 MDT 2018
-| Date             : Wed Jun 10 15:13:26 2020
+| Date             : Wed Jun 10 21:50:33 2020
 | Host             : JacobOffersen running 64-bit Ubuntu 19.10
 | Command          : report_power -file top_power_routed.rpt -pb top_power_summary_routed.pb -rpx top_power_routed.rpx
 | Design           : top
@@ -30,14 +30,14 @@ Table of Contents
 ----------
 
 +--------------------------+--------------+
-| Total On-Chip Power (W)  | 0.484        |
+| Total On-Chip Power (W)  | 0.567        |
 | Design Power Budget (W)  | Unspecified* |
 | Power Budget Margin (W)  | NA           |
-| Dynamic (W)              | 0.423        |
+| Dynamic (W)              | 0.506        |
 | Device Static (W)        | 0.062        |
 | Effective TJA (C/W)      | 3.3          |
-| Max Ambient (C)          | 83.4         |
-| Junction Temperature (C) | 26.6         |
+| Max Ambient (C)          | 83.1         |
+| Junction Temperature (C) | 26.9         |
 | Confidence Level         | Medium       |
 | Setting File             | ---          |
 | Simulation Activity File | ---          |
@@ -52,21 +52,21 @@ Table of Contents
 +-------------------------+-----------+----------+-----------+-----------------+
 | On-Chip                 | Power (W) | Used     | Available | Utilization (%) |
 +-------------------------+-----------+----------+-----------+-----------------+
-| Clocks                  |     0.003 |        9 |       --- |             --- |
-| Slice Logic             |     0.002 |     1299 |       --- |             --- |
-|   LUT as Logic          |     0.002 |      596 |     14600 |            4.08 |
-|   Register              |    <0.001 |      422 |     29200 |            1.45 |
+| Clocks                  |     0.004 |       10 |       --- |             --- |
+| Slice Logic             |     0.002 |     1311 |       --- |             --- |
+|   LUT as Logic          |     0.002 |      592 |     14600 |            4.05 |
+|   Register              |    <0.001 |      423 |     29200 |            1.45 |
 |   LUT as Shift Register |    <0.001 |       19 |      5000 |            0.38 |
 |   BUFG                  |    <0.001 |        1 |        32 |            3.13 |
 |   CARRY4                |    <0.001 |       40 |      3650 |            1.10 |
-|   F7/F8 Muxes           |    <0.001 |       10 |     14600 |            0.07 |
-|   Others                |     0.000 |       48 |       --- |             --- |
-| Signals                 |     0.002 |     1076 |       --- |             --- |
+|   F7/F8 Muxes           |    <0.001 |       12 |     14600 |            0.08 |
+|   Others                |     0.000 |       47 |       --- |             --- |
+| Signals                 |     0.002 |     1119 |       --- |             --- |
 | Block RAM               |     0.004 |        3 |        45 |            6.67 |
-| MMCM                    |     0.242 |        2 |         3 |           66.67 |
-| I/O                     |     0.169 |       15 |       100 |           15.00 |
+| MMCM                    |     0.345 |        3 |         3 |          100.00 |
+| I/O                     |     0.148 |       15 |       100 |           15.00 |
 | Static Power            |     0.062 |          |           |                 |
-| Total                   |     0.484 |          |           |                 |
+| Total                   |     0.567 |          |           |                 |
 +-------------------------+-----------+----------+-----------+-----------------+
 
 
@@ -77,8 +77,8 @@ Table of Contents
 | Source    | Voltage (V) | Total (A) | Dynamic (A) | Static (A) |
 +-----------+-------------+-----------+-------------+------------+
 | Vccint    |       1.000 |     0.020 |       0.015 |      0.005 |
-| Vccaux    |       1.800 |     0.144 |       0.135 |      0.009 |
-| Vcco33    |       3.300 |     0.051 |       0.050 |      0.001 |
+| Vccaux    |       1.800 |     0.201 |       0.192 |      0.009 |
+| Vcco33    |       3.300 |     0.045 |       0.044 |      0.001 |
 | Vcco25    |       2.500 |     0.000 |       0.000 |      0.000 |
 | Vcco18    |       1.800 |     0.000 |       0.000 |      0.000 |
 | Vcco15    |       1.500 |     0.000 |       0.000 |      0.000 |
@@ -127,17 +127,18 @@ Table of Contents
 2.2 Clock Constraints
 ---------------------
 
-+-----------------+--------------------------------------------+-----------------+
-| Clock           | Domain                                     | Constraint (ns) |
-+-----------------+--------------------------------------------+-----------------+
-| CLKFBIN         | FPGA1_inst/clocking_1_inst/CLKFBIN         |            10.0 |
-| CLKFBIN_1       | FPGA2_inst/clocking_2_inst/CLKFBIN         |            40.0 |
-| FPGA1_inst_n_10 | FPGA1_inst/clocking_1_inst/sclk_active_reg |            10.0 |
-| clk_A           | FPGA1_inst/clocking_1_inst/clk_A           |            62.4 |
-| mmcm_clock_out  | FPGA2_inst/clocking_2_inst/mmcm_clock_out  |             2.7 |
-| pixel_clk       | FPGA2_inst/clocking_2_inst/pixel_clk       |            13.5 |
-| sys_clk_pin     | CLK100MHZ                                  |            10.0 |
-+-----------------+--------------------------------------------+-----------------+
++----------------+--------------------------------------------+-----------------+
+| Clock          | Domain                                     | Constraint (ns) |
++----------------+--------------------------------------------+-----------------+
+| CLK100MHZ      | CLK100MHZ                                  |            10.0 |
+| CLKFBIN        | FPGA1_inst/clocking_1_inst/CLKFBIN         |            10.0 |
+| CLKFBIN_1      | FPGA2_inst/clocking_2_inst/CLKFBIN         |            40.0 |
+| FPGA1_inst_n_9 | FPGA1_inst/clocking_1_inst/sclk_active_reg |            10.0 |
+| clk_A          | FPGA1_inst/clocking_1_inst/clk_A           |            62.5 |
+| clk_feedback2  | FPGA1_inst/clocking_1_inst/clk_feedback2   |            10.0 |
+| pixel_clk      | FPGA2_inst/clocking_2_inst/pixel_clk       |            13.5 |
+| pixel_clk_x5   | FPGA2_inst/clocking_2_inst/CLK_I_X5        |             2.7 |
++----------------+--------------------------------------------+-----------------+
 
 
 3. Detailed Reports
@@ -149,19 +150,19 @@ Table of Contents
 +--------------------------------------------------+-----------+
 | Name                                             | Power (W) |
 +--------------------------------------------------+-----------+
-| top                                              |     0.423 |
-|   FPGA1_inst                                     |     0.128 |
+| top                                              |     0.506 |
+|   FPGA1_inst                                     |     0.232 |
 |     QLINK1                                       |    <0.001 |
 |       DECODE                                     |    <0.001 |
 |       ENCODE                                     |    <0.001 |
 |     RAM_inst0                                    |     0.002 |
-|     SpiTx                                        |     0.001 |
-|       spi_tx_ddr_based_gen.spi_tx_ddr_based_inst |     0.001 |
-|     clocking_1_inst                              |     0.124 |
+|     SpiTx                                        |    <0.001 |
+|       spi_tx_pure_vhdl_gen.spi_tx_pure_vhdl_inst |    <0.001 |
+|     clocking_1_inst                              |     0.228 |
 |   FPGA2_inst                                     |     0.259 |
-|     RAM_inst1                                    |     0.001 |
-|     SpiRx                                        |     0.004 |
-|       spi_rx_ddr_based_gen.spi_rx_ddr_based_inst |     0.004 |
+|     RAM_inst1                                    |     0.002 |
+|     SpiRx                                        |     0.003 |
+|       spi_rx_pure_vhdl_gen.spi_rx_pure_vhdl_inst |     0.003 |
 |     clocking_2_inst                              |     0.118 |
 |     hdmi_driver_inst                             |     0.137 |
 |       Inst_vga_gen                               |    <0.001 |

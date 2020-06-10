@@ -6,11 +6,14 @@
 ## Clock signal
 #set_property -dict { PACKAGE_PIN F14   IOSTANDARD LVCMOS33 } [get_ports { CLK12MHZ }]; #IO_L13P_T2_MRCC_15 Sch=uclk
 #create_clock -add -name sys_clk_pin -period 83.333 -waveform {0 41.667} [get_ports { CLK12MHZ }];
+#create_clock -period 10.000 -name sys_clk_pin -waveform {0.000 5.000} -add [get_ports CLK100MHZ]
 set_property -dict {PACKAGE_PIN L5 IOSTANDARD LVCMOS33} [get_ports CLK100MHZ]
-create_clock -period 10.000 -name sys_clk_pin -waveform {0.000 5.000} -add [get_ports CLK100MHZ]
+
+create_clock -period 10.000 [get_ports CLK100MHZ]
 set_property CLOCK_DEDICATED_ROUTE FALSE [get_nets CLK100MHZ_IBUF]
 
 set_property CLOCK_DEDICATED_ROUTE FALSE [get_nets SPI_SCLK_I_IBUF]
+
 
 ## Switches
 #set_property -dict { PACKAGE_PIN H14   IOSTANDARD LVCMOS33 } [get_ports { sw[0] }]; #IO_L20N_T3_A19_15 Sch=sw[0]
@@ -198,9 +201,9 @@ set_property -dict {PACKAGE_PIN M12 IOSTANDARD TMDS_33} [get_ports {hdmi_out_n[3
 
 set_property PACKAGE_PIN A12 [get_ports RX_I]
 set_property PACKAGE_PIN A5 [get_ports TX_O]
-set_property PACKAGE_PIN K3 [get_ports SPI_MOSI_I]
-set_property PACKAGE_PIN L2 [get_ports SPI_MOSI_O]
-set_property PACKAGE_PIN H3 [get_ports SPI_SCLK_O]
+set_property PACKAGE_PIN B2 [get_ports SPI_MOSI_I]
+set_property PACKAGE_PIN C1 [get_ports SPI_MOSI_O]
+set_property PACKAGE_PIN J3 [get_ports SPI_SCLK_O]
 set_property IOSTANDARD LVCMOS33 [get_ports RX_I]
 set_property IOSTANDARD LVCMOS33 [get_ports SPI_MOSI_I]
 set_property IOSTANDARD LVCMOS33 [get_ports SPI_MOSI_O]
@@ -208,4 +211,9 @@ set_property IOSTANDARD LVCMOS33 [get_ports SPI_SCLK_I]
 set_property IOSTANDARD LVCMOS33 [get_ports SPI_SCLK_O]
 set_property IOSTANDARD LVCMOS33 [get_ports TX_O]
 
-set_property PACKAGE_PIN G4 [get_ports SPI_SCLK_I]
+set_property PACKAGE_PIN H3 [get_ports SPI_SCLK_I]
+
+set_property SLEW FAST [get_ports SPI_MOSI_O]
+set_property SLEW FAST [get_ports SPI_SCLK_O]
+set_property DRIVE 16 [get_ports SPI_MOSI_O]
+set_property DRIVE 16 [get_ports SPI_SCLK_O]

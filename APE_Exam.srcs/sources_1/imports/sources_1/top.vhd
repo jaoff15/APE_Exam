@@ -53,7 +53,7 @@ architecture Behavioral of top is
     -- Simulated FPGA 1 
     component FPGA1 is
         generic( 
-        SPI_TYPE : SPI_TYPE_TYP := DDR
+        SPI_TYPE : SPI_TYPE_TYP := VHDL
         );
         Port ( 
             CLK_I       : in  STD_LOGIC;
@@ -78,7 +78,7 @@ architecture Behavioral of top is
     -- Simulated FPGA 2
     component FPGA2 is
         generic( 
-            SPI_TYPE : SPI_TYPE_TYP := DDR
+            SPI_TYPE : SPI_TYPE_TYP := VHDL
             );
         Port ( 
             CLK_I       : in STD_LOGIC;
@@ -136,7 +136,7 @@ global_reset <= reset_fpga1_o or reset_fpga2_o;
 
  
 FPGA1_inst : FPGA1 
-generic map( SPI_TYPE => DDR)
+generic map( SPI_TYPE => VHDL)
 port map( 
     CLK_I       => CLK100MHZ,
     RESET_I     => global_reset,
@@ -175,7 +175,7 @@ RAM_spi_debug : TD_RAM_36K_WRAP port map (
 
 
 FPGA2_inst: FPGA2 
-generic map( SPI_TYPE => DDR)
+generic map( SPI_TYPE => VHDL)
 port map(
     CLK_I       => CLK100MHZ,
     RESET_I     => global_reset,

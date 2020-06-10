@@ -1,7 +1,7 @@
 Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
 ------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2018.2 (lin64) Build 2258646 Thu Jun 14 20:02:38 MDT 2018
-| Date         : Wed Jun 10 15:13:12 2020
+| Date         : Wed Jun 10 21:50:19 2020
 | Host         : JacobOffersen running 64-bit Ubuntu 19.10
 | Command      : report_control_sets -verbose -file top_control_sets_placed.rpt
 | Design       : top
@@ -23,8 +23,8 @@ Table of Contents
 +----------------------------------------------------------+-------+
 |                          Status                          | Count |
 +----------------------------------------------------------+-------+
-| Number of unique control sets                            |    39 |
-| Unused register locations in slices containing registers |    76 |
+| Number of unique control sets                            |    72 |
+| Unused register locations in slices containing registers |   290 |
 +----------------------------------------------------------+-------+
 
 
@@ -34,13 +34,11 @@ Table of Contents
 +--------+--------------+
 | Fanout | Control Sets |
 +--------+--------------+
-|      2 |            8 |
-|      4 |            1 |
-|      6 |            1 |
-|      8 |           15 |
-|     10 |            2 |
+|      2 |           43 |
+|      8 |           14 |
+|     10 |            4 |
 |     14 |            2 |
-|    16+ |           10 |
+|    16+ |            9 |
 +--------+--------------+
 
 
@@ -50,60 +48,93 @@ Table of Contents
 +--------------+-----------------------+------------------------+-----------------+--------------+
 | Clock Enable | Synchronous Set/Reset | Asynchronous Set/Reset | Total Registers | Total Slices |
 +--------------+-----------------------+------------------------+-----------------+--------------+
-| No           | No                    | No                     |             164 |           23 |
+| No           | No                    | No                     |             158 |           26 |
 | No           | No                    | Yes                    |               0 |            0 |
-| No           | Yes                   | No                     |             332 |           56 |
+| No           | Yes                   | No                     |             276 |           45 |
 | Yes          | No                    | No                     |              78 |            9 |
 | Yes          | No                    | Yes                    |               0 |            0 |
-| Yes          | Yes                   | No                     |             270 |           57 |
+| Yes          | Yes                   | No                     |             334 |           84 |
 +--------------+-----------------------+------------------------+-----------------+--------------+
 
 
 4. Detailed Control Set Information
 -----------------------------------
 
-+---------------------------------------+----------------------------------------------------------------------------------+-------------------------------------------------------------------------------+------------------+----------------+
-|              Clock Signal             |                                   Enable Signal                                  |                                Set/Reset Signal                               | Slice Load Count | Bel Load Count |
-+---------------------------------------+----------------------------------------------------------------------------------+-------------------------------------------------------------------------------+------------------+----------------+
-|  clk_A_BUFG                           | FPGA1_inst/QLINK1/DECODE/p_0_in[7]                                               | FPGA2_inst/clocking_2_inst/RESET_I                                            |                1 |              2 |
-|  clk_A_BUFG                           | FPGA1_inst/QLINK1/DECODE/p_0_in[6]                                               | FPGA2_inst/clocking_2_inst/RESET_I                                            |                1 |              2 |
-|  clk_A_BUFG                           | FPGA1_inst/QLINK1/DECODE/p_0_in[5]                                               | FPGA2_inst/clocking_2_inst/RESET_I                                            |                1 |              2 |
-|  clk_A_BUFG                           | FPGA1_inst/QLINK1/DECODE/p_0_in[4]                                               | FPGA2_inst/clocking_2_inst/RESET_I                                            |                1 |              2 |
-|  clk_A_BUFG                           | FPGA1_inst/QLINK1/DECODE/p_0_in[3]                                               | FPGA2_inst/clocking_2_inst/RESET_I                                            |                1 |              2 |
-|  clk_A_BUFG                           | FPGA1_inst/QLINK1/DECODE/p_0_in[2]                                               | FPGA2_inst/clocking_2_inst/RESET_I                                            |                1 |              2 |
-|  clk_A_BUFG                           | FPGA1_inst/QLINK1/DECODE/p_0_in[1]                                               | FPGA2_inst/clocking_2_inst/RESET_I                                            |                1 |              2 |
-|  clk_A_BUFG                           | FPGA1_inst/QLINK1/DECODE/p_0_in[0]                                               | FPGA2_inst/clocking_2_inst/RESET_I                                            |                1 |              2 |
-|  SPI_SCLK_I_IBUF_BUFG                 |                                                                                  |                                                                               |                1 |              4 |
-|  FPGA1_inst/clocking_1_inst/xlnx_opt_ |                                                                                  |                                                                               |                2 |              6 |
-|  clk_A_BUFG                           |                                                                                  | FPGA1_inst/QLINK1/DECODE/subcnt[3]_i_1__0_n_0                                 |                1 |              8 |
-|  FPGA1_inst/clocking_1_inst/xlnx_opt_ |                                                                                  | FPGA1_inst/SpiTx/spi_tx_ddr_based_gen.spi_tx_ddr_based_inst/bitcnt[4]_i_1_n_0 |                1 |              8 |
-|  clk_A_BUFG                           | FPGA1_inst/QLINK1/ENCODE/sel                                                     | FPGA1_inst/QLINK1/ENCODE/subcnt[3]_i_1_n_0                                    |                1 |              8 |
-|  clk_A_BUFG                           | FPGA1_inst/QLINK1/ENCODE/nxt_bitcnt                                              | FPGA1_inst/QLINK1/ENCODE/nxt_bitcnt[3]_i_1_n_0                                |                2 |              8 |
-|  clk_A_BUFG                           | FPGA1_inst/QLINK1/DECODE/adr_reg[4][1]                                           | FPGA2_inst/clocking_2_inst/RESET_I                                            |                1 |              8 |
-|  clk_A_BUFG                           | FPGA1_inst/QLINK1/DECODE/adr_reg[4][0]                                           | FPGA2_inst/clocking_2_inst/RESET_I                                            |                1 |              8 |
-|  clk_A_BUFG                           | FPGA1_inst/QLINK1/DECODE/nxt_bitcnt[3]_i_2__0_n_0                                | FPGA1_inst/QLINK1/DECODE/nxt_bitcnt[3]_i_1__0_n_0                             |                2 |              8 |
-|  clk_A_BUFG                           | FPGA1_inst/QLINK1/DECODE/E[0]                                                    | FPGA2_inst/clocking_2_inst/RESET_I                                            |                2 |              8 |
-|  clk_A_BUFG                           | FPGA1_inst/QLINK1/DECODE/E[1]                                                    | FPGA2_inst/clocking_2_inst/RESET_I                                            |                3 |              8 |
-|  clk_A_BUFG                           | FPGA1_inst/QLINK1/DECODE/E[2]                                                    | FPGA2_inst/clocking_2_inst/RESET_I                                            |                1 |              8 |
-|  clk_A_BUFG                           | FPGA1_inst/QLINK1/DECODE/E[3]                                                    | FPGA2_inst/clocking_2_inst/RESET_I                                            |                3 |              8 |
-|  clk_A_BUFG                           | FPGA1_inst/QLINK1/DECODE/E[4]                                                    | FPGA2_inst/clocking_2_inst/RESET_I                                            |                2 |              8 |
-|  clk_A_BUFG                           | FPGA1_inst/QLINK1/DECODE/E[5]                                                    | FPGA2_inst/clocking_2_inst/RESET_I                                            |                3 |              8 |
-|  clk_A_BUFG                           | FPGA1_inst/QLINK1/DECODE/E[6]                                                    | FPGA2_inst/clocking_2_inst/RESET_I                                            |                3 |              8 |
-|  clk_A_BUFG                           | FPGA1_inst/QLINK1/DECODE/E[7]                                                    | FPGA2_inst/clocking_2_inst/RESET_I                                            |                2 |              8 |
-|  clk_A_BUFG                           | FPGA1_inst/QLINK1/ENCODE/nxt_char_cnt_reg[0][0]                                  | FPGA2_inst/clocking_2_inst/RESET_I                                            |                3 |             10 |
-|  clk_A_BUFG                           |                                                                                  |                                                                               |                4 |             10 |
-|  clk_A_BUFG                           | FPGA1_inst/QLINK1/ENCODE/E[0]                                                    |                                                                               |                3 |             14 |
-|  clk_A_BUFG                           | FPGA1_inst/QLINK1/enc_wr                                                         | FPGA2_inst/clocking_2_inst/RESET_I                                            |                1 |             14 |
-|  FPGA2_inst/clocking_2_inst/pixel_clk | FPGA2_inst/hdmi_driver_inst/Inst_vga_gen/eqOp                                    | FPGA2_inst/hdmi_driver_inst/Inst_vga_gen/n[vCounter]                          |                3 |             24 |
-|  FPGA2_inst/clocking_2_inst/pixel_clk |                                                                                  | FPGA2_inst/hdmi_driver_inst/Inst_vga_gen/eqOp                                 |                3 |             24 |
-|  clk_A_BUFG                           | FPGA1_inst/QLINK1/DECODE/FSM_onehot_rx_state_reg[0][0]                           | FPGA2_inst/clocking_2_inst/RESET_I                                            |                7 |             38 |
-|  FPGA2_inst/clocking_2_inst/pixel_clk |                                                                                  | FPGA2_inst/hdmi_driver_inst/Inst_vga_gen/blank                                |               18 |             54 |
-|  clk_A_BUFG                           | FPGA1_inst/QLINK1/nxt_timestamp                                                  | FPGA2_inst/clocking_2_inst/RESET_I                                            |                9 |             64 |
-|  FPGA1_inst/clocking_1_inst/xlnx_opt_ | FPGA1_inst/SpiTx/spi_tx_ddr_based_gen.spi_tx_ddr_based_inst/nxt_data[31]_i_1_n_0 |                                                                               |                6 |             64 |
-|  SPI_SCLK_I_IBUF_BUFG                 |                                                                                  | FPGA2_inst/clocking_2_inst/RESET_I                                            |                9 |             70 |
-|  clk_A_BUFG                           |                                                                                  | FPGA2_inst/clocking_2_inst/RESET_I                                            |               12 |             72 |
-|  FPGA2_inst/clocking_2_inst/pixel_clk |                                                                                  | FPGA2_inst/clocking_2_inst/RESET_I                                            |               12 |             96 |
-|  FPGA2_inst/clocking_2_inst/pixel_clk |                                                                                  |                                                                               |               21 |            198 |
-+---------------------------------------+----------------------------------------------------------------------------------+-------------------------------------------------------------------------------+------------------+----------------+
++---------------------------------------+-------------------------------------------------------------------------------------+----------------------------------------------------------------------------------+------------------+----------------+
+|              Clock Signal             |                                    Enable Signal                                    |                                 Set/Reset Signal                                 | Slice Load Count | Bel Load Count |
++---------------------------------------+-------------------------------------------------------------------------------------+----------------------------------------------------------------------------------+------------------+----------------+
+|  SPI_SCLK_I_IBUF_BUFG                 | FPGA2_inst/SpiRx/spi_rx_pure_vhdl_gen.spi_rx_pure_vhdl_inst/nxt_data[9]_i_1_n_0     | FPGA1_inst/clocking_1_inst/global_reset                                          |                1 |              2 |
+|  SPI_SCLK_I_IBUF_BUFG                 | FPGA2_inst/SpiRx/spi_rx_pure_vhdl_gen.spi_rx_pure_vhdl_inst/nxt_data[16]_i_1_n_0    | FPGA1_inst/clocking_1_inst/global_reset                                          |                1 |              2 |
+|  SPI_SCLK_I_IBUF_BUFG                 | FPGA2_inst/SpiRx/spi_rx_pure_vhdl_gen.spi_rx_pure_vhdl_inst/nxt_data[18]_i_1_n_0    | FPGA1_inst/clocking_1_inst/global_reset                                          |                1 |              2 |
+|  SPI_SCLK_I_IBUF_BUFG                 | FPGA2_inst/SpiRx/spi_rx_pure_vhdl_gen.spi_rx_pure_vhdl_inst/nxt_data[11]_i_1_n_0    | FPGA1_inst/clocking_1_inst/global_reset                                          |                1 |              2 |
+|  SPI_SCLK_I_IBUF_BUFG                 | FPGA2_inst/SpiRx/spi_rx_pure_vhdl_gen.spi_rx_pure_vhdl_inst/nxt_data[3]_i_1__0_n_0  | FPGA1_inst/clocking_1_inst/global_reset                                          |                1 |              2 |
+|  SPI_SCLK_I_IBUF_BUFG                 | FPGA2_inst/SpiRx/spi_rx_pure_vhdl_gen.spi_rx_pure_vhdl_inst/nxt_data[4]_i_1__0_n_0  | FPGA1_inst/clocking_1_inst/global_reset                                          |                1 |              2 |
+|  SPI_SCLK_I_IBUF_BUFG                 | FPGA2_inst/SpiRx/spi_rx_pure_vhdl_gen.spi_rx_pure_vhdl_inst/nxt_data[5]_i_1__0_n_0  | FPGA1_inst/clocking_1_inst/global_reset                                          |                1 |              2 |
+|  SPI_SCLK_I_IBUF_BUFG                 | FPGA2_inst/SpiRx/spi_rx_pure_vhdl_gen.spi_rx_pure_vhdl_inst/nxt_data[6]_i_1__0_n_0  | FPGA1_inst/clocking_1_inst/global_reset                                          |                1 |              2 |
+|  SPI_SCLK_I_IBUF_BUFG                 | FPGA2_inst/SpiRx/spi_rx_pure_vhdl_gen.spi_rx_pure_vhdl_inst/nxt_data[1]_i_1__0_n_0  | FPGA1_inst/clocking_1_inst/global_reset                                          |                1 |              2 |
+|  SPI_SCLK_I_IBUF_BUFG                 | FPGA2_inst/SpiRx/spi_rx_pure_vhdl_gen.spi_rx_pure_vhdl_inst/nxt_data[20]_i_1_n_0    | FPGA1_inst/clocking_1_inst/global_reset                                          |                1 |              2 |
+|  SPI_SCLK_I_IBUF_BUFG                 | FPGA2_inst/SpiRx/spi_rx_pure_vhdl_gen.spi_rx_pure_vhdl_inst/nxt_data[8]_i_1_n_0     | FPGA1_inst/clocking_1_inst/global_reset                                          |                1 |              2 |
+|  FPGA1_inst/clocking_1_inst/xlnx_opt_ |                                                                                     |                                                                                  |                1 |              2 |
+|  SPI_SCLK_I_IBUF_BUFG                 |                                                                                     |                                                                                  |                1 |              2 |
+|  clk_A_BUFG                           | FPGA1_inst/QLINK1/DECODE/p_0_in[0]                                                  | FPGA1_inst/clocking_1_inst/global_reset                                          |                1 |              2 |
+|  clk_A_BUFG                           | FPGA1_inst/QLINK1/DECODE/p_0_in[1]                                                  | FPGA1_inst/clocking_1_inst/global_reset                                          |                1 |              2 |
+|  clk_A_BUFG                           | FPGA1_inst/QLINK1/DECODE/p_0_in[2]                                                  | FPGA1_inst/clocking_1_inst/global_reset                                          |                1 |              2 |
+|  clk_A_BUFG                           | FPGA1_inst/QLINK1/DECODE/p_0_in[3]                                                  | FPGA1_inst/clocking_1_inst/global_reset                                          |                1 |              2 |
+|  clk_A_BUFG                           | FPGA1_inst/QLINK1/DECODE/p_0_in[4]                                                  | FPGA1_inst/clocking_1_inst/global_reset                                          |                1 |              2 |
+|  clk_A_BUFG                           | FPGA1_inst/QLINK1/DECODE/p_0_in[5]                                                  | FPGA1_inst/clocking_1_inst/global_reset                                          |                1 |              2 |
+|  clk_A_BUFG                           | FPGA1_inst/QLINK1/DECODE/p_0_in[6]                                                  | FPGA1_inst/clocking_1_inst/global_reset                                          |                1 |              2 |
+|  clk_A_BUFG                           | FPGA1_inst/QLINK1/DECODE/p_0_in[7]                                                  | FPGA1_inst/clocking_1_inst/global_reset                                          |                1 |              2 |
+|  FPGA1_inst/clocking_1_inst/xlnx_opt_ |                                                                                     | FPGA1_inst/clocking_1_inst/global_reset                                          |                1 |              2 |
+|  SPI_SCLK_I_IBUF_BUFG                 | FPGA2_inst/SpiRx/spi_rx_pure_vhdl_gen.spi_rx_pure_vhdl_inst/nxt_data[14]_i_1_n_0    | FPGA1_inst/clocking_1_inst/global_reset                                          |                1 |              2 |
+|  SPI_SCLK_I_IBUF_BUFG                 | FPGA2_inst/SpiRx/spi_rx_pure_vhdl_gen.spi_rx_pure_vhdl_inst/nxt_data[30]_i_1_n_0    | FPGA1_inst/clocking_1_inst/global_reset                                          |                1 |              2 |
+|  SPI_SCLK_I_IBUF_BUFG                 | FPGA2_inst/SpiRx/spi_rx_pure_vhdl_gen.spi_rx_pure_vhdl_inst/nxt_data[28]_i_1_n_0    | FPGA1_inst/clocking_1_inst/global_reset                                          |                1 |              2 |
+|  SPI_SCLK_I_IBUF_BUFG                 | FPGA2_inst/SpiRx/spi_rx_pure_vhdl_gen.spi_rx_pure_vhdl_inst/nxt_data[27]_i_1_n_0    | FPGA1_inst/clocking_1_inst/global_reset                                          |                1 |              2 |
+|  SPI_SCLK_I_IBUF_BUFG                 | FPGA2_inst/SpiRx/spi_rx_pure_vhdl_gen.spi_rx_pure_vhdl_inst/nxt_data[24]_i_1_n_0    | FPGA1_inst/clocking_1_inst/global_reset                                          |                1 |              2 |
+|  SPI_SCLK_I_IBUF_BUFG                 | FPGA2_inst/SpiRx/spi_rx_pure_vhdl_gen.spi_rx_pure_vhdl_inst/nxt_data[23]_i_1_n_0    | FPGA1_inst/clocking_1_inst/global_reset                                          |                1 |              2 |
+|  SPI_SCLK_I_IBUF_BUFG                 | FPGA2_inst/SpiRx/spi_rx_pure_vhdl_gen.spi_rx_pure_vhdl_inst/nxt_data[0]_i_1__0_n_0  | FPGA1_inst/clocking_1_inst/global_reset                                          |                1 |              2 |
+|  SPI_SCLK_I_IBUF_BUFG                 | FPGA2_inst/SpiRx/spi_rx_pure_vhdl_gen.spi_rx_pure_vhdl_inst/nxt_data[26]_i_1_n_0    | FPGA1_inst/clocking_1_inst/global_reset                                          |                1 |              2 |
+|  SPI_SCLK_I_IBUF_BUFG                 | FPGA2_inst/SpiRx/spi_rx_pure_vhdl_gen.spi_rx_pure_vhdl_inst/nxt_data[25]_i_1_n_0    | FPGA1_inst/clocking_1_inst/global_reset                                          |                1 |              2 |
+|  SPI_SCLK_I_IBUF_BUFG                 | FPGA2_inst/SpiRx/spi_rx_pure_vhdl_gen.spi_rx_pure_vhdl_inst/nxt_data[31]_i_1_n_0    | FPGA1_inst/clocking_1_inst/global_reset                                          |                1 |              2 |
+|  SPI_SCLK_I_IBUF_BUFG                 | FPGA2_inst/SpiRx/spi_rx_pure_vhdl_gen.spi_rx_pure_vhdl_inst/nxt_data[17]_i_1_n_0    | FPGA1_inst/clocking_1_inst/global_reset                                          |                1 |              2 |
+|  SPI_SCLK_I_IBUF_BUFG                 | FPGA2_inst/SpiRx/spi_rx_pure_vhdl_gen.spi_rx_pure_vhdl_inst/nxt_data[29]_i_1_n_0    | FPGA1_inst/clocking_1_inst/global_reset                                          |                1 |              2 |
+|  SPI_SCLK_I_IBUF_BUFG                 | FPGA2_inst/SpiRx/spi_rx_pure_vhdl_gen.spi_rx_pure_vhdl_inst/nxt_data[2]_i_1__0_n_0  | FPGA1_inst/clocking_1_inst/global_reset                                          |                1 |              2 |
+|  SPI_SCLK_I_IBUF_BUFG                 | FPGA2_inst/SpiRx/spi_rx_pure_vhdl_gen.spi_rx_pure_vhdl_inst/nxt_data[15]_i_1_n_0    | FPGA1_inst/clocking_1_inst/global_reset                                          |                1 |              2 |
+|  SPI_SCLK_I_IBUF_BUFG                 | FPGA2_inst/SpiRx/spi_rx_pure_vhdl_gen.spi_rx_pure_vhdl_inst/nxt_data[21]_i_1_n_0    | FPGA1_inst/clocking_1_inst/global_reset                                          |                1 |              2 |
+|  SPI_SCLK_I_IBUF_BUFG                 | FPGA2_inst/SpiRx/spi_rx_pure_vhdl_gen.spi_rx_pure_vhdl_inst/nxt_data[22]_i_1_n_0    | FPGA1_inst/clocking_1_inst/global_reset                                          |                1 |              2 |
+|  SPI_SCLK_I_IBUF_BUFG                 | FPGA2_inst/SpiRx/spi_rx_pure_vhdl_gen.spi_rx_pure_vhdl_inst/nxt_data[7]_i_1__0_n_0  | FPGA1_inst/clocking_1_inst/global_reset                                          |                1 |              2 |
+|  SPI_SCLK_I_IBUF_BUFG                 | FPGA2_inst/SpiRx/spi_rx_pure_vhdl_gen.spi_rx_pure_vhdl_inst/nxt_data[19]_i_1_n_0    | FPGA1_inst/clocking_1_inst/global_reset                                          |                1 |              2 |
+|  SPI_SCLK_I_IBUF_BUFG                 | FPGA2_inst/SpiRx/spi_rx_pure_vhdl_gen.spi_rx_pure_vhdl_inst/nxt_data[12]_i_1_n_0    | FPGA1_inst/clocking_1_inst/global_reset                                          |                1 |              2 |
+|  SPI_SCLK_I_IBUF_BUFG                 | FPGA2_inst/SpiRx/spi_rx_pure_vhdl_gen.spi_rx_pure_vhdl_inst/nxt_data[13]_i_1_n_0    | FPGA1_inst/clocking_1_inst/global_reset                                          |                1 |              2 |
+|  SPI_SCLK_I_IBUF_BUFG                 | FPGA2_inst/SpiRx/spi_rx_pure_vhdl_gen.spi_rx_pure_vhdl_inst/nxt_data[10]_i_1_n_0    | FPGA1_inst/clocking_1_inst/global_reset                                          |                1 |              2 |
+|  clk_A_BUFG                           | FPGA1_inst/QLINK1/ENCODE/sel                                                        | FPGA1_inst/clocking_1_inst/subcnt_reg[0][0]                                      |                1 |              8 |
+|  clk_A_BUFG                           | FPGA1_inst/QLINK1/ENCODE/nxt_bitcnt_reg[0]_0[0]                                     | FPGA1_inst/clocking_1_inst/nxt_bitcnt_reg[0][0]                                  |                1 |              8 |
+|  clk_A_BUFG                           | FPGA1_inst/QLINK1/DECODE/adr_reg[4][1]                                              | FPGA1_inst/clocking_1_inst/global_reset                                          |                1 |              8 |
+|  clk_A_BUFG                           | FPGA1_inst/QLINK1/DECODE/adr_reg[4][0]                                              | FPGA1_inst/clocking_1_inst/global_reset                                          |                1 |              8 |
+|  clk_A_BUFG                           | FPGA1_inst/QLINK1/DECODE/nxt_bitcnt[3]_i_2__0_n_0                                   | FPGA1_inst/QLINK1/DECODE/nxt_bitcnt[3]_i_1__0_n_0                                |                2 |              8 |
+|  clk_A_BUFG                           | FPGA1_inst/QLINK1/DECODE/E[7]                                                       | FPGA1_inst/clocking_1_inst/global_reset                                          |                2 |              8 |
+|  clk_A_BUFG                           | FPGA1_inst/QLINK1/DECODE/E[6]                                                       | FPGA1_inst/clocking_1_inst/global_reset                                          |                3 |              8 |
+|  clk_A_BUFG                           | FPGA1_inst/QLINK1/DECODE/E[5]                                                       | FPGA1_inst/clocking_1_inst/global_reset                                          |                3 |              8 |
+|  clk_A_BUFG                           | FPGA1_inst/QLINK1/DECODE/E[4]                                                       | FPGA1_inst/clocking_1_inst/global_reset                                          |                1 |              8 |
+|  clk_A_BUFG                           | FPGA1_inst/QLINK1/DECODE/E[3]                                                       | FPGA1_inst/clocking_1_inst/global_reset                                          |                3 |              8 |
+|  clk_A_BUFG                           | FPGA1_inst/QLINK1/DECODE/E[2]                                                       | FPGA1_inst/clocking_1_inst/global_reset                                          |                2 |              8 |
+|  clk_A_BUFG                           | FPGA1_inst/QLINK1/DECODE/E[1]                                                       | FPGA1_inst/clocking_1_inst/global_reset                                          |                2 |              8 |
+|  clk_A_BUFG                           | FPGA1_inst/QLINK1/DECODE/E[0]                                                       | FPGA1_inst/clocking_1_inst/global_reset                                          |                2 |              8 |
+|  clk_A_BUFG                           |                                                                                     | FPGA1_inst/QLINK1/DECODE/subcnt[3]_i_1__0_n_0                                    |                1 |              8 |
+|  SPI_SCLK_I_IBUF_BUFG                 |                                                                                     | FPGA2_inst/SpiRx/spi_rx_pure_vhdl_gen.spi_rx_pure_vhdl_inst/bitcnt[4]_i_1_n_0    |                1 |             10 |
+|  FPGA1_inst/clocking_1_inst/xlnx_opt_ |                                                                                     | FPGA1_inst/SpiTx/spi_tx_pure_vhdl_gen.spi_tx_pure_vhdl_inst/bitcnt[4]_i_1__0_n_0 |                1 |             10 |
+|  clk_A_BUFG                           | FPGA1_inst/QLINK1/ENCODE/nxt_char_cnt_reg[4][0]                                     | FPGA1_inst/clocking_1_inst/global_reset                                          |                2 |             10 |
+|  clk_A_BUFG                           |                                                                                     |                                                                                  |                3 |             10 |
+|  clk_A_BUFG                           | FPGA1_inst/QLINK1/ENCODE/E[0]                                                       |                                                                                  |                3 |             14 |
+|  clk_A_BUFG                           | FPGA1_inst/QLINK1/enc_wr                                                            | FPGA1_inst/clocking_1_inst/global_reset                                          |                2 |             14 |
+|  FPGA2_inst/clocking_2_inst/pixel_clk |                                                                                     | FPGA2_inst/hdmi_driver_inst/Inst_vga_gen/eqOp                                    |                3 |             24 |
+|  FPGA2_inst/clocking_2_inst/pixel_clk | FPGA2_inst/hdmi_driver_inst/Inst_vga_gen/eqOp                                       | FPGA2_inst/hdmi_driver_inst/Inst_vga_gen/n[vCounter]                             |                3 |             24 |
+|  clk_A_BUFG                           | FPGA1_inst/QLINK1/DECODE/FSM_onehot_rx_state_reg[0][0]                              | FPGA1_inst/clocking_1_inst/global_reset                                          |                5 |             38 |
+|  FPGA2_inst/clocking_2_inst/pixel_clk |                                                                                     | FPGA2_inst/hdmi_driver_inst/Inst_vga_gen/p_1_in[0]                               |               14 |             54 |
+|  FPGA1_inst/clocking_1_inst/xlnx_opt_ | FPGA1_inst/SpiTx/spi_tx_pure_vhdl_gen.spi_tx_pure_vhdl_inst/nxt_data[31]_i_1__0_n_0 |                                                                                  |                6 |             64 |
+|  clk_A_BUFG                           | FPGA1_inst/QLINK1/nxt_timestamp                                                     | FPGA1_inst/clocking_1_inst/global_reset                                          |                8 |             64 |
+|  clk_A_BUFG                           |                                                                                     | FPGA1_inst/clocking_1_inst/global_reset                                          |               12 |             72 |
+|  FPGA2_inst/clocking_2_inst/pixel_clk |                                                                                     | FPGA1_inst/clocking_1_inst/global_reset                                          |               12 |             96 |
+|  FPGA2_inst/clocking_2_inst/pixel_clk |                                                                                     |                                                                                  |               26 |            198 |
++---------------------------------------+-------------------------------------------------------------------------------------+----------------------------------------------------------------------------------+------------------+----------------+
 
 

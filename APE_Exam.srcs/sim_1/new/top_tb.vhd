@@ -1,23 +1,8 @@
 ----------------------------------------------------------------------------------
--- Company: 
--- Engineer: 
--- 
--- Create Date: 05/06/2020 11:52:37 AM
--- Design Name: 
--- Module Name: top_tb - Behavioral
--- Project Name: 
--- Target Devices: 
--- Tool Versions: 
--- Description: 
--- 
--- Dependencies: 
--- 
--- Revision:
--- Revision 0.01 - File Created
--- Additional Comments:
--- 
+-- Company: SDU
+-- Engineer: Jacob Offersen
+-- Project: Exam in Advanced Programmable Electronics
 ----------------------------------------------------------------------------------
-
 
 
 library IEEE;
@@ -31,10 +16,6 @@ end top_tb;
 
 architecture Behavioral of top_tb is
     component top is
---        generic( 
---            SPI_MODE : SPI_MODE_TYP := ASYNC;
---            SPI_TYPE : SPI_TYPE_TYP := DDR
---            );
         Port ( 
             CLK100MHZ : in STD_LOGIC;
             
@@ -140,8 +121,6 @@ end process;
 
 
 top_inst: top 
---generic map( SPI_MODE => ASYNC,
---             SPI_TYPE => DDR )
 port map(
     -- Clock
     CLK100MHZ   => clk,
