@@ -207,8 +207,10 @@ set_property IOSTANDARD LVCMOS33 [get_ports TX_O]
 
 set_property PACKAGE_PIN B2 [get_ports SPI_MOSI_I]
 set_property PACKAGE_PIN C1 [get_ports SPI_MOSI_O]
-set_property PACKAGE_PIN J3 [get_ports SPI_SCLK_O]
-set_property PACKAGE_PIN H3 [get_ports SPI_SCLK_I]
+set_property PACKAGE_PIN D2 [get_ports SPI_SCLK_O]
+#set_property PACKAGE_PIN H3 [get_ports SPI_SCLK_I]
+set_property PACKAGE_PIN D1 [get_ports SPI_SCLK_I]
+
 
 set_property IOSTANDARD LVCMOS33 [get_ports SPI_MOSI_I]
 set_property IOSTANDARD LVCMOS33 [get_ports SPI_MOSI_O]
@@ -219,3 +221,5 @@ set_property SLEW FAST [get_ports SPI_MOSI_O]
 set_property SLEW FAST [get_ports SPI_SCLK_O]
 set_property DRIVE 16 [get_ports SPI_MOSI_O]
 set_property DRIVE 16 [get_ports SPI_SCLK_O]
+
+

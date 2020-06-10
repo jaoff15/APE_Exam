@@ -190,8 +190,8 @@ port map (
     RESET_I  => sys_reset,
     -- RAM
     ADDR_O   => adr_B,
---    DATA_I   => data_B_O,
-    DATA_I   => x"12345678", -- used for testing
+    DATA_I   => data_B_O,
+--    DATA_I   => x"12345678", -- used for testing
     -- SPI
     SCLK_O   => SPI_SCLK_O,
     MOSI_O   => SPI_MOSI_O
