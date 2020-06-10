@@ -2,8 +2,8 @@
 # Vivado v2018.2 (64-bit)
 # SW Build 2258646 on Thu Jun 14 20:02:38 MDT 2018
 # IP Build 2256618 on Thu Jun 14 22:10:49 MDT 2018
-# Start of session at: Wed Jun 10 23:49:44 2020
-# Process ID: 11829
+# Start of session at: Thu Jun 11 00:12:23 2020
+# Process ID: 21729
 # Current directory: /home/jacoboffersen/advanced_programmable_electronics/APE_Exam/APE_Exam.runs/synth_1
 # Command line: vivado -log top.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source top.tcl
 # Log file: /home/jacoboffersen/advanced_programmable_electronics/APE_Exam/APE_Exam.runs/synth_1/top.vds
@@ -15,15 +15,15 @@ Starting synth_design
 Attempting to get a license for feature 'Synthesis' and/or device 'xc7s25'
 INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7s25'
 INFO: Launching helper process for spawning children vivado processes
-INFO: Helper process launched with PID 11840 
+INFO: Helper process launched with PID 21784 
 ---------------------------------------------------------------------------------
-Starting RTL Elaboration : Time (s): cpu = 00:00:02 ; elapsed = 00:00:02 . Memory (MB): peak = 1289.555 ; gain = 86.887 ; free physical = 2402 ; free virtual = 10526
+Starting RTL Elaboration : Time (s): cpu = 00:00:01 ; elapsed = 00:00:02 . Memory (MB): peak = 1289.555 ; gain = 86.887 ; free physical = 2218 ; free virtual = 10365
 ---------------------------------------------------------------------------------
 INFO: [Synth 8-638] synthesizing module 'top' [/home/jacoboffersen/advanced_programmable_electronics/APE_Exam/APE_Exam.srcs/sources_1/imports/sources_1/top.vhd:52]
-	Parameter SPI_TYPE bound to: 2 - type: integer 
+	Parameter SPI_TYPE bound to: 0 - type: integer 
 INFO: [Synth 8-3491] module 'FPGA1' declared at '/home/jacoboffersen/advanced_programmable_electronics/APE_Exam/APE_Exam.srcs/sources_1/new/FPGA1.vhd:18' bound to instance 'FPGA1_inst' of component 'FPGA1' [/home/jacoboffersen/advanced_programmable_electronics/APE_Exam/APE_Exam.srcs/sources_1/imports/sources_1/top.vhd:136]
 INFO: [Synth 8-638] synthesizing module 'FPGA1' [/home/jacoboffersen/advanced_programmable_electronics/APE_Exam/APE_Exam.srcs/sources_1/new/FPGA1.vhd:42]
-	Parameter SPI_TYPE bound to: 2 - type: integer 
+	Parameter SPI_TYPE bound to: 0 - type: integer 
 	Parameter CLK_I_PERIOD bound to: 10.000000 - type: float 
 INFO: [Synth 8-3491] module 'QLinkMaster' declared at '/home/jacoboffersen/advanced_programmable_electronics/APE_Exam/APE_Exam.srcs/sources_1/imports/sources_1/imports/QLink_2020/QLINK/qlinkmaster.vhd:57' bound to instance 'QLINK1' of component 'QLinkMaster' [/home/jacoboffersen/advanced_programmable_electronics/APE_Exam/APE_Exam.srcs/sources_1/new/FPGA1.vhd:137]
 INFO: [Synth 8-638] synthesizing module 'QLinkMaster' [/home/jacoboffersen/advanced_programmable_electronics/APE_Exam/APE_Exam.srcs/sources_1/imports/sources_1/imports/QLink_2020/QLINK/qlinkmaster.vhd:74]
@@ -262,76 +262,18 @@ INFO: [Synth 8-638] synthesizing module 'TD_RAM_36K_WRAP' [/home/jacoboffersen/a
 	Parameter WRITE_WIDTH_B bound to: 36 - type: integer 
 INFO: [Synth 8-113] binding component instance 'UNISIM_RAM0' to cell 'RAMB36E1' [/home/jacoboffersen/advanced_programmable_electronics/APE_Exam/APE_Exam.srcs/sources_1/new/RAM0.vhd:79]
 INFO: [Synth 8-256] done synthesizing module 'TD_RAM_36K_WRAP' (4#1) [/home/jacoboffersen/advanced_programmable_electronics/APE_Exam/APE_Exam.srcs/sources_1/new/RAM0.vhd:35]
-	Parameter SPI_TYPE bound to: 2 - type: integer 
+	Parameter SPI_TYPE bound to: 0 - type: integer 
 INFO: [Synth 8-3491] module 'SPI_TX' declared at '/home/jacoboffersen/advanced_programmable_electronics/APE_Exam/APE_Exam.srcs/sources_1/imports/sources_1/new/SPI_TX.vhd:20' bound to instance 'SpiTx' of component 'SPI_TX' [/home/jacoboffersen/advanced_programmable_electronics/APE_Exam/APE_Exam.srcs/sources_1/new/FPGA1.vhd:186]
 INFO: [Synth 8-638] synthesizing module 'SPI_TX' [/home/jacoboffersen/advanced_programmable_electronics/APE_Exam/APE_Exam.srcs/sources_1/imports/sources_1/new/SPI_TX.vhd:37]
-	Parameter SPI_TYPE bound to: 2 - type: integer 
-INFO: [Synth 8-3491] module 'spi_tx_serdes_based' declared at '/home/jacoboffersen/advanced_programmable_electronics/APE_Exam/APE_Exam.srcs/sources_1/new/spi_tx_serdes_based.vhd:23' bound to instance 'spi_tx_serdes_based_inst' of component 'spi_tx_serdes_based' [/home/jacoboffersen/advanced_programmable_electronics/APE_Exam/APE_Exam.srcs/sources_1/imports/sources_1/new/SPI_TX.vhd:121]
-INFO: [Synth 8-638] synthesizing module 'spi_tx_serdes_based' [/home/jacoboffersen/advanced_programmable_electronics/APE_Exam/APE_Exam.srcs/sources_1/new/spi_tx_serdes_based.vhd:36]
-WARNING: [Synth 8-614] signal 'data_snapshot' is read in the process but is not in the sensitivity list [/home/jacoboffersen/advanced_programmable_electronics/APE_Exam/APE_Exam.srcs/sources_1/new/spi_tx_serdes_based.vhd:45]
-WARNING: [Synth 8-614] signal 'counter' is read in the process but is not in the sensitivity list [/home/jacoboffersen/advanced_programmable_electronics/APE_Exam/APE_Exam.srcs/sources_1/new/spi_tx_serdes_based.vhd:45]
-WARNING: [Synth 8-614] signal 'subpart' is read in the process but is not in the sensitivity list [/home/jacoboffersen/advanced_programmable_electronics/APE_Exam/APE_Exam.srcs/sources_1/new/spi_tx_serdes_based.vhd:45]
-	Parameter BUFR_DIVIDE bound to: 4 - type: string 
-	Parameter SIM_DEVICE bound to: 7SERIES - type: string 
-INFO: [Synth 8-113] binding component instance 'BUFR_clkdiv_inst' to cell 'BUFR' [/home/jacoboffersen/advanced_programmable_electronics/APE_Exam/APE_Exam.srcs/sources_1/new/spi_tx_serdes_based.vhd:98]
-	Parameter BUFR_DIVIDE bound to: 1 - type: string 
-	Parameter SIM_DEVICE bound to: 7SERIES - type: string 
-INFO: [Synth 8-113] binding component instance 'BUFR_clk_inst' to cell 'BUFR' [/home/jacoboffersen/advanced_programmable_electronics/APE_Exam/APE_Exam.srcs/sources_1/new/spi_tx_serdes_based.vhd:110]
-	Parameter DATA_RATE_OQ bound to: DDR - type: string 
-	Parameter DATA_RATE_TQ bound to: DDR - type: string 
-	Parameter DATA_WIDTH bound to: 8 - type: integer 
-	Parameter INIT_OQ bound to: 1'b0 
-	Parameter INIT_TQ bound to: 1'b0 
-	Parameter IS_CLKDIV_INVERTED bound to: 1'b0 
-	Parameter IS_CLK_INVERTED bound to: 1'b0 
-	Parameter IS_D1_INVERTED bound to: 1'b0 
-	Parameter IS_D2_INVERTED bound to: 1'b0 
-	Parameter IS_D3_INVERTED bound to: 1'b0 
-	Parameter IS_D4_INVERTED bound to: 1'b0 
-	Parameter IS_D5_INVERTED bound to: 1'b0 
-	Parameter IS_D6_INVERTED bound to: 1'b0 
-	Parameter IS_D7_INVERTED bound to: 1'b0 
-	Parameter IS_D8_INVERTED bound to: 1'b0 
-	Parameter IS_T1_INVERTED bound to: 1'b0 
-	Parameter IS_T2_INVERTED bound to: 1'b0 
-	Parameter IS_T3_INVERTED bound to: 1'b0 
-	Parameter IS_T4_INVERTED bound to: 1'b0 
-	Parameter SERDES_MODE bound to: MASTER - type: string 
-	Parameter SRVAL_OQ bound to: 1'b0 
-	Parameter SRVAL_TQ bound to: 1'b0 
-	Parameter TBYTE_CTL bound to: FALSE - type: string 
-	Parameter TBYTE_SRC bound to: FALSE - type: string 
-	Parameter TRISTATE_WIDTH bound to: 1 - type: integer 
-INFO: [Synth 8-113] binding component instance 'OSERDESE2_MOSI_inst' to cell 'OSERDESE2' [/home/jacoboffersen/advanced_programmable_electronics/APE_Exam/APE_Exam.srcs/sources_1/new/spi_tx_serdes_based.vhd:122]
-	Parameter DATA_RATE_OQ bound to: DDR - type: string 
-	Parameter DATA_RATE_TQ bound to: DDR - type: string 
-	Parameter DATA_WIDTH bound to: 8 - type: integer 
-	Parameter INIT_OQ bound to: 1'b0 
-	Parameter INIT_TQ bound to: 1'b0 
-	Parameter IS_CLKDIV_INVERTED bound to: 1'b0 
-	Parameter IS_CLK_INVERTED bound to: 1'b0 
-	Parameter IS_D1_INVERTED bound to: 1'b0 
-	Parameter IS_D2_INVERTED bound to: 1'b0 
-	Parameter IS_D3_INVERTED bound to: 1'b0 
-	Parameter IS_D4_INVERTED bound to: 1'b0 
-	Parameter IS_D5_INVERTED bound to: 1'b0 
-	Parameter IS_D6_INVERTED bound to: 1'b0 
-	Parameter IS_D7_INVERTED bound to: 1'b0 
-	Parameter IS_D8_INVERTED bound to: 1'b0 
-	Parameter IS_T1_INVERTED bound to: 1'b0 
-	Parameter IS_T2_INVERTED bound to: 1'b0 
-	Parameter IS_T3_INVERTED bound to: 1'b0 
-	Parameter IS_T4_INVERTED bound to: 1'b0 
-	Parameter SERDES_MODE bound to: MASTER - type: string 
-	Parameter SRVAL_OQ bound to: 1'b0 
-	Parameter SRVAL_TQ bound to: 1'b0 
-	Parameter TBYTE_CTL bound to: FALSE - type: string 
-	Parameter TBYTE_SRC bound to: FALSE - type: string 
-	Parameter TRISTATE_WIDTH bound to: 1 - type: integer 
-INFO: [Synth 8-113] binding component instance 'OSERDESE2_SCLK_inst' to cell 'OSERDESE2' [/home/jacoboffersen/advanced_programmable_electronics/APE_Exam/APE_Exam.srcs/sources_1/new/spi_tx_serdes_based.vhd:170]
-WARNING: [Synth 8-6014] Unused sequential element data_snapshot_reg was removed.  [/home/jacoboffersen/advanced_programmable_electronics/APE_Exam/APE_Exam.srcs/sources_1/new/spi_tx_serdes_based.vhd:46]
-WARNING: [Synth 8-6014] Unused sequential element counter_reg was removed.  [/home/jacoboffersen/advanced_programmable_electronics/APE_Exam/APE_Exam.srcs/sources_1/new/spi_tx_serdes_based.vhd:47]
-INFO: [Synth 8-256] done synthesizing module 'spi_tx_serdes_based' (5#1) [/home/jacoboffersen/advanced_programmable_electronics/APE_Exam/APE_Exam.srcs/sources_1/new/spi_tx_serdes_based.vhd:36]
+	Parameter SPI_TYPE bound to: 0 - type: integer 
+INFO: [Synth 8-3491] module 'spi_tx_pure_vhdl' declared at '/home/jacoboffersen/advanced_programmable_electronics/APE_Exam/APE_Exam.srcs/sources_1/new/spi_tx_pure_vhdl.vhd:22' bound to instance 'spi_tx_pure_vhdl_inst' of component 'spi_tx_pure_vhdl' [/home/jacoboffersen/advanced_programmable_electronics/APE_Exam/APE_Exam.srcs/sources_1/imports/sources_1/new/SPI_TX.vhd:94]
+INFO: [Synth 8-638] synthesizing module 'spi_tx_pure_vhdl' [/home/jacoboffersen/advanced_programmable_electronics/APE_Exam/APE_Exam.srcs/sources_1/new/spi_tx_pure_vhdl.vhd:35]
+WARNING: [Synth 8-614] signal 'data' is read in the process but is not in the sensitivity list [/home/jacoboffersen/advanced_programmable_electronics/APE_Exam/APE_Exam.srcs/sources_1/new/spi_tx_pure_vhdl.vhd:49]
+WARNING: [Synth 8-6014] Unused sequential element nxt_bitcnt_reg was removed.  [/home/jacoboffersen/advanced_programmable_electronics/APE_Exam/APE_Exam.srcs/sources_1/new/spi_tx_pure_vhdl.vhd:57]
+WARNING: [Synth 8-6014] Unused sequential element nxt_tx_reg was removed.  [/home/jacoboffersen/advanced_programmable_electronics/APE_Exam/APE_Exam.srcs/sources_1/new/spi_tx_pure_vhdl.vhd:58]
+INFO: [Synth 8-4471] merging register 'data_reg[31:0]' into 'nxt_data_reg[31:0]' [/home/jacoboffersen/advanced_programmable_electronics/APE_Exam/APE_Exam.srcs/sources_1/new/spi_tx_pure_vhdl.vhd:52]
+WARNING: [Synth 8-6014] Unused sequential element data_reg was removed.  [/home/jacoboffersen/advanced_programmable_electronics/APE_Exam/APE_Exam.srcs/sources_1/new/spi_tx_pure_vhdl.vhd:52]
+INFO: [Synth 8-256] done synthesizing module 'spi_tx_pure_vhdl' (5#1) [/home/jacoboffersen/advanced_programmable_electronics/APE_Exam/APE_Exam.srcs/sources_1/new/spi_tx_pure_vhdl.vhd:35]
 INFO: [Synth 8-256] done synthesizing module 'SPI_TX' (6#1) [/home/jacoboffersen/advanced_programmable_electronics/APE_Exam/APE_Exam.srcs/sources_1/imports/sources_1/new/SPI_TX.vhd:37]
 INFO: [Synth 8-3491] module 'clocking_1' declared at '/home/jacoboffersen/advanced_programmable_electronics/APE_Exam/APE_Exam.srcs/sources_1/new/clocking_1.vhd:12' bound to instance 'clocking_1_inst' of component 'clocking_1' [/home/jacoboffersen/advanced_programmable_electronics/APE_Exam/APE_Exam.srcs/sources_1/new/FPGA1.vhd:201]
 INFO: [Synth 8-638] synthesizing module 'clocking_1' [/home/jacoboffersen/advanced_programmable_electronics/APE_Exam/APE_Exam.srcs/sources_1/new/clocking_1.vhd:20]
@@ -400,10 +342,10 @@ INFO: [Synth 8-113] binding component instance 'MMCME2_BASE_16_inst' to cell 'MM
 INFO: [Synth 8-256] done synthesizing module 'clocking_1' (7#1) [/home/jacoboffersen/advanced_programmable_electronics/APE_Exam/APE_Exam.srcs/sources_1/new/clocking_1.vhd:20]
 INFO: [Synth 8-256] done synthesizing module 'FPGA1' (8#1) [/home/jacoboffersen/advanced_programmable_electronics/APE_Exam/APE_Exam.srcs/sources_1/new/FPGA1.vhd:42]
 INFO: [Synth 8-3491] module 'TD_RAM_36K_WRAP' declared at '/home/jacoboffersen/advanced_programmable_electronics/APE_Exam/APE_Exam.srcs/sources_1/new/RAM0.vhd:20' bound to instance 'RAM_spi_debug' of component 'TD_RAM_36K_WRAP' [/home/jacoboffersen/advanced_programmable_electronics/APE_Exam/APE_Exam.srcs/sources_1/imports/sources_1/top.vhd:159]
-	Parameter SPI_TYPE bound to: 2 - type: integer 
+	Parameter SPI_TYPE bound to: 0 - type: integer 
 INFO: [Synth 8-3491] module 'FPGA2' declared at '/home/jacoboffersen/advanced_programmable_electronics/APE_Exam/APE_Exam.srcs/sources_1/new/FPGA2.vhd:22' bound to instance 'FPGA2_inst' of component 'FPGA2' [/home/jacoboffersen/advanced_programmable_electronics/APE_Exam/APE_Exam.srcs/sources_1/imports/sources_1/top.vhd:175]
 INFO: [Synth 8-638] synthesizing module 'FPGA2' [/home/jacoboffersen/advanced_programmable_electronics/APE_Exam/APE_Exam.srcs/sources_1/new/FPGA2.vhd:47]
-	Parameter SPI_TYPE bound to: 2 - type: integer 
+	Parameter SPI_TYPE bound to: 0 - type: integer 
 INFO: [Synth 8-3491] module 'clocking_2' declared at '/home/jacoboffersen/advanced_programmable_electronics/APE_Exam/APE_Exam.srcs/sources_1/new/clocking_2.vhd:20' bound to instance 'clocking_2_inst' of component 'clocking_2' [/home/jacoboffersen/advanced_programmable_electronics/APE_Exam/APE_Exam.srcs/sources_1/new/FPGA2.vhd:139]
 INFO: [Synth 8-638] synthesizing module 'clocking_2' [/home/jacoboffersen/advanced_programmable_electronics/APE_Exam/APE_Exam.srcs/sources_1/new/clocking_2.vhd:31]
 	Parameter BANDWIDTH bound to: OPTIMIZED - type: string 
@@ -606,50 +548,19 @@ INFO: [Synth 8-638] synthesizing module 'lfsr_counter' [/home/jacoboffersen/adva
 INFO: [Synth 8-256] done synthesizing module 'lfsr_counter' (14#1) [/home/jacoboffersen/advanced_programmable_electronics/APE_Exam/APE_Exam.srcs/sources_1/new/lfsr_counter.vhd:18]
 INFO: [Synth 8-256] done synthesizing module 'image_driver' (15#1) [/home/jacoboffersen/advanced_programmable_electronics/APE_Exam/APE_Exam.srcs/sources_1/new/image_driver.vhd:26]
 INFO: [Synth 8-256] done synthesizing module 'hdmi_driver' (16#1) [/home/jacoboffersen/advanced_programmable_electronics/APE_Exam/APE_Exam.srcs/sources_1/new/hdmi_driver.vhd:36]
-	Parameter SPI_TYPE bound to: 2 - type: integer 
+	Parameter SPI_TYPE bound to: 0 - type: integer 
 INFO: [Synth 8-3491] module 'SPI_RX' declared at '/home/jacoboffersen/advanced_programmable_electronics/APE_Exam/APE_Exam.srcs/sources_1/imports/sources_1/new/SPI_RX.vhd:18' bound to instance 'SpiRx' of component 'SPI_RX' [/home/jacoboffersen/advanced_programmable_electronics/APE_Exam/APE_Exam.srcs/sources_1/new/FPGA2.vhd:167]
 INFO: [Synth 8-638] synthesizing module 'SPI_RX' [/home/jacoboffersen/advanced_programmable_electronics/APE_Exam/APE_Exam.srcs/sources_1/imports/sources_1/new/SPI_RX.vhd:33]
-	Parameter SPI_TYPE bound to: 2 - type: integer 
-INFO: [Synth 8-3491] module 'spi_rx_serdes_based' declared at '/home/jacoboffersen/advanced_programmable_electronics/APE_Exam/APE_Exam.srcs/sources_1/new/spi_rx_serdes_based.vhd:24' bound to instance 'spi_rx_serdes_based_inst' of component 'spi_rx_serdes_based' [/home/jacoboffersen/advanced_programmable_electronics/APE_Exam/APE_Exam.srcs/sources_1/imports/sources_1/new/SPI_RX.vhd:122]
-INFO: [Synth 8-638] synthesizing module 'spi_rx_serdes_based' [/home/jacoboffersen/advanced_programmable_electronics/APE_Exam/APE_Exam.srcs/sources_1/new/spi_rx_serdes_based.vhd:38]
-WARNING: [Synth 8-614] signal 'subpart' is read in the process but is not in the sensitivity list [/home/jacoboffersen/advanced_programmable_electronics/APE_Exam/APE_Exam.srcs/sources_1/new/spi_rx_serdes_based.vhd:55]
-WARNING: [Synth 8-614] signal 'data' is read in the process but is not in the sensitivity list [/home/jacoboffersen/advanced_programmable_electronics/APE_Exam/APE_Exam.srcs/sources_1/new/spi_rx_serdes_based.vhd:55]
-	Parameter BUFR_DIVIDE bound to: 4 - type: string 
-	Parameter SIM_DEVICE bound to: 7SERIES - type: string 
-INFO: [Synth 8-113] binding component instance 'BUFR_inst' to cell 'BUFR' [/home/jacoboffersen/advanced_programmable_electronics/APE_Exam/APE_Exam.srcs/sources_1/new/spi_rx_serdes_based.vhd:123]
-INFO: [Synth 8-113] binding component instance 'BUFIO_inst' to cell 'BUFIO' [/home/jacoboffersen/advanced_programmable_electronics/APE_Exam/APE_Exam.srcs/sources_1/new/spi_rx_serdes_based.vhd:135]
-	Parameter DATA_RATE bound to: DDR - type: string 
-	Parameter DATA_WIDTH bound to: 8 - type: integer 
-	Parameter DYN_CLKDIV_INV_EN bound to: FALSE - type: string 
-	Parameter DYN_CLK_INV_EN bound to: FALSE - type: string 
-	Parameter INIT_Q1 bound to: 1'b0 
-	Parameter INIT_Q2 bound to: 1'b0 
-	Parameter INIT_Q3 bound to: 1'b0 
-	Parameter INIT_Q4 bound to: 1'b0 
-	Parameter INTERFACE_TYPE bound to: NETWORKING - type: string 
-	Parameter IOBDELAY bound to: NONE - type: string 
-	Parameter IS_CLKB_INVERTED bound to: 1'b0 
-	Parameter IS_CLKDIVP_INVERTED bound to: 1'b0 
-	Parameter IS_CLKDIV_INVERTED bound to: 1'b0 
-	Parameter IS_CLK_INVERTED bound to: 1'b0 
-	Parameter IS_D_INVERTED bound to: 1'b0 
-	Parameter IS_OCLKB_INVERTED bound to: 1'b0 
-	Parameter IS_OCLK_INVERTED bound to: 1'b0 
-	Parameter NUM_CE bound to: 1 - type: integer 
-	Parameter OFB_USED bound to: FALSE - type: string 
-	Parameter SERDES_MODE bound to: MASTER - type: string 
-	Parameter SRVAL_Q1 bound to: 1'b0 
-	Parameter SRVAL_Q2 bound to: 1'b0 
-	Parameter SRVAL_Q3 bound to: 1'b0 
-	Parameter SRVAL_Q4 bound to: 1'b0 
-INFO: [Synth 8-113] binding component instance 'ISERDESE2_inst' to cell 'ISERDESE2' [/home/jacoboffersen/advanced_programmable_electronics/APE_Exam/APE_Exam.srcs/sources_1/new/spi_rx_serdes_based.vhd:144]
-INFO: [Synth 8-4471] merging register 'data_reg[31:0]' into 'nxt_data_reg[31:0]' [/home/jacoboffersen/advanced_programmable_electronics/APE_Exam/APE_Exam.srcs/sources_1/new/spi_rx_serdes_based.vhd:53]
-INFO: [Synth 8-4471] merging register 'wr_reg' into 'nxt_wr_reg' [/home/jacoboffersen/advanced_programmable_electronics/APE_Exam/APE_Exam.srcs/sources_1/new/spi_rx_serdes_based.vhd:52]
-INFO: [Synth 8-4471] merging register 'subpart_reg[1:0]' into 'nxt_subpart_reg[1:0]' [/home/jacoboffersen/advanced_programmable_electronics/APE_Exam/APE_Exam.srcs/sources_1/new/spi_rx_serdes_based.vhd:57]
-WARNING: [Synth 8-6014] Unused sequential element data_reg was removed.  [/home/jacoboffersen/advanced_programmable_electronics/APE_Exam/APE_Exam.srcs/sources_1/new/spi_rx_serdes_based.vhd:53]
-WARNING: [Synth 8-6014] Unused sequential element wr_reg was removed.  [/home/jacoboffersen/advanced_programmable_electronics/APE_Exam/APE_Exam.srcs/sources_1/new/spi_rx_serdes_based.vhd:52]
-WARNING: [Synth 8-6014] Unused sequential element subpart_reg was removed.  [/home/jacoboffersen/advanced_programmable_electronics/APE_Exam/APE_Exam.srcs/sources_1/new/spi_rx_serdes_based.vhd:57]
-INFO: [Synth 8-256] done synthesizing module 'spi_rx_serdes_based' (17#1) [/home/jacoboffersen/advanced_programmable_electronics/APE_Exam/APE_Exam.srcs/sources_1/new/spi_rx_serdes_based.vhd:38]
+	Parameter SPI_TYPE bound to: 0 - type: integer 
+INFO: [Synth 8-3491] module 'spi_rx_pure_vhdl' declared at '/home/jacoboffersen/advanced_programmable_electronics/APE_Exam/APE_Exam.srcs/sources_1/new/spi_rx_pure_vhdl.vhd:22' bound to instance 'spi_rx_pure_vhdl_inst' of component 'spi_rx_pure_vhdl' [/home/jacoboffersen/advanced_programmable_electronics/APE_Exam/APE_Exam.srcs/sources_1/imports/sources_1/new/SPI_RX.vhd:95]
+INFO: [Synth 8-638] synthesizing module 'spi_rx_pure_vhdl' [/home/jacoboffersen/advanced_programmable_electronics/APE_Exam/APE_Exam.srcs/sources_1/new/spi_rx_pure_vhdl.vhd:36]
+WARNING: [Synth 8-614] signal 'bitcnt' is read in the process but is not in the sensitivity list [/home/jacoboffersen/advanced_programmable_electronics/APE_Exam/APE_Exam.srcs/sources_1/new/spi_rx_pure_vhdl.vhd:48]
+WARNING: [Synth 8-614] signal 'data' is read in the process but is not in the sensitivity list [/home/jacoboffersen/advanced_programmable_electronics/APE_Exam/APE_Exam.srcs/sources_1/new/spi_rx_pure_vhdl.vhd:48]
+WARNING: [Synth 8-6014] Unused sequential element nxt_wr_reg was removed.  [/home/jacoboffersen/advanced_programmable_electronics/APE_Exam/APE_Exam.srcs/sources_1/new/spi_rx_pure_vhdl.vhd:54]
+WARNING: [Synth 8-6014] Unused sequential element nxt_bitcnt_reg was removed.  [/home/jacoboffersen/advanced_programmable_electronics/APE_Exam/APE_Exam.srcs/sources_1/new/spi_rx_pure_vhdl.vhd:56]
+INFO: [Synth 8-4471] merging register 'data_reg[31:0]' into 'nxt_data_reg[31:0]' [/home/jacoboffersen/advanced_programmable_electronics/APE_Exam/APE_Exam.srcs/sources_1/new/spi_rx_pure_vhdl.vhd:45]
+WARNING: [Synth 8-6014] Unused sequential element data_reg was removed.  [/home/jacoboffersen/advanced_programmable_electronics/APE_Exam/APE_Exam.srcs/sources_1/new/spi_rx_pure_vhdl.vhd:45]
+INFO: [Synth 8-256] done synthesizing module 'spi_rx_pure_vhdl' (17#1) [/home/jacoboffersen/advanced_programmable_electronics/APE_Exam/APE_Exam.srcs/sources_1/new/spi_rx_pure_vhdl.vhd:36]
 INFO: [Synth 8-256] done synthesizing module 'SPI_RX' (18#1) [/home/jacoboffersen/advanced_programmable_electronics/APE_Exam/APE_Exam.srcs/sources_1/imports/sources_1/new/SPI_RX.vhd:33]
 INFO: [Synth 8-3491] module 'TD_RAM_36K_WRAP' declared at '/home/jacoboffersen/advanced_programmable_electronics/APE_Exam/APE_Exam.srcs/sources_1/new/RAM0.vhd:20' bound to instance 'RAM_inst1' of component 'TD_RAM_36K_WRAP' [/home/jacoboffersen/advanced_programmable_electronics/APE_Exam/APE_Exam.srcs/sources_1/new/FPGA2.vhd:186]
 INFO: [Synth 8-256] done synthesizing module 'FPGA2' (19#1) [/home/jacoboffersen/advanced_programmable_electronics/APE_Exam/APE_Exam.srcs/sources_1/new/FPGA2.vhd:47]
@@ -659,7 +570,7 @@ WARNING: [Synth 8-3331] design TD_RAM_36K_WRAP has unconnected port ADDR_B_I[7]
 WARNING: [Synth 8-3331] design image_driver has unconnected port CLK_FAST_I
 WARNING: [Synth 8-3331] design dvid has unconnected port clk_n
 ---------------------------------------------------------------------------------
-Finished RTL Elaboration : Time (s): cpu = 00:00:04 ; elapsed = 00:00:05 . Memory (MB): peak = 1359.180 ; gain = 156.512 ; free physical = 2411 ; free virtual = 10536
+Finished RTL Elaboration : Time (s): cpu = 00:00:04 ; elapsed = 00:00:04 . Memory (MB): peak = 1359.180 ; gain = 156.512 ; free physical = 2236 ; free virtual = 10384
 ---------------------------------------------------------------------------------
 
 Report Check Netlist: 
@@ -672,12 +583,12 @@ Report Check Netlist:
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:00:04 ; elapsed = 00:00:05 . Memory (MB): peak = 1359.180 ; gain = 156.512 ; free physical = 2413 ; free virtual = 10538
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:04 ; elapsed = 00:00:05 . Memory (MB): peak = 1359.180 ; gain = 156.512 ; free physical = 2239 ; free virtual = 10387
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:04 ; elapsed = 00:00:05 . Memory (MB): peak = 1359.180 ; gain = 156.512 ; free physical = 2413 ; free virtual = 10538
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:04 ; elapsed = 00:00:05 . Memory (MB): peak = 1359.180 ; gain = 156.512 ; free physical = 2239 ; free virtual = 10387
 ---------------------------------------------------------------------------------
-INFO: [Netlist 29-17] Analyzing 15 Unisim elements for replacement
+INFO: [Netlist 29-17] Analyzing 11 Unisim elements for replacement
 INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
 INFO: [Device 21-403] Loading part xc7s25ftgb196-1
 INFO: [Project 1-570] Preparing netlist for logic optimization
@@ -685,11 +596,14 @@ INFO: [Project 1-570] Preparing netlist for logic optimization
 Processing XDC Constraints
 Initializing timing engine
 Parsing XDC File [/home/jacoboffersen/advanced_programmable_electronics/APE_Exam/APE_Exam.srcs/constrs_1/imports/constrs_1/Arty-S7-50-Rev-B-Master.xdc]
-WARNING: [Vivado 12-507] No nets matched 'CLK100MHZ_IBUF'. [/home/jacoboffersen/advanced_programmable_electronics/APE_Exam/APE_Exam.srcs/constrs_1/imports/constrs_1/Arty-S7-50-Rev-B-Master.xdc:13]
-CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [/home/jacoboffersen/advanced_programmable_electronics/APE_Exam/APE_Exam.srcs/constrs_1/imports/constrs_1/Arty-S7-50-Rev-B-Master.xdc:13]
+WARNING: [Vivado 12-507] No nets matched 'CLK100MHZ_IBUF'. [/home/jacoboffersen/advanced_programmable_electronics/APE_Exam/APE_Exam.srcs/constrs_1/imports/constrs_1/Arty-S7-50-Rev-B-Master.xdc:10]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [/home/jacoboffersen/advanced_programmable_electronics/APE_Exam/APE_Exam.srcs/constrs_1/imports/constrs_1/Arty-S7-50-Rev-B-Master.xdc:10]
 Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
-WARNING: [Vivado 12-507] No nets matched 'SPI_SCLK_I_IBUF'. [/home/jacoboffersen/advanced_programmable_electronics/APE_Exam/APE_Exam.srcs/constrs_1/imports/constrs_1/Arty-S7-50-Rev-B-Master.xdc:15]
-CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [/home/jacoboffersen/advanced_programmable_electronics/APE_Exam/APE_Exam.srcs/constrs_1/imports/constrs_1/Arty-S7-50-Rev-B-Master.xdc:15]
+WARNING: [Vivado 12-584] No ports matched 'SPI_SCLK_I_IBUF'. [/home/jacoboffersen/advanced_programmable_electronics/APE_Exam/APE_Exam.srcs/constrs_1/imports/constrs_1/Arty-S7-50-Rev-B-Master.xdc:12]
+CRITICAL WARNING: [Vivado 12-4739] create_clock:No valid object(s) found for '-objects [get_ports SPI_SCLK_I_IBUF]'. [/home/jacoboffersen/advanced_programmable_electronics/APE_Exam/APE_Exam.srcs/constrs_1/imports/constrs_1/Arty-S7-50-Rev-B-Master.xdc:12]
+Resolution: Check if the specified object(s) exists in the current design. If it does, ensure that the correct design hierarchy was specified for the object. If you are working with clocks, make sure create_clock was used to create the clock object before it is referenced.
+WARNING: [Vivado 12-507] No nets matched 'SPI_SCLK_I_IBUF'. [/home/jacoboffersen/advanced_programmable_electronics/APE_Exam/APE_Exam.srcs/constrs_1/imports/constrs_1/Arty-S7-50-Rev-B-Master.xdc:13]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [/home/jacoboffersen/advanced_programmable_electronics/APE_Exam/APE_Exam.srcs/constrs_1/imports/constrs_1/Arty-S7-50-Rev-B-Master.xdc:13]
 Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
 Finished Parsing XDC File [/home/jacoboffersen/advanced_programmable_electronics/APE_Exam/APE_Exam.srcs/constrs_1/imports/constrs_1/Arty-S7-50-Rev-B-Master.xdc]
 INFO: [Project 1-236] Implementation specific constraints were found while reading constraint file [/home/jacoboffersen/advanced_programmable_electronics/APE_Exam/APE_Exam.srcs/constrs_1/imports/constrs_1/Arty-S7-50-Rev-B-Master.xdc]. These constraints will be ignored for synthesis but will be used in implementation. Impacted constraints are listed in the file [.Xil/top_propImpl.xdc].
@@ -702,22 +616,22 @@ INFO: [Project 1-111] Unisim Transformation Summary:
   MMCME2_BASE => MMCME2_ADV: 3 instances
   OBUFDS => OBUFDS_DUAL_BUF (INV, OBUFDS, OBUFDS): 4 instances
 
-Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1663.172 ; gain = 0.000 ; free physical = 2191 ; free virtual = 10316
+Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1657.172 ; gain = 0.000 ; free physical = 2048 ; free virtual = 10191
 ---------------------------------------------------------------------------------
-Finished Constraint Validation : Time (s): cpu = 00:00:12 ; elapsed = 00:00:18 . Memory (MB): peak = 1663.172 ; gain = 460.504 ; free physical = 2271 ; free virtual = 10396
+Finished Constraint Validation : Time (s): cpu = 00:00:11 ; elapsed = 00:00:17 . Memory (MB): peak = 1657.172 ; gain = 454.504 ; free physical = 2132 ; free virtual = 10274
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Loading Part and Timing Information
 ---------------------------------------------------------------------------------
 Loading part: xc7s25ftgb196-1
 ---------------------------------------------------------------------------------
-Finished Loading Part and Timing Information : Time (s): cpu = 00:00:12 ; elapsed = 00:00:18 . Memory (MB): peak = 1663.172 ; gain = 460.504 ; free physical = 2271 ; free virtual = 10396
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:11 ; elapsed = 00:00:17 . Memory (MB): peak = 1657.172 ; gain = 454.504 ; free physical = 2132 ; free virtual = 10274
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Applying 'set_property' XDC Constraints
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:12 ; elapsed = 00:00:18 . Memory (MB): peak = 1663.172 ; gain = 460.504 ; free physical = 2273 ; free virtual = 10398
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:11 ; elapsed = 00:00:17 . Memory (MB): peak = 1657.172 ; gain = 454.504 ; free physical = 2134 ; free virtual = 10276
 ---------------------------------------------------------------------------------
 INFO: [Synth 8-5544] ROM "nxt_strobe" won't be mapped to Block RAM because address size (4) smaller than threshold (5)
 INFO: [Synth 8-5544] ROM "nxt_bitcnt" won't be mapped to Block RAM because address size (4) smaller than threshold (5)
@@ -781,7 +695,6 @@ INFO: [Synth 8-5544] ROM "y" won't be mapped to Block RAM because address size (
 INFO: [Synth 8-5544] ROM "y" won't be mapped to Block RAM because address size (4) smaller than threshold (5)
 INFO: [Synth 8-5544] ROM "y" won't be mapped to Block RAM because address size (4) smaller than threshold (5)
 INFO: [Synth 8-5544] ROM "y" won't be mapped to Block RAM because address size (4) smaller than threshold (5)
-INFO: [Synth 8-5544] ROM "D" won't be mapped to Block RAM because address size (2) smaller than threshold (5)
 ---------------------------------------------------------------------------------------------------
                    State |                     New Encoding |                Previous Encoding 
 ---------------------------------------------------------------------------------------------------
@@ -807,7 +720,7 @@ INFO: [Synth 8-5544] ROM "D" won't be mapped to Block RAM because address size (
 ---------------------------------------------------------------------------------------------------
 INFO: [Synth 8-3354] encoded FSM with state register 'rx_state_reg' using encoding 'one-hot' in module 'QLinkMaster'
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:13 ; elapsed = 00:00:19 . Memory (MB): peak = 1663.172 ; gain = 460.504 ; free physical = 2263 ; free virtual = 10388
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:12 ; elapsed = 00:00:18 . Memory (MB): peak = 1657.172 ; gain = 454.504 ; free physical = 2124 ; free virtual = 10267
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -823,7 +736,7 @@ Detailed RTL Component Info :
 	   2 Input     16 Bit       Adders := 2     
 	   2 Input      8 Bit       Adders := 1     
 	   2 Input      6 Bit       Adders := 1     
-	   2 Input      5 Bit       Adders := 4     
+	   2 Input      5 Bit       Adders := 5     
 	   2 Input      4 Bit       Adders := 4     
 	   8 Input      4 Bit       Adders := 3     
 	   9 Input      4 Bit       Adders := 3     
@@ -831,7 +744,6 @@ Detailed RTL Component Info :
 	   4 Input      4 Bit       Adders := 3     
 	   3 Input      4 Bit       Adders := 3     
 	  10 Input      4 Bit       Adders := 3     
-	   2 Input      2 Bit       Adders := 3     
 +---XORs : 
 	   2 Input      1 Bit         XORs := 42    
 	   4 Input      1 Bit         XORs := 1     
@@ -840,16 +752,14 @@ Detailed RTL Component Info :
 	               24 Bit    Registers := 1     
 	               12 Bit    Registers := 30    
 	               10 Bit    Registers := 6     
-	                8 Bit    Registers := 8     
+	                8 Bit    Registers := 7     
 	                6 Bit    Registers := 1     
-	                5 Bit    Registers := 2     
+	                5 Bit    Registers := 3     
 	                4 Bit    Registers := 7     
-	                2 Bit    Registers := 4     
-	                1 Bit    Registers := 61    
+	                1 Bit    Registers := 62    
 +---Muxes : 
 	  19 Input     32 Bit        Muxes := 2     
-	   2 Input     32 Bit        Muxes := 3     
-	   5 Input     32 Bit        Muxes := 1     
+	   2 Input     32 Bit        Muxes := 1     
 	  19 Input     19 Bit        Muxes := 1     
 	   2 Input     19 Bit        Muxes := 16    
 	   5 Input     19 Bit        Muxes := 1     
@@ -859,10 +769,8 @@ Detailed RTL Component Info :
 	   2 Input      9 Bit        Muxes := 6     
 	   2 Input      8 Bit        Muxes := 6     
 	  19 Input      8 Bit        Muxes := 2     
-	   4 Input      8 Bit        Muxes := 1     
 	   2 Input      5 Bit        Muxes := 1     
 	   2 Input      4 Bit        Muxes := 12    
-	   2 Input      2 Bit        Muxes := 7     
 	   2 Input      1 Bit        Muxes := 22    
 	   5 Input      1 Bit        Muxes := 3     
 	  19 Input      1 Bit        Muxes := 3     
@@ -921,18 +829,15 @@ Detailed RTL Component Info :
 	   5 Input      1 Bit        Muxes := 3     
 	  19 Input      1 Bit        Muxes := 3     
 	  23 Input      1 Bit        Muxes := 1     
-Module spi_tx_serdes_based 
+Module spi_tx_pure_vhdl 
 Detailed RTL Component Info : 
 +---Adders : 
-	   2 Input      2 Bit       Adders := 2     
+	   2 Input      5 Bit       Adders := 1     
 +---Registers : 
 	               32 Bit    Registers := 1     
-	                8 Bit    Registers := 1     
-	                2 Bit    Registers := 3     
+	                5 Bit    Registers := 1     
+	                1 Bit    Registers := 2     
 +---Muxes : 
-	   2 Input     32 Bit        Muxes := 2     
-	   4 Input      8 Bit        Muxes := 1     
-	   2 Input      2 Bit        Muxes := 7     
 	   2 Input      1 Bit        Muxes := 1     
 Module FPGA1 
 Detailed RTL Component Info : 
@@ -981,18 +886,15 @@ Detailed RTL Component Info :
 	                8 Bit    Registers := 3     
 +---Muxes : 
 	   2 Input      8 Bit        Muxes := 3     
-Module spi_rx_serdes_based 
+Module spi_rx_pure_vhdl 
 Detailed RTL Component Info : 
 +---Adders : 
 	   2 Input      5 Bit       Adders := 1     
-	   2 Input      2 Bit       Adders := 1     
 +---Registers : 
 	               32 Bit    Registers := 1     
 	                5 Bit    Registers := 1     
-	                2 Bit    Registers := 1     
-	                1 Bit    Registers := 2     
+	                1 Bit    Registers := 1     
 +---Muxes : 
-	   5 Input     32 Bit        Muxes := 1     
 	   2 Input      1 Bit        Muxes := 2     
 ---------------------------------------------------------------------------------
 Finished RTL Hierarchical Component Statistics
@@ -1016,16 +918,8 @@ WARNING: [Synth 8-3332] Sequential element (FPGA1_inst/QLINK1/ENCODE/data_reg[7]
 WARNING: [Synth 8-3332] Sequential element (FPGA1_inst/QLINK1/rd_reg) is unused and will be removed from module top.
 WARNING: [Synth 8-3332] Sequential element (FPGA1_inst/QLINK1/LED_O_reg) is unused and will be removed from module top.
 WARNING: [Synth 8-3332] Sequential element (FPGA1_inst/QLINK1/nxt_enc_data_reg[7]) is unused and will be removed from module top.
-WARNING: [Synth 8-3332] Sequential element (FPGA1_inst/SpiTx/spi_tx_serdes_based_gen.spi_tx_serdes_based_inst/nxt_snapshot_reg[7]) is unused and will be removed from module top.
-WARNING: [Synth 8-3332] Sequential element (FPGA1_inst/SpiTx/spi_tx_serdes_based_gen.spi_tx_serdes_based_inst/nxt_snapshot_reg[6]) is unused and will be removed from module top.
-WARNING: [Synth 8-3332] Sequential element (FPGA1_inst/SpiTx/spi_tx_serdes_based_gen.spi_tx_serdes_based_inst/nxt_snapshot_reg[5]) is unused and will be removed from module top.
-WARNING: [Synth 8-3332] Sequential element (FPGA1_inst/SpiTx/spi_tx_serdes_based_gen.spi_tx_serdes_based_inst/nxt_snapshot_reg[4]) is unused and will be removed from module top.
-WARNING: [Synth 8-3332] Sequential element (FPGA1_inst/SpiTx/spi_tx_serdes_based_gen.spi_tx_serdes_based_inst/nxt_snapshot_reg[3]) is unused and will be removed from module top.
-WARNING: [Synth 8-3332] Sequential element (FPGA1_inst/SpiTx/spi_tx_serdes_based_gen.spi_tx_serdes_based_inst/nxt_snapshot_reg[2]) is unused and will be removed from module top.
-WARNING: [Synth 8-3332] Sequential element (FPGA1_inst/SpiTx/spi_tx_serdes_based_gen.spi_tx_serdes_based_inst/nxt_snapshot_reg[1]) is unused and will be removed from module top.
-WARNING: [Synth 8-3332] Sequential element (FPGA1_inst/SpiTx/spi_tx_serdes_based_gen.spi_tx_serdes_based_inst/nxt_snapshot_reg[0]) is unused and will be removed from module top.
 ---------------------------------------------------------------------------------
-Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:17 ; elapsed = 00:00:23 . Memory (MB): peak = 1663.172 ; gain = 460.504 ; free physical = 2243 ; free virtual = 10366
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:17 ; elapsed = 00:00:23 . Memory (MB): peak = 1657.172 ; gain = 454.504 ; free physical = 2101 ; free virtual = 10246
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -1037,13 +931,13 @@ Report RTL Partitions:
 Start Applying XDC Timing Constraints
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:23 ; elapsed = 00:00:31 . Memory (MB): peak = 1663.172 ; gain = 460.504 ; free physical = 2148 ; free virtual = 10272
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:22 ; elapsed = 00:00:30 . Memory (MB): peak = 1657.172 ; gain = 454.504 ; free physical = 2019 ; free virtual = 10161
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Timing Optimization
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Timing Optimization : Time (s): cpu = 00:00:23 ; elapsed = 00:00:31 . Memory (MB): peak = 1663.172 ; gain = 460.504 ; free physical = 2145 ; free virtual = 10269
+Finished Timing Optimization : Time (s): cpu = 00:00:22 ; elapsed = 00:00:30 . Memory (MB): peak = 1657.172 ; gain = 454.504 ; free physical = 2018 ; free virtual = 10159
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -1055,7 +949,7 @@ Report RTL Partitions:
 Start Technology Mapping
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Technology Mapping : Time (s): cpu = 00:00:23 ; elapsed = 00:00:32 . Memory (MB): peak = 1663.172 ; gain = 460.504 ; free physical = 2141 ; free virtual = 10264
+Finished Technology Mapping : Time (s): cpu = 00:00:23 ; elapsed = 00:00:31 . Memory (MB): peak = 1657.203 ; gain = 454.535 ; free physical = 2013 ; free virtual = 10154
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -1078,10 +972,8 @@ Start Final Netlist Cleanup
 ---------------------------------------------------------------------------------
 Finished Final Netlist Cleanup
 ---------------------------------------------------------------------------------
-WARNING: [Synth 8-5410] Found another clock driver \FPGA2_inst/SpiRx/spi_rx_serdes_based_gen.spi_rx_serdes_based_inst/BUFR_inst :O [/home/jacoboffersen/advanced_programmable_electronics/APE_Exam/APE_Exam.srcs/sources_1/new/spi_rx_serdes_based.vhd:123]
-WARNING: [Synth 8-5410] Found another clock driver \FPGA2_inst/SpiRx/spi_rx_serdes_based_gen.spi_rx_serdes_based_inst/BUFIO_inst :O [/home/jacoboffersen/advanced_programmable_electronics/APE_Exam/APE_Exam.srcs/sources_1/new/spi_rx_serdes_based.vhd:135]
 ---------------------------------------------------------------------------------
-Finished IO Insertion : Time (s): cpu = 00:00:24 ; elapsed = 00:00:32 . Memory (MB): peak = 1663.172 ; gain = 460.504 ; free physical = 2141 ; free virtual = 10264
+Finished IO Insertion : Time (s): cpu = 00:00:23 ; elapsed = 00:00:32 . Memory (MB): peak = 1657.203 ; gain = 454.535 ; free physical = 2013 ; free virtual = 10154
 ---------------------------------------------------------------------------------
 
 Report Check Netlist: 
@@ -1094,7 +986,7 @@ Report Check Netlist:
 Start Renaming Generated Instances
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Instances : Time (s): cpu = 00:00:24 ; elapsed = 00:00:32 . Memory (MB): peak = 1663.172 ; gain = 460.504 ; free physical = 2141 ; free virtual = 10264
+Finished Renaming Generated Instances : Time (s): cpu = 00:00:23 ; elapsed = 00:00:32 . Memory (MB): peak = 1657.203 ; gain = 454.535 ; free physical = 2013 ; free virtual = 10154
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -1106,25 +998,25 @@ Report RTL Partitions:
 Start Rebuilding User Hierarchy
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:24 ; elapsed = 00:00:32 . Memory (MB): peak = 1663.172 ; gain = 460.504 ; free physical = 2141 ; free virtual = 10264
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:23 ; elapsed = 00:00:32 . Memory (MB): peak = 1657.203 ; gain = 454.535 ; free physical = 2013 ; free virtual = 10154
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Ports
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Ports : Time (s): cpu = 00:00:24 ; elapsed = 00:00:32 . Memory (MB): peak = 1663.172 ; gain = 460.504 ; free physical = 2141 ; free virtual = 10264
+Finished Renaming Generated Ports : Time (s): cpu = 00:00:23 ; elapsed = 00:00:32 . Memory (MB): peak = 1657.203 ; gain = 454.535 ; free physical = 2013 ; free virtual = 10154
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:00:24 ; elapsed = 00:00:32 . Memory (MB): peak = 1663.172 ; gain = 460.504 ; free physical = 2141 ; free virtual = 10264
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:24 ; elapsed = 00:00:32 . Memory (MB): peak = 1657.203 ; gain = 454.535 ; free physical = 2013 ; free virtual = 10154
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Nets
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Nets : Time (s): cpu = 00:00:24 ; elapsed = 00:00:32 . Memory (MB): peak = 1663.172 ; gain = 460.504 ; free physical = 2141 ; free virtual = 10264
+Finished Renaming Generated Nets : Time (s): cpu = 00:00:24 ; elapsed = 00:00:32 . Memory (MB): peak = 1657.203 ; gain = 454.535 ; free physical = 2013 ; free virtual = 10154
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start ROM, RAM, DSP and Shift Register Reporting
@@ -1156,87 +1048,82 @@ Report Cell Usage:
 |      |Cell        |Count |
 +------+------------+------+
 |1     |BUFG        |     4|
-|2     |BUFIO       |     1|
-|3     |BUFR        |     2|
-|4     |BUFR_1      |     1|
-|5     |BUFR_2      |     1|
-|6     |CARRY4      |    40|
-|7     |ISERDESE2   |     1|
-|8     |LUT1        |    21|
-|9     |LUT2        |   107|
-|10    |LUT3        |   118|
-|11    |LUT4        |   131|
-|12    |LUT5        |   162|
-|13    |LUT6        |   223|
-|14    |MMCME2_BASE |     3|
-|15    |MUXF7       |     7|
-|16    |MUXF8       |     1|
-|17    |OSERDESE2   |     2|
-|18    |OSERDESE2_1 |     4|
-|19    |OSERDESE2_2 |     4|
-|20    |RAMB36E1    |     3|
-|21    |SRL16E      |    27|
-|22    |FDRE        |   388|
-|23    |FDSE        |    37|
-|24    |IBUF        |     4|
-|25    |OBUF        |     3|
-|26    |OBUFDS      |     4|
+|2     |BUFR        |     1|
+|3     |CARRY4      |    40|
+|4     |LUT1        |    19|
+|5     |LUT2        |   110|
+|6     |LUT3        |   100|
+|7     |LUT4        |   106|
+|8     |LUT5        |   199|
+|9     |LUT6        |   228|
+|10    |MMCME2_BASE |     3|
+|11    |MUXF7       |    12|
+|12    |MUXF8       |     2|
+|13    |OSERDESE2   |     4|
+|14    |OSERDESE2_1 |     4|
+|15    |RAMB36E1    |     3|
+|16    |SRL16E      |    27|
+|17    |FDRE        |   392|
+|18    |FDSE        |    31|
+|19    |IBUF        |     4|
+|20    |OBUF        |     3|
+|21    |OBUFDS      |     4|
 +------+------------+------+
 
 Report Instance Areas: 
-+------+---------------------------------------------------------+---------------------+------+
-|      |Instance                                                 |Module               |Cells |
-+------+---------------------------------------------------------+---------------------+------+
-|1     |top                                                      |                     |  1299|
-|2     |  FPGA1_inst                                             |FPGA1                |   594|
-|3     |    QLINK1                                               |QLinkMaster          |   504|
-|4     |      DECODE                                             |decode_serial        |   156|
-|5     |      ENCODE                                             |encode_serial        |    38|
-|6     |    RAM_inst0                                            |TD_RAM_36K_WRAP_6    |     1|
-|7     |    SpiTx                                                |SPI_TX               |    78|
-|8     |      \spi_tx_serdes_based_gen.spi_tx_serdes_based_inst  |spi_tx_serdes_based  |    78|
-|9     |    clocking_1_inst                                      |clocking_1           |    11|
-|10    |  FPGA2_inst                                             |FPGA2                |   694|
-|11    |    RAM_inst1                                            |TD_RAM_36K_WRAP_0    |    19|
-|12    |    SpiRx                                                |SPI_RX               |    58|
-|13    |      \spi_rx_serdes_based_gen.spi_rx_serdes_based_inst  |spi_rx_serdes_based  |    58|
-|14    |    clocking_2_inst                                      |clocking_2           |     3|
-|15    |    hdmi_driver_inst                                     |hdmi_driver          |   614|
-|16    |      Inst_vga_gen                                       |vga_gen              |   204|
-|17    |      dvid_1                                             |dvid                 |    94|
-|18    |        OSERDES_B                                        |OSERDES_10BIT_WRAP   |     2|
-|19    |        OSERDES_CLK                                      |OSERDES_10BIT_WRAP_1 |     2|
-|20    |        OSERDES_G                                        |OSERDES_10BIT_WRAP_2 |     2|
-|21    |        OSERDES_R                                        |OSERDES_10BIT_WRAP_3 |     2|
-|22    |        TDMS_encoder_blue                                |TDMS_encoder         |    18|
-|23    |        TDMS_encoder_green                               |TDMS_encoder_4       |    19|
-|24    |        TDMS_encoder_red                                 |TDMS_encoder_5       |    19|
-|25    |      image_driver_inst                                  |image_driver         |   312|
-|26    |        lfsr_inst                                        |lfsr_counter         |    25|
-|27    |  RAM_spi_debug                                          |TD_RAM_36K_WRAP      |     1|
-+------+---------------------------------------------------------+---------------------+------+
++------+---------------------------------------------------+---------------------+------+
+|      |Instance                                           |Module               |Cells |
++------+---------------------------------------------------+---------------------+------+
+|1     |top                                                |                     |  1296|
+|2     |  FPGA1_inst                                       |FPGA1                |   577|
+|3     |    QLINK1                                         |QLinkMaster          |   505|
+|4     |      DECODE                                       |decode_serial        |   154|
+|5     |      ENCODE                                       |encode_serial        |    38|
+|6     |    RAM_inst0                                      |TD_RAM_36K_WRAP_6    |     1|
+|7     |    SpiTx                                          |SPI_TX               |    60|
+|8     |      \spi_tx_pure_vhdl_gen.spi_tx_pure_vhdl_inst  |spi_tx_pure_vhdl     |    60|
+|9     |    clocking_1_inst                                |clocking_1           |    11|
+|10    |  FPGA2_inst                                       |FPGA2                |   710|
+|11    |    RAM_inst1                                      |TD_RAM_36K_WRAP_0    |    19|
+|12    |    SpiRx                                          |SPI_RX               |    77|
+|13    |      \spi_rx_pure_vhdl_gen.spi_rx_pure_vhdl_inst  |spi_rx_pure_vhdl     |    77|
+|14    |    clocking_2_inst                                |clocking_2           |     3|
+|15    |    hdmi_driver_inst                               |hdmi_driver          |   611|
+|16    |      Inst_vga_gen                                 |vga_gen              |   203|
+|17    |      dvid_1                                       |dvid                 |    95|
+|18    |        OSERDES_B                                  |OSERDES_10BIT_WRAP   |     2|
+|19    |        OSERDES_CLK                                |OSERDES_10BIT_WRAP_1 |     2|
+|20    |        OSERDES_G                                  |OSERDES_10BIT_WRAP_2 |     2|
+|21    |        OSERDES_R                                  |OSERDES_10BIT_WRAP_3 |     2|
+|22    |        TDMS_encoder_blue                          |TDMS_encoder         |    19|
+|23    |        TDMS_encoder_green                         |TDMS_encoder_4       |    19|
+|24    |        TDMS_encoder_red                           |TDMS_encoder_5       |    19|
+|25    |      image_driver_inst                            |image_driver         |   309|
+|26    |        lfsr_inst                                  |lfsr_counter         |    25|
+|27    |  RAM_spi_debug                                    |TD_RAM_36K_WRAP      |     1|
++------+---------------------------------------------------+---------------------+------+
 ---------------------------------------------------------------------------------
-Finished Writing Synthesis Report : Time (s): cpu = 00:00:24 ; elapsed = 00:00:32 . Memory (MB): peak = 1663.172 ; gain = 460.504 ; free physical = 2141 ; free virtual = 10264
+Finished Writing Synthesis Report : Time (s): cpu = 00:00:24 ; elapsed = 00:00:32 . Memory (MB): peak = 1657.203 ; gain = 454.535 ; free physical = 2013 ; free virtual = 10154
 ---------------------------------------------------------------------------------
-Synthesis finished with 0 errors, 0 critical warnings and 14 warnings.
-Synthesis Optimization Runtime : Time (s): cpu = 00:00:18 ; elapsed = 00:00:22 . Memory (MB): peak = 1663.172 ; gain = 156.512 ; free physical = 2195 ; free virtual = 10319
-Synthesis Optimization Complete : Time (s): cpu = 00:00:24 ; elapsed = 00:00:32 . Memory (MB): peak = 1663.172 ; gain = 460.504 ; free physical = 2195 ; free virtual = 10319
+Synthesis finished with 0 errors, 0 critical warnings and 4 warnings.
+Synthesis Optimization Runtime : Time (s): cpu = 00:00:18 ; elapsed = 00:00:21 . Memory (MB): peak = 1657.203 ; gain = 156.543 ; free physical = 2067 ; free virtual = 10209
+Synthesis Optimization Complete : Time (s): cpu = 00:00:24 ; elapsed = 00:00:32 . Memory (MB): peak = 1657.211 ; gain = 454.535 ; free physical = 2067 ; free virtual = 10209
 INFO: [Project 1-571] Translating synthesized netlist
-INFO: [Netlist 29-17] Analyzing 67 Unisim elements for replacement
+INFO: [Netlist 29-17] Analyzing 69 Unisim elements for replacement
 INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
 INFO: [Project 1-570] Preparing netlist for logic optimization
-INFO: [Opt 31-138] Pushed 2 inverter(s) to 2 load pin(s).
+INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
 INFO: [Project 1-111] Unisim Transformation Summary:
   A total of 7 instances were transformed.
   MMCME2_BASE => MMCME2_ADV: 3 instances
   OBUFDS => OBUFDS_DUAL_BUF (INV, OBUFDS, OBUFDS): 4 instances
 
 INFO: [Common 17-83] Releasing license: Synthesis
-195 Infos, 102 Warnings, 2 Critical Warnings and 0 Errors encountered.
+186 Infos, 92 Warnings, 3 Critical Warnings and 0 Errors encountered.
 synth_design completed successfully
-synth_design: Time (s): cpu = 00:00:26 ; elapsed = 00:00:33 . Memory (MB): peak = 1688.203 ; gain = 498.102 ; free physical = 2194 ; free virtual = 10317
+synth_design: Time (s): cpu = 00:00:25 ; elapsed = 00:00:33 . Memory (MB): peak = 1689.219 ; gain = 499.117 ; free physical = 2066 ; free virtual = 10208
 WARNING: [Constraints 18-5210] No constraint will be written out.
 INFO: [Common 17-1381] The checkpoint '/home/jacoboffersen/advanced_programmable_electronics/APE_Exam/APE_Exam.runs/synth_1/top.dcp' has been generated.
 INFO: [runtcl-4] Executing : report_utilization -file top_utilization_synth.rpt -pb top_utilization_synth.pb
-report_utilization: Time (s): cpu = 00:00:00.05 ; elapsed = 00:00:00.09 . Memory (MB): peak = 1712.215 ; gain = 0.000 ; free physical = 2193 ; free virtual = 10317
-INFO: [Common 17-206] Exiting Vivado at Wed Jun 10 23:50:26 2020...
+report_utilization: Time (s): cpu = 00:00:00.07 ; elapsed = 00:00:00.08 . Memory (MB): peak = 1713.230 ; gain = 0.000 ; free physical = 2065 ; free virtual = 10206
+INFO: [Common 17-206] Exiting Vivado at Thu Jun 11 00:13:04 2020...

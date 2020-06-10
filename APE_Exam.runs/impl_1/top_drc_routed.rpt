@@ -1,7 +1,7 @@
 Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
 ---------------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2018.2 (lin64) Build 2258646 Thu Jun 14 20:02:38 MDT 2018
-| Date         : Wed Jun 10 23:51:28 2020
+| Date         : Thu Jun 11 00:14:04 2020
 | Host         : JacobOffersen running 64-bit Ubuntu 19.10
 | Command      : report_drc -file top_drc_routed.rpt -pb top_drc_routed.pb -rpx top_drc_routed.rpx
 | Design       : top
@@ -24,12 +24,13 @@ Table of Contents
       Design limits: <entire design considered>
            Ruledeck: default
              Max violations: <unlimited>
-             Violations found: 20
+             Violations found: 19
 +-----------+----------+-----------------------------------------------------+------------+
 | Rule      | Severity | Description                                         | Violations |
 +-----------+----------+-----------------------------------------------------+------------+
-| AVAL-70   | Warning  | OSERDES_DataRateTqTriWidth                          | 10         |
+| AVAL-70   | Warning  | OSERDES_DataRateTqTriWidth                          | 8          |
 | CFGBVS-1  | Warning  | Missing CFGBVS and CONFIG_VOLTAGE Design Properties | 1          |
+| PLCK-12   | Warning  | Clock Placer Checks                                 | 1          |
 | PLCK-23   | Warning  | Clock Placer Checks                                 | 1          |
 | REQP-1580 | Warning  | Phase alignment                                     | 8          |
 +-----------+----------+-----------------------------------------------------+------------+
@@ -38,50 +39,40 @@ Table of Contents
 -----------------
 AVAL-70#1 Warning
 OSERDES_DataRateTqTriWidth  
-Unexpected programming for FPGA1_inst/SpiTx/spi_tx_serdes_based_gen.spi_tx_serdes_based_inst/OSERDESE2_MOSI_inst with TRISTATE_WIDTH. DATA_RATE_TQ set DDR expects TRISTATE_WIDTH to be set 4
+Unexpected programming for FPGA2_inst/hdmi_driver_inst/dvid_1/OSERDES_B/OSERDESE2_m with TRISTATE_WIDTH. DATA_RATE_TQ set DDR expects TRISTATE_WIDTH to be set 4
 Related violations: <none>
 
 AVAL-70#2 Warning
 OSERDES_DataRateTqTriWidth  
-Unexpected programming for FPGA1_inst/SpiTx/spi_tx_serdes_based_gen.spi_tx_serdes_based_inst/OSERDESE2_SCLK_inst with TRISTATE_WIDTH. DATA_RATE_TQ set DDR expects TRISTATE_WIDTH to be set 4
+Unexpected programming for FPGA2_inst/hdmi_driver_inst/dvid_1/OSERDES_B/OSERDESE2_s with TRISTATE_WIDTH. DATA_RATE_TQ set DDR expects TRISTATE_WIDTH to be set 4
 Related violations: <none>
 
 AVAL-70#3 Warning
 OSERDES_DataRateTqTriWidth  
-Unexpected programming for FPGA2_inst/hdmi_driver_inst/dvid_1/OSERDES_B/OSERDESE2_m with TRISTATE_WIDTH. DATA_RATE_TQ set DDR expects TRISTATE_WIDTH to be set 4
+Unexpected programming for FPGA2_inst/hdmi_driver_inst/dvid_1/OSERDES_CLK/OSERDESE2_m with TRISTATE_WIDTH. DATA_RATE_TQ set DDR expects TRISTATE_WIDTH to be set 4
 Related violations: <none>
 
 AVAL-70#4 Warning
 OSERDES_DataRateTqTriWidth  
-Unexpected programming for FPGA2_inst/hdmi_driver_inst/dvid_1/OSERDES_B/OSERDESE2_s with TRISTATE_WIDTH. DATA_RATE_TQ set DDR expects TRISTATE_WIDTH to be set 4
+Unexpected programming for FPGA2_inst/hdmi_driver_inst/dvid_1/OSERDES_CLK/OSERDESE2_s with TRISTATE_WIDTH. DATA_RATE_TQ set DDR expects TRISTATE_WIDTH to be set 4
 Related violations: <none>
 
 AVAL-70#5 Warning
 OSERDES_DataRateTqTriWidth  
-Unexpected programming for FPGA2_inst/hdmi_driver_inst/dvid_1/OSERDES_CLK/OSERDESE2_m with TRISTATE_WIDTH. DATA_RATE_TQ set DDR expects TRISTATE_WIDTH to be set 4
+Unexpected programming for FPGA2_inst/hdmi_driver_inst/dvid_1/OSERDES_G/OSERDESE2_m with TRISTATE_WIDTH. DATA_RATE_TQ set DDR expects TRISTATE_WIDTH to be set 4
 Related violations: <none>
 
 AVAL-70#6 Warning
 OSERDES_DataRateTqTriWidth  
-Unexpected programming for FPGA2_inst/hdmi_driver_inst/dvid_1/OSERDES_CLK/OSERDESE2_s with TRISTATE_WIDTH. DATA_RATE_TQ set DDR expects TRISTATE_WIDTH to be set 4
+Unexpected programming for FPGA2_inst/hdmi_driver_inst/dvid_1/OSERDES_G/OSERDESE2_s with TRISTATE_WIDTH. DATA_RATE_TQ set DDR expects TRISTATE_WIDTH to be set 4
 Related violations: <none>
 
 AVAL-70#7 Warning
 OSERDES_DataRateTqTriWidth  
-Unexpected programming for FPGA2_inst/hdmi_driver_inst/dvid_1/OSERDES_G/OSERDESE2_m with TRISTATE_WIDTH. DATA_RATE_TQ set DDR expects TRISTATE_WIDTH to be set 4
-Related violations: <none>
-
-AVAL-70#8 Warning
-OSERDES_DataRateTqTriWidth  
-Unexpected programming for FPGA2_inst/hdmi_driver_inst/dvid_1/OSERDES_G/OSERDESE2_s with TRISTATE_WIDTH. DATA_RATE_TQ set DDR expects TRISTATE_WIDTH to be set 4
-Related violations: <none>
-
-AVAL-70#9 Warning
-OSERDES_DataRateTqTriWidth  
 Unexpected programming for FPGA2_inst/hdmi_driver_inst/dvid_1/OSERDES_R/OSERDESE2_m with TRISTATE_WIDTH. DATA_RATE_TQ set DDR expects TRISTATE_WIDTH to be set 4
 Related violations: <none>
 
-AVAL-70#10 Warning
+AVAL-70#8 Warning
 OSERDES_DataRateTqTriWidth  
 Unexpected programming for FPGA2_inst/hdmi_driver_inst/dvid_1/OSERDES_R/OSERDESE2_s with TRISTATE_WIDTH. DATA_RATE_TQ set DDR expects TRISTATE_WIDTH to be set 4
 Related violations: <none>
@@ -97,6 +88,17 @@ Neither the CFGBVS nor CONFIG_VOLTAGE voltage property is set in the current_des
  #where value2 is the voltage provided to configuration bank 0
 
 Refer to the device configuration user guide for more information.
+Related violations: <none>
+
+PLCK-12#1 Warning
+Clock Placer Checks  
+Poor placement for routing between an IO pin and BUFG. 
+Resolution: Poor placement of an IO pin and a BUFG has resulted in the router using a non-dedicated path between the two.  There are several things that could trigger this DRC, each of which can cause unpredictable clock insertion delays that result in poor timing.  This DRC could be caused by any of the following: (a) a clock port was placed on a pin that is not a CCIO-pin (b)the BUFG has not been placed in the same half of the device or SLR as the CCIO-pin (c) a single ended clock has been placed on the N-Side of a differential pair CCIO-pin.
+ This is normally an ERROR but the CLOCK_DEDICATED_ROUTE constraint is set to FALSE allowing your design to continue. The use of this override is highly discouraged as it may lead to very poor timing results. It is recommended that this error condition be corrected in the design.
+
+	SPI_SCLK_I_IBUF_inst (IBUF.O) is locked to F4
+	SPI_SCLK_I_IBUF_BUFG_inst (BUFG.I) is provisionally placed by clockplacer on BUFGCTRL_X0Y2
+
 Related violations: <none>
 
 PLCK-23#1 Warning
