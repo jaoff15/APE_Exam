@@ -1,7 +1,7 @@
 Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
 ------------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2018.2 (lin64) Build 2258646 Thu Jun 14 20:02:38 MDT 2018
-| Date         : Wed Jun 10 11:47:53 2020
+| Date         : Wed Jun 10 13:17:23 2020
 | Host         : JacobOffersen running 64-bit Ubuntu 19.10
 | Command      : report_drc -file top_drc_opted.rpt -pb top_drc_opted.pb -rpx top_drc_opted.rpx
 | Design       : top
@@ -24,7 +24,7 @@ Table of Contents
       Design limits: <entire design considered>
            Ruledeck: default
              Max violations: <unlimited>
-             Violations found: 24
+             Violations found: 22
 +-----------+----------+-----------------------------------------------------+------------+
 | Rule      | Severity | Description                                         | Violations |
 +-----------+----------+-----------------------------------------------------+------------+
@@ -33,7 +33,7 @@ Table of Contents
 | PLCK-12   | Warning  | Clock Placer Checks                                 | 1          |
 | PLCK-23   | Warning  | Clock Placer Checks                                 | 1          |
 | REQP-1577 | Warning  | Clock output buffering                              | 1          |
-| REQP-1580 | Warning  | Phase alignment                                     | 10         |
+| REQP-1580 | Warning  | Phase alignment                                     | 8          |
 +-----------+----------+-----------------------------------------------------+------------+
 
 2. REPORT DETAILS
@@ -130,50 +130,40 @@ Related violations: <none>
 
 REQP-1580#1 Warning
 Phase alignment  
-Unsupported clocking topology used for OSERDESE2 FPGA1_inst/SpiTx/spi_tx_serdes_based_gen.spi_tx_serdes_based_inst/OSERDESE2_MOSI_inst. This can result in corrupted data. The FPGA1_inst/SpiTx/spi_tx_serdes_based_gen.spi_tx_serdes_based_inst/OSERDESE2_MOSI_inst/CLK / FPGA1_inst/SpiTx/spi_tx_serdes_based_gen.spi_tx_serdes_based_inst/OSERDESE2_MOSI_inst/CLKDIV pins should be driven by the same source through the same buffer type or by a BUFIO / BUFR combination in order to have a proper phase relationship. Please refer to the Select I/O User Guide for supported clocking topologies of the chosen INTERFACE_TYPE mode.
+Unsupported clocking topology used for OSERDESE2 FPGA2_inst/hdmi_driver_inst/dvid_1/OSERDES_B/OSERDESE2_m. This can result in corrupted data. The FPGA2_inst/hdmi_driver_inst/dvid_1/OSERDES_B/OSERDESE2_m/CLK / FPGA2_inst/hdmi_driver_inst/dvid_1/OSERDES_B/OSERDESE2_m/CLKDIV pins should be driven by the same source through the same buffer type or by a BUFIO / BUFR combination in order to have a proper phase relationship. Please refer to the Select I/O User Guide for supported clocking topologies of the chosen INTERFACE_TYPE mode.
 Related violations: <none>
 
 REQP-1580#2 Warning
 Phase alignment  
-Unsupported clocking topology used for OSERDESE2 FPGA1_inst/SpiTx/spi_tx_serdes_based_gen.spi_tx_serdes_based_inst/OSERDESE2_SCLK_inst. This can result in corrupted data. The FPGA1_inst/SpiTx/spi_tx_serdes_based_gen.spi_tx_serdes_based_inst/OSERDESE2_SCLK_inst/CLK / FPGA1_inst/SpiTx/spi_tx_serdes_based_gen.spi_tx_serdes_based_inst/OSERDESE2_SCLK_inst/CLKDIV pins should be driven by the same source through the same buffer type or by a BUFIO / BUFR combination in order to have a proper phase relationship. Please refer to the Select I/O User Guide for supported clocking topologies of the chosen INTERFACE_TYPE mode.
+Unsupported clocking topology used for OSERDESE2 FPGA2_inst/hdmi_driver_inst/dvid_1/OSERDES_B/OSERDESE2_s. This can result in corrupted data. The FPGA2_inst/hdmi_driver_inst/dvid_1/OSERDES_B/OSERDESE2_s/CLK / FPGA2_inst/hdmi_driver_inst/dvid_1/OSERDES_B/OSERDESE2_s/CLKDIV pins should be driven by the same source through the same buffer type or by a BUFIO / BUFR combination in order to have a proper phase relationship. Please refer to the Select I/O User Guide for supported clocking topologies of the chosen INTERFACE_TYPE mode.
 Related violations: <none>
 
 REQP-1580#3 Warning
 Phase alignment  
-Unsupported clocking topology used for OSERDESE2 FPGA2_inst/hdmi_driver_inst/dvid_1/OSERDES_B/OSERDESE2_m. This can result in corrupted data. The FPGA2_inst/hdmi_driver_inst/dvid_1/OSERDES_B/OSERDESE2_m/CLK / FPGA2_inst/hdmi_driver_inst/dvid_1/OSERDES_B/OSERDESE2_m/CLKDIV pins should be driven by the same source through the same buffer type or by a BUFIO / BUFR combination in order to have a proper phase relationship. Please refer to the Select I/O User Guide for supported clocking topologies of the chosen INTERFACE_TYPE mode.
+Unsupported clocking topology used for OSERDESE2 FPGA2_inst/hdmi_driver_inst/dvid_1/OSERDES_CLK/OSERDESE2_m. This can result in corrupted data. The FPGA2_inst/hdmi_driver_inst/dvid_1/OSERDES_CLK/OSERDESE2_m/CLK / FPGA2_inst/hdmi_driver_inst/dvid_1/OSERDES_CLK/OSERDESE2_m/CLKDIV pins should be driven by the same source through the same buffer type or by a BUFIO / BUFR combination in order to have a proper phase relationship. Please refer to the Select I/O User Guide for supported clocking topologies of the chosen INTERFACE_TYPE mode.
 Related violations: <none>
 
 REQP-1580#4 Warning
 Phase alignment  
-Unsupported clocking topology used for OSERDESE2 FPGA2_inst/hdmi_driver_inst/dvid_1/OSERDES_B/OSERDESE2_s. This can result in corrupted data. The FPGA2_inst/hdmi_driver_inst/dvid_1/OSERDES_B/OSERDESE2_s/CLK / FPGA2_inst/hdmi_driver_inst/dvid_1/OSERDES_B/OSERDESE2_s/CLKDIV pins should be driven by the same source through the same buffer type or by a BUFIO / BUFR combination in order to have a proper phase relationship. Please refer to the Select I/O User Guide for supported clocking topologies of the chosen INTERFACE_TYPE mode.
+Unsupported clocking topology used for OSERDESE2 FPGA2_inst/hdmi_driver_inst/dvid_1/OSERDES_CLK/OSERDESE2_s. This can result in corrupted data. The FPGA2_inst/hdmi_driver_inst/dvid_1/OSERDES_CLK/OSERDESE2_s/CLK / FPGA2_inst/hdmi_driver_inst/dvid_1/OSERDES_CLK/OSERDESE2_s/CLKDIV pins should be driven by the same source through the same buffer type or by a BUFIO / BUFR combination in order to have a proper phase relationship. Please refer to the Select I/O User Guide for supported clocking topologies of the chosen INTERFACE_TYPE mode.
 Related violations: <none>
 
 REQP-1580#5 Warning
 Phase alignment  
-Unsupported clocking topology used for OSERDESE2 FPGA2_inst/hdmi_driver_inst/dvid_1/OSERDES_CLK/OSERDESE2_m. This can result in corrupted data. The FPGA2_inst/hdmi_driver_inst/dvid_1/OSERDES_CLK/OSERDESE2_m/CLK / FPGA2_inst/hdmi_driver_inst/dvid_1/OSERDES_CLK/OSERDESE2_m/CLKDIV pins should be driven by the same source through the same buffer type or by a BUFIO / BUFR combination in order to have a proper phase relationship. Please refer to the Select I/O User Guide for supported clocking topologies of the chosen INTERFACE_TYPE mode.
+Unsupported clocking topology used for OSERDESE2 FPGA2_inst/hdmi_driver_inst/dvid_1/OSERDES_G/OSERDESE2_m. This can result in corrupted data. The FPGA2_inst/hdmi_driver_inst/dvid_1/OSERDES_G/OSERDESE2_m/CLK / FPGA2_inst/hdmi_driver_inst/dvid_1/OSERDES_G/OSERDESE2_m/CLKDIV pins should be driven by the same source through the same buffer type or by a BUFIO / BUFR combination in order to have a proper phase relationship. Please refer to the Select I/O User Guide for supported clocking topologies of the chosen INTERFACE_TYPE mode.
 Related violations: <none>
 
 REQP-1580#6 Warning
 Phase alignment  
-Unsupported clocking topology used for OSERDESE2 FPGA2_inst/hdmi_driver_inst/dvid_1/OSERDES_CLK/OSERDESE2_s. This can result in corrupted data. The FPGA2_inst/hdmi_driver_inst/dvid_1/OSERDES_CLK/OSERDESE2_s/CLK / FPGA2_inst/hdmi_driver_inst/dvid_1/OSERDES_CLK/OSERDESE2_s/CLKDIV pins should be driven by the same source through the same buffer type or by a BUFIO / BUFR combination in order to have a proper phase relationship. Please refer to the Select I/O User Guide for supported clocking topologies of the chosen INTERFACE_TYPE mode.
+Unsupported clocking topology used for OSERDESE2 FPGA2_inst/hdmi_driver_inst/dvid_1/OSERDES_G/OSERDESE2_s. This can result in corrupted data. The FPGA2_inst/hdmi_driver_inst/dvid_1/OSERDES_G/OSERDESE2_s/CLK / FPGA2_inst/hdmi_driver_inst/dvid_1/OSERDES_G/OSERDESE2_s/CLKDIV pins should be driven by the same source through the same buffer type or by a BUFIO / BUFR combination in order to have a proper phase relationship. Please refer to the Select I/O User Guide for supported clocking topologies of the chosen INTERFACE_TYPE mode.
 Related violations: <none>
 
 REQP-1580#7 Warning
 Phase alignment  
-Unsupported clocking topology used for OSERDESE2 FPGA2_inst/hdmi_driver_inst/dvid_1/OSERDES_G/OSERDESE2_m. This can result in corrupted data. The FPGA2_inst/hdmi_driver_inst/dvid_1/OSERDES_G/OSERDESE2_m/CLK / FPGA2_inst/hdmi_driver_inst/dvid_1/OSERDES_G/OSERDESE2_m/CLKDIV pins should be driven by the same source through the same buffer type or by a BUFIO / BUFR combination in order to have a proper phase relationship. Please refer to the Select I/O User Guide for supported clocking topologies of the chosen INTERFACE_TYPE mode.
-Related violations: <none>
-
-REQP-1580#8 Warning
-Phase alignment  
-Unsupported clocking topology used for OSERDESE2 FPGA2_inst/hdmi_driver_inst/dvid_1/OSERDES_G/OSERDESE2_s. This can result in corrupted data. The FPGA2_inst/hdmi_driver_inst/dvid_1/OSERDES_G/OSERDESE2_s/CLK / FPGA2_inst/hdmi_driver_inst/dvid_1/OSERDES_G/OSERDESE2_s/CLKDIV pins should be driven by the same source through the same buffer type or by a BUFIO / BUFR combination in order to have a proper phase relationship. Please refer to the Select I/O User Guide for supported clocking topologies of the chosen INTERFACE_TYPE mode.
-Related violations: <none>
-
-REQP-1580#9 Warning
-Phase alignment  
 Unsupported clocking topology used for OSERDESE2 FPGA2_inst/hdmi_driver_inst/dvid_1/OSERDES_R/OSERDESE2_m. This can result in corrupted data. The FPGA2_inst/hdmi_driver_inst/dvid_1/OSERDES_R/OSERDESE2_m/CLK / FPGA2_inst/hdmi_driver_inst/dvid_1/OSERDES_R/OSERDESE2_m/CLKDIV pins should be driven by the same source through the same buffer type or by a BUFIO / BUFR combination in order to have a proper phase relationship. Please refer to the Select I/O User Guide for supported clocking topologies of the chosen INTERFACE_TYPE mode.
 Related violations: <none>
 
-REQP-1580#10 Warning
+REQP-1580#8 Warning
 Phase alignment  
 Unsupported clocking topology used for OSERDESE2 FPGA2_inst/hdmi_driver_inst/dvid_1/OSERDES_R/OSERDESE2_s. This can result in corrupted data. The FPGA2_inst/hdmi_driver_inst/dvid_1/OSERDES_R/OSERDESE2_s/CLK / FPGA2_inst/hdmi_driver_inst/dvid_1/OSERDES_R/OSERDESE2_s/CLKDIV pins should be driven by the same source through the same buffer type or by a BUFIO / BUFR combination in order to have a proper phase relationship. Please refer to the Select I/O User Guide for supported clocking topologies of the chosen INTERFACE_TYPE mode.
 Related violations: <none>

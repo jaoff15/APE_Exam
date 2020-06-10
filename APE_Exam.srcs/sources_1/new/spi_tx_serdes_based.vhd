@@ -37,7 +37,7 @@ architecture Behavioral of spi_tx_serdes_based is
 
     signal D             : std_logic_vector(7 downto 0) := (others => '0');
     signal counter       : integer range 0 to 3 := 0;
-    signal clk_div       : std_logic := '0';
+    signal clk, clk_div  : std_logic := '0';
     signal subpart       : integer range 0 to 3 := 3;
     signal data_snapshot : std_logic_vector (31 downto 0) := (others => '0');
 begin
@@ -95,7 +95,7 @@ begin
   end if;
 end process;
 
-BUFR_inst : BUFR
+BUFR_clkdiv_inst : BUFR
    generic map (
       BUFR_DIVIDE => "4",   -- Values: "BYPASS, 1, 2, 3, 4, 5, 6, 7, 8" 
       SIM_DEVICE => "7SERIES"  -- Must be set to "7SERIES" 
@@ -106,7 +106,18 @@ BUFR_inst : BUFR
       CLR   => '0', -- 1-bit input: Active high, asynchronous clear (Divided modes only)
       I     => CLK_I      -- 1-bit input: Clock buffer input driven by an IBUF, MMCM or local interconnect
    );
-
+   
+BUFR_clk_inst : BUFR
+      generic map (
+         BUFR_DIVIDE => "BYPASS",   -- Values: "BYPASS, 1, 2, 3, 4, 5, 6, 7, 8" 
+         SIM_DEVICE => "7SERIES"  -- Must be set to "7SERIES" 
+      )
+      port map (
+         O     => clk,     -- 1-bit output: Clock output port
+         CE    => '1',   -- 1-bit input: Active high, clock enable (Divided modes only)
+         CLR   => '0', -- 1-bit input: Active high, asynchronous clear (Divided modes only)
+         I     => CLK_I      -- 1-bit input: Clock buffer input driven by an IBUF, MMCM or local interconnect
+      );
 
 OSERDESE2_MOSI_inst : OSERDESE2
    generic map (
@@ -131,7 +142,7 @@ OSERDESE2_MOSI_inst : OSERDESE2
 --      TBYTEOUT => TBYTEOUT,   -- 1-bit output: Byte group tristate
 --      TFB => TFB,             -- 1-bit output: 3-state control
 --      TQ => TQ,               -- 1-bit output: 3-state control
-      CLK    => CLK_I,             -- 1-bit input: High speed clock
+      CLK    => clk,             -- 1-bit input: High speed clock
       CLKDIV => clk_div,       -- 1-bit input: Divided clock
       -- D1 - D8: 1-bit (each) input: Parallel data inputs (1-bit each)
       D1 => D(0),
@@ -179,7 +190,7 @@ OSERDESE2_SCLK_inst : OSERDESE2
 --      TBYTEOUT => TBYTEOUT,   -- 1-bit output: Byte group tristate
 --      TFB => TFB,             -- 1-bit output: 3-state control
 --      TQ => TQ,               -- 1-bit output: 3-state control
-      CLK    => CLK_I,             -- 1-bit input: High speed clock
+      CLK    => clk,             -- 1-bit input: High speed clock
       CLKDIV => clk_div,       -- 1-bit input: Divided clock
       -- D1 - D8: 1-bit (each) input: Parallel data inputs (1-bit each)
       D1 => '1',

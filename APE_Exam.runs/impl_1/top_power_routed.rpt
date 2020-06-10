@@ -1,7 +1,7 @@
 Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
 -------------------------------------------------------------------------------------------------------------------------------
 | Tool Version     : Vivado v.2018.2 (lin64) Build 2258646 Thu Jun 14 20:02:38 MDT 2018
-| Date             : Wed Jun 10 11:48:11 2020
+| Date             : Wed Jun 10 13:17:42 2020
 | Host             : JacobOffersen running 64-bit Ubuntu 19.10
 | Command          : report_power -file top_power_routed.rpt -pb top_power_summary_routed.pb -rpx top_power_routed.rpx
 | Design           : top
@@ -54,7 +54,7 @@ Table of Contents
 +-------------------------+-----------+----------+-----------+-----------------+
 | Clocks                  |     0.004 |       11 |       --- |             --- |
 | Slice Logic             |    <0.001 |      987 |       --- |             --- |
-|   LUT as Logic          |    <0.001 |      408 |     14600 |            2.79 |
+|   LUT as Logic          |    <0.001 |      409 |     14600 |            2.80 |
 |   Register              |    <0.001 |      334 |     29200 |            1.14 |
 |   LUT as Shift Register |    <0.001 |       19 |      5000 |            0.38 |
 |   BUFG                  |    <0.001 |        1 |        32 |            3.13 |
@@ -62,7 +62,7 @@ Table of Contents
 |   F7/F8 Muxes           |    <0.001 |        3 |     14600 |            0.02 |
 |   Others                |     0.000 |       49 |       --- |             --- |
 |   BUFR                  |     0.000 |        1 |        60 |            1.67 |
-| Signals                 |    <0.001 |      828 |       --- |             --- |
+| Signals                 |    <0.001 |      827 |       --- |             --- |
 | Block RAM               |     0.004 |        3 |        45 |            6.67 |
 | MMCM                    |     0.318 |        3 |         3 |          100.00 |
 | I/O                     |     0.135 |       15 |       100 |           15.00 |
@@ -158,8 +158,8 @@ Table of Contents
 |       DECODE                                           |    <0.001 |
 |       ENCODE                                           |    <0.001 |
 |     RAM_inst0                                          |     0.002 |
-|     SpiTx                                              |    <0.001 |
-|       spi_tx_serdes_based_gen.spi_tx_serdes_based_inst |    <0.001 |
+|     SpiTx                                              |     0.001 |
+|       spi_tx_serdes_based_gen.spi_tx_serdes_based_inst |     0.001 |
 |     clocking_1_inst                                    |     0.124 |
 |   FPGA2_inst                                           |     0.333 |
 |     RAM_inst1                                          |     0.001 |

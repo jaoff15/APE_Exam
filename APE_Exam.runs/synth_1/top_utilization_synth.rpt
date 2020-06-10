@@ -1,7 +1,7 @@
 Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
 -------------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2018.2 (lin64) Build 2258646 Thu Jun 14 20:02:38 MDT 2018
-| Date         : Wed Jun 10 11:47:10 2020
+| Date         : Wed Jun 10 13:16:41 2020
 | Host         : JacobOffersen running 64-bit Ubuntu 19.10
 | Command      : report_utilization -file top_utilization_synth.rpt -pb top_utilization_synth.pb
 | Design       : top
@@ -124,7 +124,7 @@ Table of Contents
 | PLLE2_ADV    |    0 |     0 |         3 |   0.00 |
 | BUFMRCE      |    0 |     0 |         6 |   0.00 |
 | BUFHCE       |    0 |     0 |        48 |   0.00 |
-| BUFR         |    2 |     0 |        12 |  16.67 |
+| BUFR         |    3 |     0 |        12 |  25.00 |
 +--------------+------+-------+-----------+--------+
 
 
@@ -169,8 +169,8 @@ Table of Contents
 | RAMB36E1   |    3 |        Block Memory |
 | OBUF       |    3 |                  IO |
 | MMCME2_ADV |    3 |               Clock |
+| BUFR       |    3 |               Clock |
 | MUXF7      |    2 |               MuxFx |
-| BUFR       |    2 |               Clock |
 | MUXF8      |    1 |               MuxFx |
 | ISERDESE2  |    1 |                  IO |
 | BUFIO      |    1 |               Clock |
