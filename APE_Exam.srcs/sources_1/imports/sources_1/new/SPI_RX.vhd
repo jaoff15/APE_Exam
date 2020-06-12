@@ -94,7 +94,7 @@ ADDR_O <= x"10";
 -- Pure VHDL 
 spi_rx_pure_vhdl_gen: if SPI_TYPE = VHDL generate begin
     spi_rx_pure_vhdl_inst: spi_rx_pure_vhdl
-    generic map (SPI_MODE => SYNC)
+    generic map (SPI_MODE => ASYNC)
     port map(
         RESET_I => RESET_I,
         DATA_O  => DATA_O,

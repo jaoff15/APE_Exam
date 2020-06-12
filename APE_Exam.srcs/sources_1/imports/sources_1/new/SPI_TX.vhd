@@ -80,22 +80,24 @@ architecture Behavioral of SPI_TX is
                );
     end component;
     
+--    signal data_snapshot : std_logic_vector(31 downto 0) := (others => '0');
+--    signal clk_slow  : std_logic := '0';
+    signal clk  : std_logic := '0';
 begin
 
 
 -- Set RAM address
 ADDR_O  <= x"10";
 
+clk <= CLK_I;
 
-
-   
  
 -- Pure VHDL
 spi_tx_pure_vhdl_gen: if SPI_TYPE = VHDL generate begin
     spi_tx_pure_vhdl_inst: spi_tx_pure_vhdl
-    generic map (SPI_MODE => SYNC)
+    generic map (SPI_MODE => ASYNC)
     port map(
-        CLK_I   => CLK_I,
+        CLK_I   => clk,
         RESET_I => RESET_I,
         DATA_I  => DATA_I,
         SCLK_O  => SCLK_O,
@@ -108,7 +110,7 @@ end generate;
 spi_tx_ddr_based_gen: if SPI_TYPE = DDR generate begin
     spi_tx_ddr_based_inst: spi_tx_ddr_based 
     port map(
-        CLK_I   => CLK_I,
+        CLK_I   => clk,
         RESET_I => RESET_I,
         DATA_I  => DATA_I,
         SCLK_O  => SCLK_O,
@@ -122,7 +124,7 @@ end generate;
 spi_tx_serdes_based_gen: if SPI_TYPE = SERDES generate begin
     spi_tx_serdes_based_inst: spi_tx_serdes_based 
     port map(
-        CLK_I   => CLK_I,
+        CLK_I   => clk,
         RESET_I => RESET_I,
         DATA_I  => DATA_I,
         SCLK_O  => SCLK_O,

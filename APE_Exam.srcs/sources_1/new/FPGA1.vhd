@@ -126,9 +126,12 @@ end component;
     signal data_B_O      : std_logic_vector(31 downto 0) := (others => '0');
   
     -- SPI
-    signal clk_spi       : std_logic := '0';
+    signal clk_spi, clk_spi_b  : std_logic := '0';
+    signal clk_ram, clk_ram_b  : std_logic := '0';
 
     signal ram_data : std_logic_vector(31 downto 0);
+    signal data_B_snapshot : std_logic_vector(31 downto 0);
+    signal ram_clk_cnt : integer range 0 to 7 := 0;
 
 begin
 
@@ -165,12 +168,42 @@ with adr_A(7) select
                 x"eeeeeeee" when others;
 
 
+ BUFG_inst : BUFG
+  port map (
+     O => clk_spi_b, -- 1-bit output: Clock output
+     I => clk_spi  -- 1-bit input: Clock input
+  );
+
+process(clk_spi) begin
+    if rising_edge(clk_spi) then
+        clk_ram <= clk_ram;
+        if ram_clk_cnt < 3 then
+            ram_clk_cnt <= ram_clk_cnt + 1;
+        else
+            ram_clk_cnt <= 0;
+            clk_ram <= not clk_ram;
+        end if;
+    end if;
+end process;
+
+BUFG_ram_clk_inst : BUFG
+  port map (
+     O => clk_ram_b, -- 1-bit output: Clock output
+     I => clk_ram  -- 1-bit input: Clock input
+  );
+
+process(clk_ram_b)
+begin
+  if rising_edge(clk_ram_b) then
+  data_B_snapshot <= data_B_O; 
+  end if;
+end process;
 
 
 -- RAM0 module instanciation
 RAM_inst0 : TD_RAM_36K_WRAP port map (
       CLK_A_I  => clk16, 
-      CLK_B_I  => clk_spi,
+      CLK_B_I  => clk_ram_b,
       ADDR_A_I => adr_A,
       ADDR_B_I => adr_B,
       DATA_A_I => data_A_I,
@@ -186,12 +219,13 @@ RAM_inst0 : TD_RAM_36K_WRAP port map (
 SpiTx:  SPI_TX 
 generic map( SPI_TYPE => SPI_TYPE)
 port map ( 
-    CLK_I    => clk_spi,
+    CLK_I    => clk_spi_b,
     RESET_I  => sys_reset,
     -- RAM
     ADDR_O   => adr_B,
-    DATA_I   => data_B_O,
---    DATA_I   => x"12345678", -- used for testing
+--    DATA_I   => data_B_O,
+--    DATA_I   => data_B_snapshot,
+    DATA_I   => x"12345678", -- used for testing
     -- SPI
     SCLK_O   => SPI_SCLK_O,
     MOSI_O   => SPI_MOSI_O

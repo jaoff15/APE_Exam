@@ -64,10 +64,11 @@ MMCME2_BASE_inst : MMCME2_BASE
 --    CLKOUT0_DIVIDE_F    =>  6.875, -- ~ 150MHz
 --    CLKOUT0_DIVIDE_F    =>  5.125, -- ~ 200MHz
 --    CLKOUT0_DIVIDE_F    =>  4.125, -- ~ 250MHz
-    CLKOUT0_DIVIDE_F    =>  3.375, -- ~ 300MHz
---    CLKOUT0_DIVIDE_F    =>  3.000, -- ~ 350MHz
+--    CLKOUT0_DIVIDE_F    =>  3.375, -- ~ 300MHz
+    CLKOUT0_DIVIDE_F    =>  3.000, -- ~ 350MHz
 --    CLKOUT0_DIVIDE_F    =>  2.500, -- ~ 400MHz
-    
+--    CLKOUT0_DIVIDE_F    =>  2.250, -- ~ 450MHz
+--    CLKOUT0_DIVIDE_F    =>  2.000, -- ~ 500MHz
 
     -- sys_clock used by QLink
     CLKOUT1_DIVIDE      => 64,

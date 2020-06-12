@@ -37,7 +37,9 @@ end spi_rx_pure_vhdl;
 architecture Behavioral of spi_rx_pure_vhdl is
 
     -- Sync
-    signal bitcnt       : integer range 0 to 31 := 0;
+--    signal bitcnt       : integer range 0 to 31 := 30;
+    -- Async
+    signal bitcnt       : integer range 0 to 31 := 30;
 
     signal data          : std_logic_vector(31 downto 0) := (others => '0');
 
@@ -55,13 +57,13 @@ begin
     if rising_edge(SCLK_I) then
       nxt_wr := '0';
       if RESET_I='1' then
-        if SPI_MODE = SYNC then
-            -- Sync
-            nxt_bitcnt  := 0;
-        else 
-            -- Async
-            nxt_bitcnt  := 31;
-        end if;
+--        if SPI_MODE = SYNC then
+--            -- Sync
+--            nxt_bitcnt  := 0;
+--        else 
+--            -- Async
+--            nxt_bitcnt  := 30;
+--        end if;
         
  
         nxt_data    := (others => '0');

@@ -1,0 +1,92 @@
+Vivado Simulator 2018.2
+Time resolution is 1 ps
+Error:  Memory Collision Error on RAMB36E1 ::top_tb:top_inst:FPGA2_inst:RAM_inst1:UNISIM_RAM0:tdp:RAMB36E1_TDP_inst: at simulation time 6530 ns.
+ A read was performed on address 0200 (hex) of port A while a write was requested to the same address on port B.  The write will be successful however the read value on port A is unknown until the next CLKA cycle. 
+Time: 6530 ns  Iteration: 20  Process: /top_tb/top_inst/FPGA2_inst/RAM_inst1/UNISIM_RAM0/tdp/RAMB36E1_TDP_inst/prcs_clk  File: /wrk/2018.2/continuous/2018_06_14_2258646/data/vhdl/src/unisims/primitive/RAMB36E1.vhd
+Error:  Memory Collision Error on RAMB36E1 ::top_tb:top_inst:FPGA2_inst:RAM_inst1:UNISIM_RAM0:tdp:RAMB36E1_TDP_inst: at simulation time 6541.52 ns.
+ A read was performed on address 0200 (hex) of port A while a write was requested to the same address on port B.  The write will be successful however the read value on port A is unknown until the next CLKA cycle. 
+Time: 6541520 ps  Iteration: 9  Process: /top_tb/top_inst/FPGA2_inst/RAM_inst1/UNISIM_RAM0/tdp/RAMB36E1_TDP_inst/prcs_clk  File: /wrk/2018.2/continuous/2018_06_14_2258646/data/vhdl/src/unisims/primitive/RAMB36E1.vhd
+Error:  Memory Collision Error on RAMB36E1 ::top_tb:top_inst:FPGA2_inst:RAM_inst1:UNISIM_RAM0:tdp:RAMB36E1_TDP_inst: at simulation time 6690 ns.
+ A read was performed on address 0200 (hex) of port A while a write was requested to the same address on port B.  The write will be successful however the read value on port A is unknown until the next CLKA cycle. 
+Time: 6690 ns  Iteration: 20  Process: /top_tb/top_inst/FPGA2_inst/RAM_inst1/UNISIM_RAM0/tdp/RAMB36E1_TDP_inst/prcs_clk  File: /wrk/2018.2/continuous/2018_06_14_2258646/data/vhdl/src/unisims/primitive/RAMB36E1.vhd
+Error:  Memory Collision Error on RAMB36E1 ::top_tb:top_inst:FPGA2_inst:RAM_inst1:UNISIM_RAM0:tdp:RAMB36E1_TDP_inst: at simulation time 6840 ns.
+ A read was performed on address 0200 (hex) of port A while a write was requested to the same address on port B.  The write will be successful however the read value on port A is unknown until the next CLKA cycle. 
+Time: 6840 ns  Iteration: 20  Process: /top_tb/top_inst/FPGA2_inst/RAM_inst1/UNISIM_RAM0/tdp/RAMB36E1_TDP_inst/prcs_clk  File: /wrk/2018.2/continuous/2018_06_14_2258646/data/vhdl/src/unisims/primitive/RAMB36E1.vhd
+Error:  Memory Collision Error on RAMB36E1 ::top_tb:top_inst:FPGA2_inst:RAM_inst1:UNISIM_RAM0:tdp:RAMB36E1_TDP_inst: at simulation time 6851.292 ns.
+ A read was performed on address 0200 (hex) of port A while a write was requested to the same address on port B.  The write will be successful however the read value on port A is unknown until the next CLKA cycle. 
+Time: 6851292 ps  Iteration: 9  Process: /top_tb/top_inst/FPGA2_inst/RAM_inst1/UNISIM_RAM0/tdp/RAMB36E1_TDP_inst/prcs_clk  File: /wrk/2018.2/continuous/2018_06_14_2258646/data/vhdl/src/unisims/primitive/RAMB36E1.vhd
+Error:  Memory Collision Error on RAMB36E1 ::top_tb:top_inst:FPGA2_inst:RAM_inst1:UNISIM_RAM0:tdp:RAMB36E1_TDP_inst: at simulation time 7000 ns.
+ A read was performed on address 0200 (hex) of port A while a write was requested to the same address on port B.  The write will be successful however the read value on port A is unknown until the next CLKA cycle. 
+Time: 7 us  Iteration: 20  Process: /top_tb/top_inst/FPGA2_inst/RAM_inst1/UNISIM_RAM0/tdp/RAMB36E1_TDP_inst/prcs_clk  File: /wrk/2018.2/continuous/2018_06_14_2258646/data/vhdl/src/unisims/primitive/RAMB36E1.vhd
+Error:  Memory Collision Error on RAMB36E1 ::top_tb:top_inst:FPGA2_inst:RAM_inst1:UNISIM_RAM0:tdp:RAMB36E1_TDP_inst: at simulation time 7012.902 ns.
+ A read was performed on address 0200 (hex) of port A while a write was requested to the same address on port B.  The write will be successful however the read value on port A is unknown until the next CLKA cycle. 
+Time: 7012902 ps  Iteration: 9  Process: /top_tb/top_inst/FPGA2_inst/RAM_inst1/UNISIM_RAM0/tdp/RAMB36E1_TDP_inst/prcs_clk  File: /wrk/2018.2/continuous/2018_06_14_2258646/data/vhdl/src/unisims/primitive/RAMB36E1.vhd
+Error:  Memory Collision Error on RAMB36E1 ::top_tb:top_inst:FPGA2_inst:RAM_inst1:UNISIM_RAM0:tdp:RAMB36E1_TDP_inst: at simulation time 7161.052 ns.
+ A read was performed on address 0200 (hex) of port A while a write was requested to the same address on port B.  The write will be successful however the read value on port A is unknown until the next CLKA cycle. 
+Time: 7161052 ps  Iteration: 9  Process: /top_tb/top_inst/FPGA2_inst/RAM_inst1/UNISIM_RAM0/tdp/RAMB36E1_TDP_inst/prcs_clk  File: /wrk/2018.2/continuous/2018_06_14_2258646/data/vhdl/src/unisims/primitive/RAMB36E1.vhd
+Error:  Memory Collision Error on RAMB36E1 ::top_tb:top_inst:FPGA2_inst:RAM_inst1:UNISIM_RAM0:tdp:RAMB36E1_TDP_inst: at simulation time 7190 ns.
+ A read was performed on address 0200 (hex) of port A while a write was requested to the same address on port B.  The write will be successful however the read value on port A is unknown until the next CLKA cycle. 
+Time: 7190 ns  Iteration: 20  Process: /top_tb/top_inst/FPGA2_inst/RAM_inst1/UNISIM_RAM0/tdp/RAMB36E1_TDP_inst/prcs_clk  File: /wrk/2018.2/continuous/2018_06_14_2258646/data/vhdl/src/unisims/primitive/RAMB36E1.vhd
+Error:  Memory Collision Error on RAMB36E1 ::top_tb:top_inst:FPGA2_inst:RAM_inst1:UNISIM_RAM0:tdp:RAMB36E1_TDP_inst: at simulation time 7322.674 ns.
+ A read was performed on address 0200 (hex) of port A while a write was requested to the same address on port B.  The write will be successful however the read value on port A is unknown until the next CLKA cycle. 
+Time: 7322674 ps  Iteration: 9  Process: /top_tb/top_inst/FPGA2_inst/RAM_inst1/UNISIM_RAM0/tdp/RAMB36E1_TDP_inst/prcs_clk  File: /wrk/2018.2/continuous/2018_06_14_2258646/data/vhdl/src/unisims/primitive/RAMB36E1.vhd
+Error:  Memory Collision Error on RAMB36E1 ::top_tb:top_inst:FPGA2_inst:RAM_inst1:UNISIM_RAM0:tdp:RAMB36E1_TDP_inst: at simulation time 7350 ns.
+ A read was performed on address 0200 (hex) of port A while a write was requested to the same address on port B.  The write will be successful however the read value on port A is unknown until the next CLKA cycle. 
+Time: 7350 ns  Iteration: 20  Process: /top_tb/top_inst/FPGA2_inst/RAM_inst1/UNISIM_RAM0/tdp/RAMB36E1_TDP_inst/prcs_clk  File: /wrk/2018.2/continuous/2018_06_14_2258646/data/vhdl/src/unisims/primitive/RAMB36E1.vhd
+Error:  Memory Collision Error on RAMB36E1 ::top_tb:top_inst:FPGA2_inst:RAM_inst1:UNISIM_RAM0:tdp:RAMB36E1_TDP_inst: at simulation time 7500 ns.
+ A read was performed on address 0200 (hex) of port A while a write was requested to the same address on port B.  The write will be successful however the read value on port A is unknown until the next CLKA cycle. 
+Time: 7500 ns  Iteration: 20  Process: /top_tb/top_inst/FPGA2_inst/RAM_inst1/UNISIM_RAM0/tdp/RAMB36E1_TDP_inst/prcs_clk  File: /wrk/2018.2/continuous/2018_06_14_2258646/data/vhdl/src/unisims/primitive/RAMB36E1.vhd
+Error:  Memory Collision Error on RAMB36E1 ::top_tb:top_inst:FPGA2_inst:RAM_inst1:UNISIM_RAM0:tdp:RAMB36E1_TDP_inst: at simulation time 7660 ns.
+ A read was performed on address 0200 (hex) of port A while a write was requested to the same address on port B.  The write will be successful however the read value on port A is unknown until the next CLKA cycle. 
+Time: 7660 ns  Iteration: 20  Process: /top_tb/top_inst/FPGA2_inst/RAM_inst1/UNISIM_RAM0/tdp/RAMB36E1_TDP_inst/prcs_clk  File: /wrk/2018.2/continuous/2018_06_14_2258646/data/vhdl/src/unisims/primitive/RAMB36E1.vhd
+Error:  Memory Collision Error on RAMB36E1 ::top_tb:top_inst:FPGA2_inst:RAM_inst1:UNISIM_RAM0:tdp:RAMB36E1_TDP_inst: at simulation time 7810 ns.
+ A read was performed on address 0200 (hex) of port A while a write was requested to the same address on port B.  The write will be successful however the read value on port A is unknown until the next CLKA cycle. 
+Time: 7810 ns  Iteration: 20  Process: /top_tb/top_inst/FPGA2_inst/RAM_inst1/UNISIM_RAM0/tdp/RAMB36E1_TDP_inst/prcs_clk  File: /wrk/2018.2/continuous/2018_06_14_2258646/data/vhdl/src/unisims/primitive/RAMB36E1.vhd
+Error:  Memory Collision Error on RAMB36E1 ::top_tb:top_inst:FPGA2_inst:RAM_inst1:UNISIM_RAM0:tdp:RAMB36E1_TDP_inst: at simulation time 7820.989 ns.
+ A read was performed on address 0200 (hex) of port A while a write was requested to the same address on port B.  The write will be successful however the read value on port A is unknown until the next CLKA cycle. 
+Time: 7820989 ps  Iteration: 9  Process: /top_tb/top_inst/FPGA2_inst/RAM_inst1/UNISIM_RAM0/tdp/RAMB36E1_TDP_inst/prcs_clk  File: /wrk/2018.2/continuous/2018_06_14_2258646/data/vhdl/src/unisims/primitive/RAMB36E1.vhd
+Error:  Memory Collision Error on RAMB36E1 ::top_tb:top_inst:FPGA2_inst:RAM_inst1:UNISIM_RAM0:tdp:RAMB36E1_TDP_inst: at simulation time 7970 ns.
+ A read was performed on address 0200 (hex) of port A while a write was requested to the same address on port B.  The write will be successful however the read value on port A is unknown until the next CLKA cycle. 
+Time: 7970 ns  Iteration: 20  Process: /top_tb/top_inst/FPGA2_inst/RAM_inst1/UNISIM_RAM0/tdp/RAMB36E1_TDP_inst/prcs_clk  File: /wrk/2018.2/continuous/2018_06_14_2258646/data/vhdl/src/unisims/primitive/RAMB36E1.vhd
+Error:  Memory Collision Error on RAMB36E1 ::top_tb:top_inst:FPGA2_inst:RAM_inst1:UNISIM_RAM0:tdp:RAMB36E1_TDP_inst: at simulation time 7982.599 ns.
+ A read was performed on address 0200 (hex) of port A while a write was requested to the same address on port B.  The write will be successful however the read value on port A is unknown until the next CLKA cycle. 
+Time: 7982599 ps  Iteration: 9  Process: /top_tb/top_inst/FPGA2_inst/RAM_inst1/UNISIM_RAM0/tdp/RAMB36E1_TDP_inst/prcs_clk  File: /wrk/2018.2/continuous/2018_06_14_2258646/data/vhdl/src/unisims/primitive/RAMB36E1.vhd
+Error:  Memory Collision Error on RAMB36E1 ::top_tb:top_inst:FPGA2_inst:RAM_inst1:UNISIM_RAM0:tdp:RAMB36E1_TDP_inst: at simulation time 8120 ns.
+ A read was performed on address 0200 (hex) of port A while a write was requested to the same address on port B.  The write will be successful however the read value on port A is unknown until the next CLKA cycle. 
+Time: 8120 ns  Iteration: 20  Process: /top_tb/top_inst/FPGA2_inst/RAM_inst1/UNISIM_RAM0/tdp/RAMB36E1_TDP_inst/prcs_clk  File: /wrk/2018.2/continuous/2018_06_14_2258646/data/vhdl/src/unisims/primitive/RAMB36E1.vhd
+Error:  Memory Collision Error on RAMB36E1 ::top_tb:top_inst:FPGA2_inst:RAM_inst1:UNISIM_RAM0:tdp:RAMB36E1_TDP_inst: at simulation time 8130.749 ns.
+ A read was performed on address 0200 (hex) of port A while a write was requested to the same address on port B.  The write will be successful however the read value on port A is unknown until the next CLKA cycle. 
+Time: 8130749 ps  Iteration: 9  Process: /top_tb/top_inst/FPGA2_inst/RAM_inst1/UNISIM_RAM0/tdp/RAMB36E1_TDP_inst/prcs_clk  File: /wrk/2018.2/continuous/2018_06_14_2258646/data/vhdl/src/unisims/primitive/RAMB36E1.vhd
+Error:  Memory Collision Error on RAMB36E1 ::top_tb:top_inst:FPGA2_inst:RAM_inst1:UNISIM_RAM0:tdp:RAMB36E1_TDP_inst: at simulation time 8280 ns.
+ A read was performed on address 0200 (hex) of port A while a write was requested to the same address on port B.  The write will be successful however the read value on port A is unknown until the next CLKA cycle. 
+Time: 8280 ns  Iteration: 20  Process: /top_tb/top_inst/FPGA2_inst/RAM_inst1/UNISIM_RAM0/tdp/RAMB36E1_TDP_inst/prcs_clk  File: /wrk/2018.2/continuous/2018_06_14_2258646/data/vhdl/src/unisims/primitive/RAMB36E1.vhd
+Error:  Memory Collision Error on RAMB36E1 ::top_tb:top_inst:FPGA2_inst:RAM_inst1:UNISIM_RAM0:tdp:RAMB36E1_TDP_inst: at simulation time 8292.370999999999 ns.
+ A read was performed on address 0200 (hex) of port A while a write was requested to the same address on port B.  The write will be successful however the read value on port A is unknown until the next CLKA cycle. 
+Time: 8292371 ps  Iteration: 9  Process: /top_tb/top_inst/FPGA2_inst/RAM_inst1/UNISIM_RAM0/tdp/RAMB36E1_TDP_inst/prcs_clk  File: /wrk/2018.2/continuous/2018_06_14_2258646/data/vhdl/src/unisims/primitive/RAMB36E1.vhd
+Error:  Memory Collision Error on RAMB36E1 ::top_tb:top_inst:FPGA2_inst:RAM_inst1:UNISIM_RAM0:tdp:RAMB36E1_TDP_inst: at simulation time 8440.521000000001 ns.
+ A read was performed on address 0200 (hex) of port A while a write was requested to the same address on port B.  The write will be successful however the read value on port A is unknown until the next CLKA cycle. 
+Time: 8440521 ps  Iteration: 14  Process: /top_tb/top_inst/FPGA2_inst/RAM_inst1/UNISIM_RAM0/tdp/RAMB36E1_TDP_inst/prcs_clk  File: /wrk/2018.2/continuous/2018_06_14_2258646/data/vhdl/src/unisims/primitive/RAMB36E1.vhd
+Error:  Memory Collision Error on RAMB36E1 ::top_tb:top_inst:FPGA2_inst:RAM_inst1:UNISIM_RAM0:tdp:RAMB36E1_TDP_inst: at simulation time 8470 ns.
+ A read was performed on address 0200 (hex) of port A while a write was requested to the same address on port B.  The write will be successful however the read value on port A is unknown until the next CLKA cycle. 
+Time: 8470 ns  Iteration: 20  Process: /top_tb/top_inst/FPGA2_inst/RAM_inst1/UNISIM_RAM0/tdp/RAMB36E1_TDP_inst/prcs_clk  File: /wrk/2018.2/continuous/2018_06_14_2258646/data/vhdl/src/unisims/primitive/RAMB36E1.vhd
+Error:  Memory Collision Error on RAMB36E1 ::top_tb:top_inst:FPGA2_inst:RAM_inst1:UNISIM_RAM0:tdp:RAMB36E1_TDP_inst: at simulation time 8602.130999999999 ns.
+ A read was performed on address 0200 (hex) of port A while a write was requested to the same address on port B.  The write will be successful however the read value on port A is unknown until the next CLKA cycle. 
+Time: 8602131 ps  Iteration: 9  Process: /top_tb/top_inst/FPGA2_inst/RAM_inst1/UNISIM_RAM0/tdp/RAMB36E1_TDP_inst/prcs_clk  File: /wrk/2018.2/continuous/2018_06_14_2258646/data/vhdl/src/unisims/primitive/RAMB36E1.vhd
+Error:  Memory Collision Error on RAMB36E1 ::top_tb:top_inst:FPGA2_inst:RAM_inst1:UNISIM_RAM0:tdp:RAMB36E1_TDP_inst: at simulation time 8630 ns.
+ A read was performed on address 0200 (hex) of port A while a write was requested to the same address on port B.  The write will be successful however the read value on port A is unknown until the next CLKA cycle. 
+Time: 8630 ns  Iteration: 20  Process: /top_tb/top_inst/FPGA2_inst/RAM_inst1/UNISIM_RAM0/tdp/RAMB36E1_TDP_inst/prcs_clk  File: /wrk/2018.2/continuous/2018_06_14_2258646/data/vhdl/src/unisims/primitive/RAMB36E1.vhd
+Error:  Memory Collision Error on RAMB36E1 ::top_tb:top_inst:FPGA2_inst:RAM_inst1:UNISIM_RAM0:tdp:RAMB36E1_TDP_inst: at simulation time 8780 ns.
+ A read was performed on address 0200 (hex) of port A while a write was requested to the same address on port B.  The write will be successful however the read value on port A is unknown until the next CLKA cycle. 
+Time: 8780 ns  Iteration: 20  Process: /top_tb/top_inst/FPGA2_inst/RAM_inst1/UNISIM_RAM0/tdp/RAMB36E1_TDP_inst/prcs_clk  File: /wrk/2018.2/continuous/2018_06_14_2258646/data/vhdl/src/unisims/primitive/RAMB36E1.vhd
+Error:  Memory Collision Error on RAMB36E1 ::top_tb:top_inst:FPGA2_inst:RAM_inst1:UNISIM_RAM0:tdp:RAMB36E1_TDP_inst: at simulation time 8940 ns.
+ A read was performed on address 0200 (hex) of port A while a write was requested to the same address on port B.  The write will be successful however the read value on port A is unknown until the next CLKA cycle. 
+Time: 8940 ns  Iteration: 20  Process: /top_tb/top_inst/FPGA2_inst/RAM_inst1/UNISIM_RAM0/tdp/RAMB36E1_TDP_inst/prcs_clk  File: /wrk/2018.2/continuous/2018_06_14_2258646/data/vhdl/src/unisims/primitive/RAMB36E1.vhd
+Error:  Memory Collision Error on RAMB36E1 ::top_tb:top_inst:FPGA2_inst:RAM_inst1:UNISIM_RAM0:tdp:RAMB36E1_TDP_inst: at simulation time 9100.446 ns.
+ A read was performed on address 0200 (hex) of port A while a write was requested to the same address on port B.  The write will be successful however the read value on port A is unknown until the next CLKA cycle. 
+Time: 9100446 ps  Iteration: 9  Process: /top_tb/top_inst/FPGA2_inst/RAM_inst1/UNISIM_RAM0/tdp/RAMB36E1_TDP_inst/prcs_clk  File: /wrk/2018.2/continuous/2018_06_14_2258646/data/vhdl/src/unisims/primitive/RAMB36E1.vhd
+Error:  Memory Collision Error on RAMB36E1 ::top_tb:top_inst:FPGA2_inst:RAM_inst1:UNISIM_RAM0:tdp:RAMB36E1_TDP_inst: at simulation time 9250 ns.
+ A read was performed on address 0200 (hex) of port A while a write was requested to the same address on port B.  The write will be successful however the read value on port A is unknown until the next CLKA cycle. 
+Time: 9250 ns  Iteration: 20  Process: /top_tb/top_inst/FPGA2_inst/RAM_inst1/UNISIM_RAM0/tdp/RAMB36E1_TDP_inst/prcs_clk  File: /wrk/2018.2/continuous/2018_06_14_2258646/data/vhdl/src/unisims/primitive/RAMB36E1.vhd
+Error:  Memory Collision Error on RAMB36E1 ::top_tb:top_inst:FPGA2_inst:RAM_inst1:UNISIM_RAM0:tdp:RAMB36E1_TDP_inst: at simulation time 9262.067999999999 ns.
+ A read was performed on address 0200 (hex) of port A while a write was requested to the same address on port B.  The write will be successful however the read value on port A is unknown until the next CLKA cycle. 
+Time: 9262068 ps  Iteration: 9  Process: /top_tb/top_inst/FPGA2_inst/RAM_inst1/UNISIM_RAM0/tdp/RAMB36E1_TDP_inst/prcs_clk  File: /wrk/2018.2/continuous/2018_06_14_2258646/data/vhdl/src/unisims/primitive/RAMB36E1.vhd

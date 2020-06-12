@@ -39,7 +39,7 @@ architecture Behavioral of spi_rx_ddr_based is
 -- (0 = 0 clk cycles back, 30 = 1 clk cycle and 28 = 2 clock cycles)
 -- And because the impementation inserts an additional 2 clock cycles 
 -- the bitcounter is initialized to 26
-    signal bitcnt        : integer range 0 to 31 := 28;
+    signal bitcnt        : integer range 0 to 31 := 24;
 
     signal data          : std_logic_vector(31 downto 0) := (others => '0');
 

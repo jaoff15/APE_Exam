@@ -20,12 +20,15 @@ set_property CLOCK_DEDICATED_ROUTE FALSE [get_nets CLK100MHZ_IBUF]
 # 250MHz
 #create_clock -period 4.000 [get_ports SPI_SCLK_I_IBUF]
 # 300 MHz
-create_clock -period 3.333 [get_ports SPI_SCLK_I_IBUF]
+#create_clock -period 3.333 [get_ports SPI_SCLK_I_IBUF]
 # 350 MHz
-#create_clock -period 2.857 [get_ports SPI_SCLK_I_IBUF]
+create_clock -period 2.857 [get_ports SPI_SCLK_I_IBUF]
 # 400 MHz
 #create_clock -period 2.500 [get_ports SPI_SCLK_I_IBUF]
-
+# 450 MHz 
+#create_clock -period 2.222 [get_ports SPI_SCLK_I_IBUF]
+# 500 MHz 
+#create_clock -period 2.000 [get_ports SPI_SCLK_I_IBUF]
 
 set_property CLOCK_DEDICATED_ROUTE FALSE [get_nets SPI_SCLK_I_IBUF]
 
@@ -50,11 +53,11 @@ set_property PACKAGE_PIN B2 [get_ports SPI_MOSI_I]
 set_property PACKAGE_PIN C1 [get_ports SPI_MOSI_O]
 
 # DDR and VHDL SPI
-set_property PACKAGE_PIN F4 [get_ports SPI_SCLK_I]
-set_property PACKAGE_PIN F3 [get_ports SPI_SCLK_O] 
+#set_property PACKAGE_PIN F4 [get_ports SPI_SCLK_I]
+#set_property PACKAGE_PIN F3 [get_ports SPI_SCLK_O] 
 # SERDES SPI
-#set_property PACKAGE_PIN D1 [get_ports SPI_SCLK_I]
-#set_property PACKAGE_PIN D2 [get_ports SPI_SCLK_O]
+set_property PACKAGE_PIN D1 [get_ports SPI_SCLK_I]
+set_property PACKAGE_PIN D2 [get_ports SPI_SCLK_O]
 
 
 set_property IOSTANDARD LVCMOS33 [get_ports SPI_MOSI_I]
