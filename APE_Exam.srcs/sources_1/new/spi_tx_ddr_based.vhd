@@ -46,7 +46,7 @@ architecture Behavioral of spi_tx_ddr_based is
 
 begin
 
-sclk    <= CLK_I and sclk_active;
+sclk    <= CLK_I and not RESET_I;
 
 
 -- Serialize
@@ -56,7 +56,7 @@ process(CLK_I)
   variable nxt_data      : std_logic_vector(31 downto 0) := data;
 begin
   if rising_edge(CLK_I) then
-    sclk_active <= sclk_active;
+    --sclk_active <= sclk_active;
    -- nxt_data := data;
     if RESET_I = '1' then
       nxt_bitcnt  := 0;
@@ -71,7 +71,7 @@ begin
       end if;
       nxt_d1 := data(bitcnt);
       nxt_d2 := data(bitcnt + 1);  
-      sclk_active <= '1';
+      --sclk_active <= '1';
      end if;
    D1       <= nxt_d1;
    D2       <= nxt_d2;

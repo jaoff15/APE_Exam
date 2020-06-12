@@ -33,11 +33,11 @@ read_vhdl -library xil_defaultlib {
   /home/jacoboffersen/advanced_programmable_electronics/APE_Exam/APE_Exam.srcs/sources_1/new/spi_lib.vhd
   /home/jacoboffersen/advanced_programmable_electronics/APE_Exam/APE_Exam.srcs/sources_1/new/FPGA1.vhd
   /home/jacoboffersen/advanced_programmable_electronics/APE_Exam/APE_Exam.srcs/sources_1/new/FPGA2.vhd
-  /home/jacoboffersen/advanced_programmable_electronics/APE_Exam/APE_Exam.srcs/sources_1/new/OSERDES_WRAP.vhd
-  /home/jacoboffersen/advanced_programmable_electronics/APE_Exam/APE_Exam.srcs/sources_1/new/RAM0.vhd
+  /home/jacoboffersen/advanced_programmable_electronics/APE_Exam/APE_Exam.srcs/sources_1/new/OSERDES_10BIT_WRAP.vhd
   /home/jacoboffersen/advanced_programmable_electronics/APE_Exam/APE_Exam.srcs/sources_1/imports/sources_1/new/SPI_RX.vhd
   /home/jacoboffersen/advanced_programmable_electronics/APE_Exam/APE_Exam.srcs/sources_1/imports/sources_1/new/SPI_TX.vhd
   /home/jacoboffersen/advanced_programmable_electronics/APE_Exam/APE_Exam.srcs/sources_1/imports/sources_1/TDMS_encoder.vhd
+  /home/jacoboffersen/advanced_programmable_electronics/APE_Exam/APE_Exam.srcs/sources_1/new/TD_RAM_36K_WRAP.vhd
   /home/jacoboffersen/advanced_programmable_electronics/APE_Exam/APE_Exam.srcs/sources_1/new/ascii_lib.vhd
   /home/jacoboffersen/advanced_programmable_electronics/APE_Exam/APE_Exam.srcs/sources_1/new/clocking_1.vhd
   /home/jacoboffersen/advanced_programmable_electronics/APE_Exam/APE_Exam.srcs/sources_1/new/clocking_2.vhd

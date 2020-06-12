@@ -3,11 +3,11 @@ vhdl xil_defaultlib  \
 "../../../../APE_Exam.srcs/sources_1/new/spi_lib.vhd" \
 "../../../../APE_Exam.srcs/sources_1/new/FPGA1.vhd" \
 "../../../../APE_Exam.srcs/sources_1/new/FPGA2.vhd" \
-"../../../../APE_Exam.srcs/sources_1/new/OSERDES_WRAP.vhd" \
-"../../../../APE_Exam.srcs/sources_1/new/RAM0.vhd" \
+"../../../../APE_Exam.srcs/sources_1/new/OSERDES_10BIT_WRAP.vhd" \
 "../../../../APE_Exam.srcs/sources_1/imports/sources_1/new/SPI_RX.vhd" \
 "../../../../APE_Exam.srcs/sources_1/imports/sources_1/new/SPI_TX.vhd" \
 "../../../../APE_Exam.srcs/sources_1/imports/sources_1/TDMS_encoder.vhd" \
+"../../../../APE_Exam.srcs/sources_1/new/TD_RAM_36K_WRAP.vhd" \
 "../../../../APE_Exam.srcs/sources_1/new/ascii_lib.vhd" \
 "../../../../APE_Exam.srcs/sources_1/new/clocking_1.vhd" \
 "../../../../APE_Exam.srcs/sources_1/new/clocking_2.vhd" \

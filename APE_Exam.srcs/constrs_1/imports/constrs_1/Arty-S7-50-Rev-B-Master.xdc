@@ -9,7 +9,24 @@ set_property -dict {PACKAGE_PIN L5 IOSTANDARD LVCMOS33} [get_ports CLK100MHZ]
 create_clock -period 10.000 [get_ports CLK100MHZ]
 set_property CLOCK_DEDICATED_ROUTE FALSE [get_nets CLK100MHZ_IBUF]
 
-create_clock -period 10.000 [get_ports SPI_SCLK_I_IBUF]
+# 50 MHz
+#create_clock -period 20.000 [get_ports SPI_SCLK_I_IBUF]
+# 100MHz
+#create_clock -period 10.000 [get_ports SPI_SCLK_I_IBUF]
+# 150 MHz
+#create_clock -period 6.667 [get_ports SPI_SCLK_I_IBUF]
+# 200MHz
+#create_clock -period 5.000 [get_ports SPI_SCLK_I_IBUF]
+# 250MHz
+#create_clock -period 4.000 [get_ports SPI_SCLK_I_IBUF]
+# 300 MHz
+create_clock -period 3.333 [get_ports SPI_SCLK_I_IBUF]
+# 350 MHz
+#create_clock -period 2.857 [get_ports SPI_SCLK_I_IBUF]
+# 400 MHz
+#create_clock -period 2.500 [get_ports SPI_SCLK_I_IBUF]
+
+
 set_property CLOCK_DEDICATED_ROUTE FALSE [get_nets SPI_SCLK_I_IBUF]
 
 

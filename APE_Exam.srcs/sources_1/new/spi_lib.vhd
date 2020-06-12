@@ -11,6 +11,8 @@ package spi_lib is                                  		-- Stat package
     --             SERDES is used for both I/O handling and serializing.
     type SPI_TYPE_TYP is (VHDL, DDR, SERDES);
     
+    type SPI_MODE_TYP is (SYNC, ASYNC);
+    
 end package spi_lib;                                		-- End package
 
 -- The package does not have any processes, but otherwise these would go here

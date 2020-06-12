@@ -20,7 +20,6 @@ architecture Behavioral of lfsr_counter is
 begin
 
 COUNT_O <= q;
-
 process(CLK_I)
 begin
     if rising_edge(CLK_I) then

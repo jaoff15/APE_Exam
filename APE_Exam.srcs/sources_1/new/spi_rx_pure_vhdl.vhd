@@ -20,6 +20,7 @@ use IEEE.STD_LOGIC_1164.ALL;
 --use UNISIM.VComponents.all;
 
 entity spi_rx_pure_vhdl is
+    generic (SPI_MODE : SPI_MODE_TYP := SYNC);
     Port ( 
            RESET_I  : in  STD_LOGIC := '0';
            
@@ -35,7 +36,8 @@ end spi_rx_pure_vhdl;
 
 architecture Behavioral of spi_rx_pure_vhdl is
 
-    signal bitcnt        : integer range 0 to 31 := 0;
+    -- Sync
+    signal bitcnt       : integer range 0 to 31 := 0;
 
     signal data          : std_logic_vector(31 downto 0) := (others => '0');
 
@@ -53,7 +55,15 @@ begin
     if rising_edge(SCLK_I) then
       nxt_wr := '0';
       if RESET_I='1' then
-        nxt_bitcnt  := 0; 
+        if SPI_MODE = SYNC then
+            -- Sync
+            nxt_bitcnt  := 0;
+        else 
+            -- Async
+            nxt_bitcnt  := 31;
+        end if;
+        
+ 
         nxt_data    := (others => '0');
       else 
         -- Handle bit counter
